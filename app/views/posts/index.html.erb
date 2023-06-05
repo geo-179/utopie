@@ -1,9 +1,11 @@
 <h1>Post Index Page</h1>
 
 <% @posts.each do |post|%>
-  <div>
-    <p><%= post.title %></p>
-    <p><%= post.content %></p>
-    <p><%= post.user.nickname %></p>
-  </div>
+  <%= link_to post_path(post) do %>
+    <div>
+      <p><%= post.title %></p>
+      <p><%= post.content %></p>
+      <p><%= post.user.nickname %></p>
+    </div>
+  <% end %>
 <% end %>
