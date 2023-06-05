@@ -7,6 +7,7 @@
 <h1>Comments</h1>
 <% @comments.each do |comment|%>
   <div>
+    <%= cl_image_tag comment.user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
     <p>Message: <%= comment.content %></p>
     <p>By: <%= comment.user.nickname %></p>
   </div>
