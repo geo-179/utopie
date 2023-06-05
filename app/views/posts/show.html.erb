@@ -6,10 +6,12 @@
 <br>
 <h1>Comments</h1>
 <% @comments.each do |comment|%>
-  <div>
-    <p>Message: <%= comment.content %></p>
-    <p>By: <%= comment.user.nickname %></p>
-  </div>
+  <% if comment.post == @post %>
+    <div>
+      <p>Message: <%= comment.content %></p>
+      <p>By: <%= comment.user.nickname %></p>
+    </div>
+  <% end %>
 <% end %>
 <br>
 <h3>Create Comment</h3>

@@ -1,4 +1,7 @@
 <h1>Post Index Page</h1>
+<%= link_to new_post_path do %>
+  <p>Create New Post</p>
+<% end %>
 
 <% @posts.each do |post|%>
   <%= link_to post_path(post) do %>
