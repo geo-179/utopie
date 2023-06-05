@@ -7,9 +7,16 @@
 <h1>Comments</h1>
 <% @comments.each do |comment|%>
   <div>
-    <p><%= comment.content %></p>
-    <p><%= comment.user.nickname %></p>
+    <p>Message: <%= comment.content %></p>
+    <p>By: <%= comment.user.nickname %></p>
   </div>
 <% end %>
 <br>
 <h3>Create Comment</h3>
+
+<%= simple_form_for [@post, @comment] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Upload comment" %>
+<% end %>
+
+<%= link_to "Back to posts", posts_path, class: "btn btn-primary m-3" %>
