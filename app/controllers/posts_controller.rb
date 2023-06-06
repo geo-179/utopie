@@ -2,11 +2,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.all
+
+    if params[:category].present?
+      @posts = @posts.where(category: params[:category])
+    end
   end
 
   def show
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = Comment.where(post_id: @post.id)
   end
 
   def new
