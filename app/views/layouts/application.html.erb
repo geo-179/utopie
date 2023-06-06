@@ -9,10 +9,25 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
+  <body>
+    <div class="navbar-customize p-1 text-primary-emphasis border-bottom border-4 border-danger d-flex justify-content-around align-items-center">
+      <div>logo</div>
+      <a class="nav-link active" href="#">Playground</a>
+      <a class="nav-link active" href="#">Get Inspired</a>
+      <a class="nav-link active" href="#">Community</a>
+      <button type="button" class="btn btn-secondary btn-lg" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .75rem; --bs-btn-font-size: 1rem;">Log in</button>
+    </div>
+    <%= yield %>
+  </body>
+</html>
 
-  <body><%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+
+
+<%# previous code>
+  <%# <body><%= render "shared/navbar" %>
+  <%# <%= render "shared/flashes" %>
+    <%# <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Utopie</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +47,4 @@
           </ul>
         </div>
       </div>
-    </nav>
-    <%= yield %>
-  </body>
-</html>
+    </nav> %>
