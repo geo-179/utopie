@@ -10,8 +10,8 @@ require 'faker'
 require "open-uri"
 
 # Clear existing data
-Post.destroy_all
 Comment.destroy_all
+Post.destroy_all
 User.destroy_all
 
 puts "Destroyed all data 😈😈😈"
