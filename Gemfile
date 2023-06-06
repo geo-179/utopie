@@ -52,6 +52,9 @@ gem "sassc-rails"
 
 gem 'faker'
 
+# pundit
+gem "pundit"
+
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

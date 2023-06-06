@@ -10,8 +10,8 @@ require 'faker'
 require "open-uri"
 
 # Clear existing data
-Post.destroy_all
 Comment.destroy_all
+Post.destroy_all
 User.destroy_all
 
 puts "Destroyed all data 😈😈😈"
@@ -41,17 +41,32 @@ puts "Created 10 users 👤👤👤"
 
 # Create art-related posts
 
-NUM_POSTS = 50
+NUM_POSTS = 10
 
 NUM_POSTS.times do
   title = Faker::Lorem.sentence(word_count: 3)
   content = Faker::Lorem.paragraph(sentence_count: 4)
 
-  Post.create!(
+  post = Post.new(
     title: title,
     content: content,
+    category: ["2D Visual Art", "3D Modeling", "Music Tech"].sample,
     user: User.all.sample
   )
+
+  puts "Creating post..."
+
+  url1 = Faker::LoremFlickr.image(size: "300x300", search_terms: ['person'])
+  url2 = Faker::LoremFlickr.image(size: "300x300", search_terms: ['person'])
+  url3 = Faker::LoremFlickr.image(size: "300x300", search_terms: ['person'])
+
+  post.photos.attach([
+    { io: URI.open(url1), filename: "#{post.title}-1.jpg", content_type: 'image/png' },
+    { io: URI.open(url2), filename: "#{post.title}-2.jpg", content_type: 'image/png' },
+    { io: URI.open(url3), filename: "#{post.title}-3.jpg", content_type: 'image/png' }
+  ])
+
+  post.save!
 end
 
 puts "#{NUM_POSTS} art-related posts have been created. 🎨🎨🎨"

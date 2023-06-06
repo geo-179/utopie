@@ -1,27 +1,31 @@
-<br>
-<h1>Post information</h1>
-<h3>Title: <%= @post.title %></h3>
-<h3>Content: <%= @post.content %></h3>
-<h3>User by: <%= @post.user.nickname %> </h3>
-<br>
-<h1>Comments</h1>
-<% @comments.each do |comment|%>
+<div class="container">
+  <br>
 
-  <% if comment.post == @post %>
-    <div>
-      <%= cl_image_tag comment.user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
-      <p>Message: <%= comment.content %></p>
-      <p>By: <%= comment.user.nickname %></p>
-    </div>
+  <h1>Post information</h1>
+  <h3>Title: <%= @post.title %></h3>
+  <h3>Content: <%= @post.content %></h3>
+  <h3>User by: <%= @post.user.nickname %> </h3>
+
+  <br>
+
+  <h1>Comments</h1>
+
+
+
+  <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-post-subscription-target="comments">
+    <% @comments.each do |comment|%>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </div>
+
+  <br>
+  <h3>Create Comment</h3>
+
+  <%= simple_form_for [@post, @comment],
+  html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex" } do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Upload comment" %>
   <% end %>
 
-<% end %>
-<br>
-<h3>Create Comment</h3>
-
-<%= simple_form_for [@post, @comment] do |f| %>
-  <%= f.input :content %>
-  <%= f.submit "Upload comment" %>
-<% end %>
-
-<%= link_to "Back to posts", posts_path, class: "btn btn-primary m-3" %>
+  <%= link_to "Back to posts", posts_path, class: "btn btn-primary m-3" %>
+</div>
