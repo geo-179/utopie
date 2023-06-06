@@ -180,7 +180,7 @@ $utilities: map-merge(
       local-vars: (
         "border-opacity": 1
       ),
-      values: $utilities-border-colors
+      values: $all-colors
     ),
     "subtle-border-color": (
       property: border-color,
@@ -591,7 +591,7 @@ $utilities: map-merge(
         "text-opacity": 1
       ),
       values: map-merge(
-        $utilities-text-colors,
+        $all-colors,
         (
           "muted": var(--#{$prefix}secondary-color), // deprecated
           "black-50": rgba($black, .5), // deprecated
@@ -616,7 +616,7 @@ $utilities: map-merge(
     "text-color": (
       property: color,
       class: text,
-      values: $utilities-text-emphasis-colors
+      values: $all-colors
     ),
     // scss-docs-end utils-color
     // scss-docs-start utils-links
