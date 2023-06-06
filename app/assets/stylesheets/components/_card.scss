@@ -5,7 +5,7 @@
 }
 
 .user-show-card {
-  background-color: #111111;
+  background-color: rgba(0, 0, 0, .1);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -44,3 +44,13 @@
   position: absolute;
   margin: auto;
 }
+
+// .month-card {
+//   position: relative;
+// }
+
+// .month-card-month {
+//   position: absolute;
+//   top: -12px;
+//   left: 0;
+// }
