@@ -7,8 +7,10 @@
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
       <p class="fw-bolder"><%= @user.nickname %></p>
       <p><%= @user.email %></p>
-      <%= link_to edit_user_registration_path(@user), class: "button" do%>
-        <button>Edit Profile</button>
+      <% if policy(@user).edit? %>
+        <%= link_to edit_user_registration_path(@user), class: "button" do%>
+          <button>Edit Profile</button>
+        <% end %>
       <% end %>
     </div>
     <%# Div for bio %>
