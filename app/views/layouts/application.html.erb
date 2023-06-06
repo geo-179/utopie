@@ -16,7 +16,20 @@
       <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
       <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
       <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
-      <button type="button" class="btn bg-vivid-purple bg-opacity-25" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">Log in</button>
+      <% if current_user %>
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(current_user) do %>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
+          <% end %>
+          <%= button_to destroy_user_session_path, method: :delete, class: "btn bg-vivid-purple bg-opacity-25", style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" do %>
+            Log Out
+          <% end %>
+        </div>
+      <% else %>
+        <%= button_to new_user_session_path, class: "btn bg-vivid-purple bg-opacity-25", style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" do %>
+          Log In
+        <% end %>
+      <% end %>
     </div>
     <%= yield %>
   </body>
