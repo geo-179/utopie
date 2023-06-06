@@ -50,6 +50,7 @@ NUM_POSTS.times do
   Post.create!(
     title: title,
     content: content,
+    category: ["2D Visual Art", "3D Modeling", "Music Tech"].sample,
     user: User.all.sample
   )
 end

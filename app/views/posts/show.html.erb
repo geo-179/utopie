@@ -14,9 +14,7 @@
 
   <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-post-subscription-target="comments">
     <% @comments.each do |comment|%>
-      <% if comment.post == @post %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
+      <%= render "comments/comment", comment: comment %>
     <% end %>
   </div>
 
