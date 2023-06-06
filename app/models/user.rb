@@ -10,5 +10,5 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  validates :user, :nickname, presence: true, uniqueness: true
+  validates :email, :nickname, presence: true, uniqueness: true
 end

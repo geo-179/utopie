@@ -3,4 +3,6 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :bookmarks
   has_many_attached :photos
+
+  validates :title, :content, presence: true
 end
