@@ -1,16 +1,20 @@
-<main class="background-purple">
-<h1>Test</h1>
+<main class="background-purple py-5">
 
 <%# Div for user profile information %>
-  <div>
+  <div class="d-flex px-5">
     <%# Div for avatar, name, link %>
-    <div >
-      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar", alt: "avatar" %>
-      <%= @user.nickname %>
-      <%= @user.email %>
+    <div class="d-flex flex-column align-items-start col-4 p-5">
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
+      <p class="fw-bolder"><%= @user.nickname %></p>
+      <p><%= @user.email %></p>
+      <%= link_to edit_user_registration_path(@user), class: "button" do%>
+        <button>Edit Profile</button>
+      <% end %>
     </div>
     <%# Div for bio %>
-    <div>
+    <div class="col-8 d-flex flex-column justify-content-center p-4">
+      <h4>Bio</h4>
+      <%= @user.bio %>
     </div>
   </div>
 
