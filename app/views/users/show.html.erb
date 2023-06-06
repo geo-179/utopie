@@ -1,0 +1,25 @@
+<main class="background-purple">
+<h1>Test</h1>
+
+<%# Div for user profile information %>
+  <div>
+    <%# Div for avatar, name, link %>
+    <div >
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar", alt: "avatar" %>
+      <%= @user.nickname %>
+      <%= @user.email %>
+    </div>
+    <%# Div for bio %>
+    <div>
+    </div>
+  </div>
+
+<%# Div for user created posts %>
+
+
+<%# Div for user saved posts %>
+
+
+<%# Div for contribution activity %>
+
+</main>
