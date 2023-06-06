@@ -10,10 +10,25 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://kit.fontawesome.com/978069ea62.js" crossorigin="anonymous"></script>
   </head>
+  <body>
+    <div class="navbar-gradient p-3 text-main-green border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
+      <div>logo</div>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
+      <button type="button" class="btn bg-vivid-purple bg-opacity-25" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">Log in</button>
+    </div>
+    <%= yield %>
+  </body>
+</html>
 
-  <body><%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+
+
+<%# previous code>
+  <%# <body><%= render "shared/navbar" %>
+  <%# <%= render "shared/flashes" %>
+    <%# <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Utopie</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +48,4 @@
           </ul>
         </div>
       </div>
-    </nav>
-    <%= yield %>
-  </body>
-</html>
+    </nav> %>
