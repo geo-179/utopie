@@ -6,7 +6,11 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save
-      redirect_to post_path(@post)
+      PostChannel.broadcast_to(
+        @post,
+        render_to_string(partial: "comment", locals: {comment: @comment})
+      )
+      head :ok
     else
       render :new, status: :unprocessable_entity
     end
