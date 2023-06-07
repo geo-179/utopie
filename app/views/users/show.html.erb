@@ -75,15 +75,33 @@
           <div class="month-stat-info pt-2 ps-5">
             <div class="d-flex">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <p>Created <%= value[0] %> posts</p>
+              <% if value[0].nil? %>
+                <p>Created 0 posts</p>
+              <% elsif value[0] == 1 %>
+                <p>Created 1 post</p>
+              <% else %>
+                <p>Created <%= value[0] %> posts</p>
+              <% end %>
             </div>
             <div class="d-flex">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <p>Bookmarked <%= value[1] %> posts</p>
+              <% if value[1].nil? %>
+                <p>Bookmarked 0 posts</p>
+              <% elsif value[1] == 1 %>
+                <p>Bookmarked 1 post</p>
+              <% else %>
+                <p>Bookmarked <%= value[1] %> posts</p>
+              <% end %>
             </div>
             <div class="d-flex">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <p>Wrote <%= value[2] %> Comments</p>
+              <% if value[2].nil? %>
+                <p>Wrote 0 comments</p>
+              <% elsif value[2] == 1 %>
+                <p>Wrote 1 comment</p>
+              <% else %>
+                <p>Wrote <%= value[2] %> comments</p>
+              <% end %>
             </div>
           </div>
         </div>
