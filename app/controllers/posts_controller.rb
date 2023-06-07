@@ -2,9 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = policy_scope(Post)
-    if params[:category].present?
-      @posts = @posts.where(category: params[:category])
+    # if params[:category].present?
+    #     @posts = @posts.where(category: params[:category])
+    # end
+
+    if params[:keyword].present?
+      @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%")
     end
+
   end
 
   def show
