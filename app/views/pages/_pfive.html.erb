@@ -1,0 +1,99 @@
+<script>
+function setup() {
+  createCanvas(1800, 1200);
+  background(10,10,10);
+  system = new ParticleSystem(createVector(width, 200));
+}
+
+let angle = 0.0;
+let jitter = 0.0;
+let value = "#320afa";
+function mouseMoved() {
+  ellipse(mouseX, mouseY+300, 40, 65);
+}
+function draw() {
+  fill(value);
+  rect(225, 305, 100, 200);
+  textSize(100);
+  text("欢迎", mouseX-300, 200+mouseY);
+  text("UTOPIE", mouseX, mouseY);
+  text("WELCOME", mouseX-500, 500+mouseY);
+  ellipse(mouseX-50, mouseY, 90, 105);
+  system.addParticle();
+  system.run();
+}
+
+function mousePressed() {
+  if (value === "#581ceb") {
+    value = '#ba2f25';
+  }
+  else if(value === '#ba2f25'){
+    value = "#48c722"
+  }
+  else if(value === "#48c722"){
+    value = "#a20ced"
+  }
+  else {
+    value = "#581ceb";
+  }
+}
+
+let Particle = function(position) {
+  this.acceleration = createVector(0, 0.01);
+  this.velocity = createVector(random(-10, 5), random(-8, 2));
+  this.position = position.copy();
+  this.lifespan = 305;
+};
+
+Particle.prototype.run = function() {
+  this.update();
+  this.display();
+};
+
+// Method to update position
+Particle.prototype.update = function(){
+  this.velocity.add(this.acceleration);
+  this.position.add(this.velocity);
+  this.lifespan -= 2;
+};
+
+// Method to display
+Particle.prototype.display = function() {
+  squareColor = color(128, 90, 180);
+  squareColor.setAlpha( 10 + 20 * sin(millis() / 100));
+  stroke(200,30,30, this.lifespan);
+  strokeWeight(3);
+  fill(squareColor, this.lifespan+20);
+
+  ellipse(this.position.x-200, this.position.y+30, 50, 60);
+};
+
+// Is the particle still useful?
+Particle.prototype.isDead = function(){
+  return this.lifespan < 0;
+};
+
+let ParticleSystem = function(position) {
+  this.origin = position.copy();
+  this.particles = [];
+};
+
+ParticleSystem.prototype.addParticle = function() {
+  this.particles.push(new Particle(this.origin));
+};
+
+ParticleSystem.prototype.run = function() {
+  for (let i = this.particles.length-1; i >= 0; i--) {
+    let p = this.particles[i];
+    p.run();
+    if (p.isDead()) {
+      this.particles.splice(i, 2);
+    }
+  }
+};
+
+
+
+
+
+</script>
