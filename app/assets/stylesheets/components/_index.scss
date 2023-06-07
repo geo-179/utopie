@@ -3,6 +3,8 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "card";
+
 
 .img-e{
   height:100px;
@@ -62,4 +64,8 @@
 .img-logo_utopie{
   width:90px;
   object-fit:contain;
+}
+
+.link_text{
+  text-decoration: none;
 }
