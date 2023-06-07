@@ -8,7 +8,11 @@ class LikesController < ApplicationController
     @like.user = current_user
     authorize @like
     if @like.save
-      redirect_to posts_path
+      PostChannel.broadcast_to(
+        @post,
+        render_to_string(partial: "like", locals: { likes: @post.likes.count })
+      )
+      head :ok
     else
       render :new, status: :unprocessable_entity
     end
@@ -17,7 +21,12 @@ class LikesController < ApplicationController
   def destroy
     authorize @like
     @like.destroy
-    redirect_to posts_path
+
+    PostChannel.broadcast_to(
+      @post,
+      {html: render_to_string(partial: "like", locals: { likes: @post.likes.count }), record: "like"}
+    )
+    head :ok
   end
 
   private
