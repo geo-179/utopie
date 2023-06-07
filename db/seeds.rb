@@ -10,6 +10,7 @@ require 'faker'
 require "open-uri"
 
 # Clear existing data
+Like.destroy_all
 Comment.destroy_all
 Post.destroy_all
 User.destroy_all
@@ -67,6 +68,16 @@ NUM_POSTS.times do
   ])
 
   post.save!
+
+  user_for_likes = User.all.sample(rand(0..10))
+  user_for_likes.each do |user|
+    Like.create!(
+      post: post,
+      user: user
+    )
+  end
+
+  puts "Randomized likes have been created for a post. 🥰🥰🥰"
 end
 
 puts "#{NUM_POSTS} art-related posts have been created. 🎨🎨🎨"

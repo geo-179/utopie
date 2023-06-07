@@ -21,4 +21,14 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def can_like?
+    result = true
+
+    record.likes.each do |like|
+      result = false if like.user = user
+    end
+
+    return result
+  end
 end
