@@ -10,12 +10,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <div class="navbar-gradient p-3 text-main-green border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
+    <div class="navbar-gradient p-3 border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
       <div>logo</div>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
-      <button type="button" class="btn bg-vivid-purple bg-opacity-25" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">Log in</button>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Playground</a>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Get Inspired</a>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Community</a>
+      <button type="button" class="btn bg-vivid-purple bg-opacity-25 text-main-green" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;">Log in</button>
     </div>
     <%= yield %>
   </body>
