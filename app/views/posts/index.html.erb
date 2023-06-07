@@ -7,9 +7,26 @@
 <%# Search bar for filtering posts %>
 <div>
   <form action="posts" method="get">
-    <label for="keyword">Keyword:</label>
+    <label for="keyword">Search Posts by Keyword:</label>
     <input type="text" name="keyword" id="keyword">
-    <input type="submit" value="Input keyword(s)">
+    <label for="category">Category</label>
+    <select name="category" id="category">
+      <% case params[:category] %>
+      <% when "3D Modeling" %>
+        <option value="3D Modeling" selected="selected">3D Modeling</option>
+        <option value="2D Visual Art">2D Visual Art</option>
+        <option value="Music Tech">Music Tech</option>
+      <% when "2D Visual Art" %>
+        <option value="3D Modeling">3D Modeling</option>
+        <option value="2D Visual Art" selected="selected">2D Visual Art</option>
+        <option value="Music Tech">Music Tech</option>
+      <% else %>
+        <option value="3D Modeling">3D Modeling</option>
+        <option value="2D Visual Art">2D Visual Art</option>
+        <option value="Music Tech" selected="selected">Music Tech</option>
+      <% end %>
+    </select>
+    <input type="submit" value="Search">
   </form>
 </div>
 
