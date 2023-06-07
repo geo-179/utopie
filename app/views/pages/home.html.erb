@@ -21,18 +21,24 @@ style="
 <img src="./ee.png" class="img-ee" alt="ee.png">
 
 <div class="position-fixed" style = "left:300px; top:350px">
+<%= link_to posts_path(category: "2D Visual Art"), class: 'link_text' do %>
 <img src="./2D_logo.png" class="img-2D" alt="2D_logo.png">
 <p class="fw-bold fs-2 text-purple-200">2D Visual Art</p>
+<% end %>
 </div>
 
 <div class="position-fixed" style = "left:60px; top:720px">
+<%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
 <img src="./3D_logo.png" class="img-3D" alt="3D_logo.png">
 <p class="fw-bold fs-2 text-purple-200">3D Modelling</p>
+<% end %>
 </div>
 
 <div class="position-fixed" style = "left:1400px; top:520px">
+<%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
 <img src="./music_tech.png" class="music-tech" alt="music-tech.png">
 <p class="fw-bold fs-2 text-purple-200">Music Tech</p>
+<% end %>
 </div>
 
 <%= render "pfive" %>
