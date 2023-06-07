@@ -12,7 +12,20 @@
   </head>
   <body>
     <div class="navbar-gradient p-3 text-main-green border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
+      <%= link_to root_path do %>
       <div>logo</div>
+      <% end %>
+      <%# Dropdown Menu %>
+      <li class="dropdown list-unstyled">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Posts
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to posts_path(category: "3D Modeling") do %>3D Modeling<% end %></li>
+          <li><%= link_to posts_path(category: "2D Visual Art") do %>2D Visual Art<% end %></li>
+          <li><%= link_to posts_path(category: "Music Tech") do %>Music Tech<% end %></li>
+        </ul>
+      </li>
       <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
       <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
       <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
