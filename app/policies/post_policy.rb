@@ -26,7 +26,7 @@ class PostPolicy < ApplicationPolicy
     result = true
 
     record.likes.each do |like|
-      result = false if like.user = user
+      result = false if like.user == user
     end
 
     return result
