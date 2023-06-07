@@ -6,22 +6,19 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def show?
     true
   end
 
-  def show
-    true
-  end
-  def create
+  def create?
     true
   end
 
-  def update
+  def update?
     true
   end
 
-  def destroy
+  def destroy?
     true
   end
 end
