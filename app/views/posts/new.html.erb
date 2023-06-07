@@ -1,5 +1,6 @@
 <%= simple_form_for(@post) do |f| %>
   <%= f.input :title %>
+  <%= f.input :category, collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
   <%= f.input :content %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
