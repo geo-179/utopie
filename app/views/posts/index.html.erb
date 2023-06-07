@@ -60,14 +60,30 @@
               <div class="">
                 <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
                     <div class="post-details mb-3 mb-lg-0">
-                        <button class="btn btn-sm btn-primary animate-hover me-2">
-                            <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-                            Like
-                        </button>
-                        <button class="btn btn-sm btn-danger animate-hover">
-                            <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-                            Dislike
-                        </button>
+
+
+
+                        <h1>💜: <%= post.likes.count %></h1>
+                        <% if policy(post).can_like? %>
+                          <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
+                            <button class="btn btn-sm btn-primary animate-hover me-2">
+                                <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+                                Like
+                            </button>
+                          <% end %>
+                        <% else %>
+                          <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
+                            <button class="btn btn-sm btn-danger animate-hover">
+                                <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+                                Dislike
+                            </button>
+                          <% end %>
+                        <% end %>
+
+
+
+
+
                         <%= link_to post_path(post) do %>
                           <p class="btn btn-primary">Go to post</p>
                         <% end %>
