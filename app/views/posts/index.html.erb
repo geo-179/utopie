@@ -3,6 +3,17 @@
   <p>Create New Post</p>
 <% end %>
 
+
+<%# Search bar for filtering posts %>
+<div>
+  <form action="posts" method="get">
+    <label for="keyword">Keyword:</label>
+    <input type="text" name="keyword" id="keyword">
+    <input type="submit" value="Input keyword(s)">
+  </form>
+</div>
+
+
 <section style="background-color: #eee;">
   <div class="container py-5">
     <div class= "row">
