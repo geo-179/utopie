@@ -5,17 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
     <script src="https://kit.fontawesome.com/978069ea62.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="navbar-gradient p-3 text-main-green border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
-      <div>logo</div>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
-      <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
+    <div>
+    <div class="navbar-gradient p-3 border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
+      <%= link_to root_path do %>
+        <div>
+          <img src="./logo_utopie.png" class="img-logo_utopie" alt="logo_utopie.png">
+        </div>
+      <% end %>
+
+      <%# Dropdown Menu %>
+      <li class="dropdown list-unstyled">
+        <a class="nav-link fw-semibold text-vibrant-pink dropdown-toggle fs-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Posts
+        </a>
+        <ul class="dropdown-menu fw-semibold fs-4 text-decoration-none">
+          <li><%= link_to posts_path(category: "3D Modeling") do %>3D Modeling<% end %></li>
+          <li><%= link_to posts_path(category: "2D Visual Art") do %>2D Visual Art<% end %></li>
+          <li><%= link_to posts_path(category: "Music Tech") do %>Music Tech<% end %></li>
+        </ul>
+      </li>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Playground</a>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Get Inspired</a>
+      <a class="nav-text fw-medium text-decoration-none" href="#">Community</a>
       <% if current_user %>
         <div class="d-flex align-items-center">
           <%= link_to user_path(current_user) do %>
@@ -34,6 +51,56 @@
     <%= yield %>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- %=  <script src="https://kit.fontawesome.com/978069ea62.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="navbar-gradient p-3 text-main-green border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
+      <%= link_to root_path do %>
+      <div>logo</div>
+      <% end %>
+      <%# Dropdown Menu %>
+      <li class="dropdown list-unstyled">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Posts
+        </a>
+        <ul class="dropdown-menu">
+
+          <li><%= link_to posts_path(category: "3D Modeling") do %>3D Modeling<% end %></li>
+          <li><%= link_to posts_path(category: "2D Visual Art") do %>2D Visual Art<% end %></li>
+          <li><%= link_to posts_path(category: "Music Tech") do %>Music Tech<% end %></li>
+        </ul>
+      </li>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Playground</a>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Get Inspired</a>
+      <a class="fw-medium text-main-green text-decoration-none" href="#">Community</a>
+      <% if current_user %>
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(current_user) do %>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
+          <% end %>
+          <%= button_to destroy_user_session_path, method: :delete, class: "btn bg-vivid-purple bg-opacity-25", style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" do %>
+            Log Out
+          <% end %>
+        </div>
+      <% else %>
+        <%= button_to new_user_session_path, class: "btn bg-vivid-purple bg-opacity-25", style: "--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 1rem;" do %>
+          Log In
+        <% end %>
+      <% end %>
+
 
 
 
@@ -62,3 +129,5 @@
         </div>
       </div>
     </nav> %>
+
+%= link_to "Make default", make_default_admin_state_path(state) % -->

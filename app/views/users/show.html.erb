@@ -9,7 +9,7 @@
       <p><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button>Edit Profile</button>
+          <button class="btn btn-warning">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
@@ -23,6 +23,10 @@
 <%# Div for user created posts %>
   <div class="background-green p-5">
     <p class="fw-bolder px-5">Posts</p>
+      <button class="btn btn-deep-orange rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
 
     <%# grid for post cards %>
     <div class="user-show-cards px-5 py-3">
@@ -61,30 +65,52 @@
   <%# Div for contribution activity %>
   <div class="p-5">
     <p class="fw-bolder px-5">Contribution Activity</p>
-    <div class="px-5">
-      <div class="d-flex align-items-center">
-        <div class="month-card">
-          <p class="month-card-month mb-0 me-2">June 2023</p>
+
+    <% @contributions.each do |month, value| %>
+      <div class="px-5">
+        <div class="d-flex align-items-center">
+          <div class="month-card">
+            <p class="month-card-month mb-0 me-2"><%= month %></p>
+          </div>
+          <div class="border-top border-black flex-grow-1">
+          </div>
         </div>
-        <div class="border-top border-black flex-grow-1">
+        <div class="d-flex border-start border-black mt-2">
+          <div class="month-stat-info pt-2 ps-5">
+            <div class="d-flex">
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
+              <% if value[0].nil? %>
+                <p>Created 0 posts</p>
+              <% elsif value[0] == 1 %>
+                <p>Created 1 post</p>
+              <% else %>
+                <p>Created <%= value[0] %> posts</p>
+              <% end %>
+            </div>
+            <div class="d-flex">
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
+              <% if value[1].nil? %>
+                <p>Bookmarked 0 posts</p>
+              <% elsif value[1] == 1 %>
+                <p>Bookmarked 1 post</p>
+              <% else %>
+                <p>Bookmarked <%= value[1] %> posts</p>
+              <% end %>
+            </div>
+            <div class="d-flex">
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
+              <% if value[2].nil? %>
+                <p>Wrote 0 comments</p>
+              <% elsif value[2] == 1 %>
+                <p>Wrote 1 comment</p>
+              <% else %>
+                <p>Wrote <%= value[2] %> comments</p>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="d-flex border-start border-black mt-2">
-        <div class="month-stat-info pt-2 ps-5">
-          <div class="d-flex">
-            <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-            <p>Created X posts</p>
-          </div>
-          <div class="d-flex">
-            <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-            <p>Bookmarked X posts</p>
-          </div>
-          <div class="d-flex">
-            <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-            <p>X Comments</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% end %>
+
   </div>
 </main>
