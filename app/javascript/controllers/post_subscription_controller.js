@@ -17,6 +17,7 @@ export default class extends Controller {
 
           // Requires update for just liked_by user
           this.#insertButton(data.button, data.liked_by)
+
           // Implementation both references current_user. They represent different things depending on the file.
         } else {
           // for the comments
