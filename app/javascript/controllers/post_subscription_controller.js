@@ -7,6 +7,14 @@ export default class extends Controller {
   static targets = ["comments", "likes", "button"]
 
   connect() {
+    if (this.hasLikesTarget) {
+      this.likesTargetFunction();
+    }
+
+    if (this.hasButtonTarget) {
+      this.buttonTargetFunction();
+    }
+
     this.channel = createConsumer().subscriptions.create(
       { channel: "PostChannel", id: this.postIdValue },
       { received: data => {
@@ -27,6 +35,14 @@ export default class extends Controller {
       }
     )
     console.log(`Subscribed to the Post with the id ${this.postIdValue}.`)
+  }
+
+  get hasLikesTarget() {
+    return this.hasTarget("likes");
+  }
+
+  get hasButtonTarget() {
+    return this.hasTarget("button");
   }
 
   #insertLikeCount(data) {
