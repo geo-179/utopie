@@ -1,5 +1,5 @@
 <%# MODAL SHOW PAGE %>
-<div class="modal fade" id="post-<%= post.id%>-modal" tabindex="-1" aria-labelledby="post-<%= post.id%>-modal-label" aria-hidden="true">
+<div class="modal fade" id="post-<%= post.id%>-modal" tabindex="-1" aria-labelledby="post-<%= post.id%>-modal-label">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
 
@@ -18,7 +18,7 @@
           <h3>User by: <%= post.user.nickname %> </h3>
           <br>
           <h1>Comments</h1>
-          <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments">
+          <div data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
             <% post.comments.each do |comment|%>
               <%= render "comments/comment", comment: comment %>
             <% end %>
