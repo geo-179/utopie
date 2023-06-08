@@ -1,31 +1,55 @@
-<div class="container">
-  <br>
+<div class="w-100 h-100 d-flex justify-content-center">
+  <div class="w-50 p-5 bg-show">
+  <%# post basic info %>
+    <div class="mt-5 mb-5">
+      <h1 class="text-black-purple fw-bolder">Post information</h1>
+       <div class="mt-4">
+      <p class="fs-4 text-black-purple">Title: <%= @post.title %></p>
+      <p class="fs-4 text-black-purple">Content: <%= @post.content %></p>
+      <p class="fs-4 text-black-purple">User by: <%= @post.user.nickname %> </p>
+       </div>
+    </div>
+  <%# slides %>
+  <div>
+    <div id="<%= @post.id %>-carousel" class="carousel slide w-100">
+      <div class="carousel-inner">
+        <% @post.photos.each_with_index do |photo, i| %>
+          <% if i == 0 %>
+            <div class="carousel-item active">
+              <%= cl_image_tag photo.key, height: 650, width: 860, crop: :fill, class: "d-block w-100", alt: "slide" %>
+            </div>
+          <% else %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, height: 650, width: 860, crop: :fill, class: "d-block w-100", alt: "slide" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#<%= @post.id %>-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#<%= @post.id %>-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      </div>
+  </div>
 
-  <h1>Post information</h1>
-  <h3>Title: <%= @post.title %></h3>
-  <h3>Content: <%= @post.content %></h3>
-  <h3>User by: <%= @post.user.nickname %> </h3>
 
-  <br>
-
-  <h1>Comments</h1>
-
-
-
+  <%# comment section %>
+  <div class="text-black-purple fs-3 fw-bolder mt-5 mb-4">Comments</div>
   <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-post-subscription-target="comments">
     <% @comments.each do |comment|%>
       <%= render "comments/comment", comment: comment %>
     <% end %>
   </div>
-
-  <br>
   <h3>Create Comment</h3>
-
   <%= simple_form_for [@post, @comment],
   html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex" } do |f| %>
     <%= f.input :content %>
     <%= f.submit "Upload comment" %>
   <% end %>
-
   <%= link_to "Back to posts", posts_path, class: "btn btn-primary m-3" %>
+  </div>
 </div>
