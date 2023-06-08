@@ -9,7 +9,7 @@
       <p><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button>Edit Profile</button>
+          <button class="btn btn-warning">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
@@ -23,6 +23,10 @@
 <%# Div for user created posts %>
   <div class="background-green p-5">
     <p class="fw-bolder px-5">Posts</p>
+      <button class="btn btn-deep-orange rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
+      <button class="btn btn-warning rounded-pill">post</button>
 
     <%# grid for post cards %>
     <div class="user-show-cards px-5 py-3">
