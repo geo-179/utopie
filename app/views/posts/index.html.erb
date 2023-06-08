@@ -10,7 +10,7 @@
 
         <% @posts.each do |post|%>
           <%# CARD %>
-          <div class="card shadow p-2 p-md-4" style="background-color: #63FF72">
+          <div class="card shadow p-2 p-md-4" style="background-color: #63FF72" data-controller="post-subscription" data-my-controller-id="<%= post.id %>-like" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value="<%= current_user.id %>">
               <div class="card-header border-0 bg-white p-0">
                   <%= link_to user_path(post.user) do %>
                     <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
@@ -61,27 +61,15 @@
                 <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
                     <div class="post-details mb-3 mb-lg-0">
 
+                        <%# Will update the likes %>
+                        <div data-post-subscription-target="likes">
+                          <%= render "likes/like", post: post %>
+                        </div>
 
-
-                        <h1>💜: <%= post.likes.count %></h1>
-                        <% if policy(post).can_like? %>
-                          <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
-                            <button class="btn btn-sm btn-primary animate-hover me-2">
-                                <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-                                Like
-                            </button>
-                          <% end %>
-                        <% else %>
-                          <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
-                            <button class="btn btn-sm btn-danger animate-hover">
-                                <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-                                Dislike
-                            </button>
-                          <% end %>
-                        <% end %>
-
-
-
+                        <%# Will update the like/unlike button %>
+                        <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+                          <%= render "likes/like_button", post: post %>
+                        </div>
 
 
                         <%= link_to post_path(post) do %>
