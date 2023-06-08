@@ -1,118 +1,127 @@
-<%= link_to new_post_path do %>
-  <button class="primay" type="button">Create New Post</button>
-<% end %>
+<div class="img-bg"
+style="
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(./bg-k.jpg);
+    height:200vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
+  ">
+  <%# Search bar for filtering posts %>
+  <div class="d-flex w-100 justify-content-center padding-60">
 
-<%# Search bar for filtering posts %>
-<div>
-  <form action="posts" method="get">
-    <label for="keyword">Search Posts by Keyword:</label>
-    <input type="text" name="keyword" id="keyword">
-    <label for="category">Category</label>
-    <select name="category" id="category">
-      <% case params[:category] %>
-      <% when "3D Modeling" %>
-        <option value="3D Modeling" selected="selected">3D Modeling</option>
-        <option value="2D Visual Art">2D Visual Art</option>
-        <option value="Music Tech">Music Tech</option>
-      <% when "2D Visual Art" %>
-        <option value="3D Modeling">3D Modeling</option>
-        <option value="2D Visual Art" selected="selected">2D Visual Art</option>
-        <option value="Music Tech">Music Tech</option>
-      <% else %>
-        <option value="3D Modeling">3D Modeling</option>
-        <option value="2D Visual Art">2D Visual Art</option>
-        <option value="Music Tech" selected="selected">Music Tech</option>
-      <% end %>
-    </select>
-    <input type="submit" value="Search">
-  </form>
-</div>
+      <form action="posts" method="get">
+        <label for="keyword" class="label-text ">Search Posts by Keyword</label>
+        <input type="text" name="keyword" id="keyword" class="ms-1">
+        <label for="category" class="label-text ms-5 ">Category</label>
+        <select name="category" id="category" class="ms-1">
+          <% case params[:category] %>
+          <% when "3D Modeling" %>
+            <option value="3D Modeling" selected="selected">3D Modeling</option>
+            <option value="2D Visual Art">2D Visual Art</option>
+            <option value="Music Tech">Music Tech</option>
+          <% when "2D Visual Art" %>
+            <option value="3D Modeling">3D Modeling</option>
+            <option value="2D Visual Art" selected="selected">2D Visual Art</option>
+            <option value="Music Tech">Music Tech</option>
+          <% else %>
+            <option value="3D Modeling">3D Modeling</option>
+            <option value="2D Visual Art">2D Visual Art</option>
+            <option value="Music Tech" selected="selected">Music Tech</option>
+          <% end %>
+        </select>
+        <input type="submit" value="Search" class="button-33 ms-5">
+      </form>
 
-<section>
-
-    <div class= "d-flex flex-wrap m-5 align-content-start justify-content-evenly">
-      <%# <div class="col-5 col-md-5"> %>
-        <% @posts.each do |post|%>
-          <%# CARD %>
-          <div class="shadow p-2 mx-4 mb-5" style="background-color: #63FF72; width: 20rem;">
-              <div>
-                  <%= link_to user_path(post.user) do %>
-                    <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
-                    <small>
-                      <strong><%= post.user.nickname %></strong>
-                      <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-                    </small>
-                  <% end %>
-
-                  <div class="post-meta">
-                      <div class="media d-flex align-items-center justify-content-between" style="background-color: #63FF72">
-                        <%# CAROUSEL %>
-                        <div id="<%= post.id %>-carousel" class="carousel slide w-100">
-                          <div class="carousel-inner">
-
-                            <% post.photos.each_with_index do |photo, i| %>
-                              <% if i == 0 %>
-                                <div class="carousel-item active">
-                                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                                </div>
-                              <% else %>
-                                <div class="carousel-item">
-                                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                                </div>
-                              <% end %>
-                            <% end %>
-                          </div>
-                          <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                          </button>
-                        </div>
-
+  </div>
+      <div class= "d-flex flex-wrap margin-20 justify-content-evenly">
+        <%# <div class="col-5 col-md-5"> %>
+          <% @posts.each do |post|%>
+            <%# CARD %>
+            <div class="card-shadow double-border p-4 mx-5 margin-10 bg-card" style="width: 26rem;">
+                <div>
+                  <div class="mt-1 mb-3">
+                    <%= link_to user_path(post.user), class: "text-decoration-none" do %>
+                      <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
+                      <div class="fs-6 mt-2">
+                        <i class="fs-6 fw-bold text-vibrant-pink"><%= post.user.nickname%></i>
+                        <i class="fs-7 fw-lighter mx-2 text-vivid-purple"><%= post.created_at.strftime("%a %b %e at %l:%M %p")%></i>
                       </div>
+                    <% end %>
                   </div>
-              </div>
-              <div class="card-body py-4 px-0">
-                  <%= link_to post_path(post) do %>
-                      <h3 class="h4 text-center"><%= post.title %></h3>
-                  <% end %>
-              </div>
-              <div class="">
-                <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
-                    <div class="post-details mb-3 mb-lg-0">
 
-                        <h1>💜: <%= post.likes.count %></h1>
-                        <% if policy(post).can_like? %>
-                          <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
-                            <button class="btn btn-sm btn-primary animate-hover me-2">
-                                <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-                                Like
-                            </button>
-                          <% end %>
-                        <% else %>
-                          <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
-                            <button class="btn btn-sm btn-danger animate-hover">
-                                <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-                                Dislike
-                            </button>
-                          <% end %>
-                        <% end %>
-                        <%= link_to post_path(post) do %>
-                          <p class="btn btn-primary">Go to post</p>
-                        <% end %>
-                    </div>
                     <div class="post-meta">
-                        <button class="btn btn-secondary"><span class="far fa-save me-2"></span>Save</button>
+                        <div class="media d-flex align-items-center justify-content-between" >
+                          <%# CAROUSEL %>
+                          <div id="<%= post.id %>-carousel" class="carousel slide w-100">
+                            <div class="carousel-inner">
+
+                        <% post.photos.each_with_index do |photo, i| %>
+                          <% if i == 0 %>
+                            <div class="carousel-item active">
+                              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                            </div>
+                          <% else %>
+                            <div class="carousel-item">
+                              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     </div>
+
+                  </div>
                 </div>
               </div>
-          </div>
-        <% end %>
-      </div>
-    <%# </div> %>
+              <div class="card-body py-4 px-0">
+                    <p class="fs-2 text-black-purple fw-bolde post-title text-center"><%= post.title %></p>
+                </a>
+              </div>
+              <div class="">
+                <div class="d-flex flex-wrap flex-lg-nowrap align-items-bottom justify-content-between">
+                  <div class="post-details mb-3 mb-lg-0">
+                    <h1>💜: <%= post.likes.count %></h1>
+                    <% if policy(post).can_like? %>
+                      <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
+                        <button class="button-33">
+                          <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+                          Like
+                        </button>
+                      <% end %>
+                    <% else %>
+                      <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
+                        <button class="button-33">
+                          <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+                          Dislike
+                        </button>
+                      <% end %>
+                    <% end %>
+                    <button type="button" class="button-33" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                      View Post
+                    </button>
+                  </div>
+                  <div class="post-meta">
+                    <button class="button-33"><span class="far fa-save me-2"></span>Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%= render "post_modal", post: post %>
+          <% end %>
+        </div>
 
-</section>
+
+  <div class="d-flex justify-content-center">
+  <%= link_to new_post_path do %>
+    <button class="button-36" type="button fw-medium">Create New Post</button>
+  <% end %>
+  </div>
+</div>
