@@ -8,8 +8,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     if @comment.save
       PostChannel.broadcast_to(
-        @post,
-        render_to_string(partial: "comment", locals: {comment: @comment})
+        @post, {
+          rendered_string: render_to_string(partial: "comment", locals: {comment: @comment})
+        }
       )
       head :ok
     else
