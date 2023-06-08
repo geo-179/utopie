@@ -36,106 +36,89 @@
     <div class= "row">
       <div class="col-12 col-md-10">
 
+      <%# POST CARDS %>
+
         <% @posts.each do |post|%>
-          <%# CARD %>
+          <%# INDIVIDUAL CARD %>
           <div class="card shadow p-2 p-md-4" style="background-color: #63FF72">
-              <div class="card-header border-0 bg-white p-0">
-                  <%= link_to user_path(post.user) do %>
-                    <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
-                    <small>
-                      <strong><%= post.user.nickname %></strong>
-                      <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-                    </small>
-                  <% end %>
+            <div class="card-header border-0 bg-white p-0">
+              <%= link_to user_path(post.user) do %>
+                <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
+                <small>
+                  <strong><%= post.user.nickname %></strong>
+                  <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+                </small>
+              <% end %>
 
 
-                  <div class="post-meta">
-                      <div class="media d-flex align-items-center justify-content-between" style="background-color: #63FF72">
-                        <%# CAROUSEL %>
-                        <div id="<%= post.id %>-carousel" class="carousel slide w-100">
-                          <div class="carousel-inner">
+              <div class="post-meta">
+                <div class="media d-flex align-items-center justify-content-between" style="background-color: #63FF72">
+                  <%# CAROUSEL %>
+                  <div id="<%= post.id %>-carousel" class="carousel slide w-100">
+                    <div class="carousel-inner">
 
-                            <% post.photos.each_with_index do |photo, i| %>
-                              <% if i == 0 %>
-                                <div class="carousel-item active">
-                                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                                </div>
-                              <% else %>
-                                <div class="carousel-item">
-                                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                                </div>
-                              <% end %>
-                            <% end %>
+                      <% post.photos.each_with_index do |photo, i| %>
+                        <% if i == 0 %>
+                          <div class="carousel-item active">
+                            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
                           </div>
-                          <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                          </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                          </button>
-                        </div>
-
-                      </div>
-                  </div>
-              </div>
-              <div class="card-body py-4 px-0">
-                  <a href="#">
-                      <h3 class="h4 text-center"><%= post.title %></h3>
-                  </a>
-              </div>
-              <div class="">
-                <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
-                    <div class="post-details mb-3 mb-lg-0">
-
-
-
-                        <h1>💜: <%= post.likes.count %></h1>
-                        <% if policy(post).can_like? %>
-                          <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
-                            <button class="btn btn-sm btn-primary animate-hover me-2">
-                                <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-                                Like
-                            </button>
-                          <% end %>
                         <% else %>
-                          <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
-                            <button class="btn btn-sm btn-danger animate-hover">
-                                <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-                                Dislike
-                            </button>
-                          <% end %>
+                          <div class="carousel-item">
+                            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                          </div>
                         <% end %>
-
-
-
-
-
-
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
-                          View Post
-                        </button>
-
+                      <% end %>
                     </div>
-                    <div class="post-meta">
-                        <button class="btn btn-secondary"><span class="far fa-save me-2"></span>Save</button>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
                 </div>
               </div>
+            </div>
+            <div class="card-body py-4 px-0">
+              <a href="#">
+                  <h3 class="h4 text-center"><%= post.title %></h3>
+              </a>
+            </div>
+            <div class="">
+              <div class="d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between">
+                <div class="post-details mb-3 mb-lg-0">
+                  <h1>💜: <%= post.likes.count %></h1>
+                  <% if policy(post).can_like? %>
+                    <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
+                      <button class="btn btn-sm btn-primary animate-hover me-2">
+                        <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+                        Like
+                      </button>
+                    <% end %>
+                  <% else %>
+                    <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
+                      <button class="btn btn-sm btn-danger animate-hover">
+                        <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+                        Dislike
+                      </button>
+                    <% end %>
+                  <% end %>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                    View Post
+                  </button>
+                </div>
+                <div class="post-meta">
+                  <button class="btn btn-secondary"><span class="far fa-save me-2"></span>Save</button>
+                </div>
+              </div>
+            </div>
           </div>
-
           <%= render "post_modal", post: post %>
         <% end %>
-
-
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </section>
