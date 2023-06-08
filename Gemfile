@@ -52,6 +52,7 @@ gem "sassc-rails"
 
 gem 'faker'
 gem 'groupdate'
+gem 'bullet', group: 'development'
 
 # pundit
 gem "pundit"

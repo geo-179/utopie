@@ -2,7 +2,7 @@ class PostPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.includes(:likes, comments: { user: { photo_attachment: :blob }}, user: {photo_attachment: :blob}, photos_attachments: :blob).all
     end
   end
 
