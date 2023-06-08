@@ -14,8 +14,11 @@
     <div>
     <div class="navbar-gradient p-3 border-bottom border-4 border-main-green d-flex justify-content-around align-items-center">
       <%= link_to root_path do %>
-      <div><img src="./logo_utopie.png" class="img-logo_utopie" alt="logo_utopie.png"></div>
+        <div>
+          <img src="./logo_utopie.png" class="img-logo_utopie" alt="logo_utopie.png">
+        </div>
       <% end %>
+
       <%# Dropdown Menu %>
       <li class="dropdown list-unstyled">
         <a class="nav-link fw-semibold text-vibrant-pink dropdown-toggle fs-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,10 +47,10 @@
           Log In
         <% end %>
       <% end %>
-      </div>
-      <%= yield %>
-      </body>
-      </html>
+    </div>
+    <%= yield %>
+  </body>
+</html>
 
 
 
