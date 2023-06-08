@@ -12,7 +12,7 @@
 
 
 
-  <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-post-subscription-target="comments">
+  <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-my-controller-id="<%= @post.id %>-comment" data-post-subscription-target="comments">
     <% @comments.each do |comment|%>
       <%= render "comments/comment", comment: comment %>
     <% end %>
