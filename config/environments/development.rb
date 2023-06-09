@@ -59,6 +59,8 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.assets.compile = true
+  config.assets.digest = false
 
   config.active_storage.service = :cloudinary
 
