@@ -31,4 +31,14 @@ class PostPolicy < ApplicationPolicy
 
     return result
   end
+
+  def can_bookmark?
+    result = true
+
+    record.bookmarks.each do |bookmark|
+      result = false if bookmark.user == user
+    end
+
+    return result
+  end
 end
