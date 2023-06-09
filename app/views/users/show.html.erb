@@ -41,23 +41,22 @@
 
   <div class="p-5">
     <p class="fw-bolder px-5 fs-3">Bookmarks</p>
-    <%# Grid for bookmarked post cards %>
-    <div class="px-5 bookmarked-post-cards">
-      <% if @user.bookmarks.count > 0 %>
-      <% @user.bookmarks.each do |bookmark| %>
-        <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
-          <div class="bookmarked-post-card">
-            <p class="title-black"><%= bookmark.post.title %></p>
-          </div>
+
+    <% if @user.bookmarks.count > 0 %>
+      <%# Grid for bookmarked post cards %>
+      <div class="px-5 bookmarked-post-cards">
+        <% @user.bookmarks.each do |bookmark| %>
+          <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
+            <div class="bookmarked-post-card">
+              <p class="title-black"><%= bookmark.post.title %></p>
+            </div>
+          <% end %>
+          <%= render "partials/post_modal", post: post %>
         <% end %>
-        <%= render "partials/post_modal", post: post %>
-      <% end %>
-    <% else %>
-      <div>
-        <p class="fs-3">You have no bookmarks at this time</p>
       </div>
+    <% else %>
+      <p class="fs-3 px-5">You have no bookmarks at this time</p>
     <% end %>
-    </div>
   </div>
 
   <%# Div for contribution activity %>
