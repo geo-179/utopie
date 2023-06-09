@@ -7,14 +7,6 @@ export default class extends Controller {
   static targets = ["comments", "likes", "button"]
 
   connect() {
-    if (this.hasLikesTarget) {
-      this.likesTargetFunction();
-    }
-
-    if (this.hasButtonTarget) {
-      this.buttonTargetFunction();
-    }
-
     this.channel = createConsumer().subscriptions.create(
       { channel: "PostChannel", id: this.postIdValue },
       { received: data => {
@@ -22,6 +14,7 @@ export default class extends Controller {
         if (data.rendered_string.includes("💜")) {
           // Requires update for both liked_by user (current_user) and signed_in user
           this.#insertLikeCount(data.rendered_string)
+          console.log("updated count")
 
           // Requires update for just liked_by user
           this.#insertButton(data.button, data.liked_by)
@@ -37,21 +30,17 @@ export default class extends Controller {
     console.log(`Subscribed to the Post with the id ${this.postIdValue}.`)
   }
 
-  get hasLikesTarget() {
-    return this.hasTarget("likes");
-  }
-
-  get hasButtonTarget() {
-    return this.hasTarget("button");
-  }
-
   #insertLikeCount(data) {
     this.likesTarget.innerHTML = data
   }
 
   #insertButton(button, liked_by) {
     // checks if liked_by user is the same user as the signed_in user
+    console.log("checking")
+    console.log("signed in user: " + this.userIdValue)
+    console.log("broacaster: " + liked_by)
     if (this.userIdValue == liked_by) {
+      console.log("updated")
       this.buttonTarget.innerHTML = button
     }
   }
