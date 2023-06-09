@@ -4,36 +4,107 @@
     <div class="modal-content">
 
       <%# MODAL HEADER %>
-      <div class="modal-header">
+      <div class="modal-header bg-main-green">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
+
       <%# MODAL BODY %>
-      <div class="modal-body">
-        <div class="container">
-          <br>
-          <h1>Post information</h1>
-          <h3>Title: <%= post.title %></h3>
-          <h3>Content: <%= post.content %></h3>
-          <h3>User by: <%= post.user.nickname %> </h3>
-          <br>
-          <h1>Comments</h1>
-          <div data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
-            <% post.comments.each do |comment|%>
-              <%= render "comments/comment", comment: comment %>
-            <% end %>
+      <div class="w-100 d-flex justify-content-center bg-show p-5">
+        <div>
+
+          <%# POST BASIC INFO %>
+          <div class="mt-5 mb-5">
+            <div class="mt-5">
+              <p class="text-g-white fs-2 fw-bolder post-title"><%= post.title %></p>
+              <p class="fs-4 text-g-white"><%= post.content %></p>
+              <p class="fs-4 text-g-white">Created by: <%= post.user.nickname %> </p>
+            </div>
           </div>
-          <br>
-          <h3>Create Comment</h3>
-          <%= simple_form_for [post, Comment.new],
-            html: { data: { action: "turbo:submit-end->post-subscription#resetForm" },
-            class: "d-flex" } do |f| %>
-              <%= f.input :content %>
-              <%= f.submit "Upload comment" %>
+
+          <%# CAROUSEL %>
+          <div>
+            <div id="<%= post.id %>-carousel-modal" class="carousel slide w-100">
+
+              <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
+              <div class="carousel-inner">
+                <% post.photos.each_with_index do |photo, i| %>
+                  <% if i == 0 %>
+                    <div class="carousel-item active d-flex justify-content-center">
+                      <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "d-block w-50 h-50", alt: "slide" %>
+                    </div>
+                  <% else %>
+                    <div class="carousel-item">
+                      <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "d-block w-50 h-50", alt: "slide" %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+        <%# END OF WRAPPERS FOR MODAL BODY%>
+        </div>
+      </div>
+
+
+      <%# COMMENT SECTION %>
+      <div class="bg-comment w-100 h-50 p-5">
+        <div class="fs-3 fw-medium mb-5 text-main-green"></div>
+
+        <%# COMMENTS WEBSOCKET %>
+        <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
+          <% post.comments.each do |comment|%>
+            <%= render "comments/comment", comment: comment ,class: "pt-5 pb-5"%>
           <% end %>
         </div>
+
+        <%# CREATE COMMENT %>
+        <p class="fs-3 fw-medium mt-5 mb-4 text-main-green">Create Comment</p>
+
+
+        <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Upload comment", class: "button-33"%>
+        <% end %>
       </div>
 
     </div>
   </div>
 </div>
+
+<!--<div class="modal-body">
+<div class="container">
+<br>
+<h1>Post information</h1>
+<h3>Title: <%= post.title %></h3>
+<h3>Content: <%= post.content %></h3>
+<h3>User by: <%= post.user.nickname %> </h3>
+<br>
+<h1>Comments</h1>
+<div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments">
+  <% post.comments.each do |comment|%>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
+</div>
+<br>
+<h3>Create Comment</h3>
+<%= simple_form_for [post, Comment.new],
+  html: { data: { action: "turbo:submit-end->post-subscription#resetForm" },
+  class: "d-flex" } do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Upload comment" %>
+<% end %>
+</div>
+</div> -->
+<!-- HTML !-->
+<%# <button class="button-36" role="button">Button 36</button> %>
