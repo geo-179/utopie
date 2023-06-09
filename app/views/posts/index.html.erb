@@ -6,16 +6,16 @@ style="
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
   ">
 
 
   <%# SEARCH BAR FOR FILTERING %>
   <div class="d-flex w-100 justify-content-center padding-60">
+    <div class="double-border px-5 py-2 searchbar-gradient">
       <form action="posts" method="get">
-        <label for="keyword" class="label-text ">Search Posts by Keyword</label>
+        <label for="keyword" class="label-text searchbar-text">Search Posts by Keyword</label>
         <input type="text" name="keyword" id="keyword" class="ms-1">
-        <label for="category" class="label-text ms-5 ">Category</label>
+        <label for="category" class="label-text ms-5 searchbar-text">Category</label>
         <select name="category" id="category" class="ms-1">
           <% case params[:category] %>
           <% when "3D Modeling" %>
@@ -34,6 +34,7 @@ style="
         </select>
         <input type="submit" value="Search" class="button-33 ms-5">
       </form>
+    </div>
   </div>
 
 

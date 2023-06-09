@@ -8,8 +8,10 @@
 <% else %>
   <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
     <button class="button-33">
-      <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-      Dislike
+      <div class="d-flex align-items-center">
+        <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+        <p>Dislike</p>
+      </div>
     </button>
   <% end %>
 <% end %>
