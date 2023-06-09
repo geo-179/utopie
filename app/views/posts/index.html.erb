@@ -118,7 +118,7 @@ style="
         </div>
 
         <%# LIKE COUNTER, BUTTONS FOR LIKE, VIEW POST, AND SAVE %>
-
+        <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
           <%# FLEX %>
           <div class="d-flex flex-wrap flex-lg-nowrap align-items-bottom justify-content-between w-100">
             <%# LIKES FUNCTIONALITY AND VIEW POST %>
@@ -143,9 +143,7 @@ style="
                 </button>
 
                 <%# SAVE BUTTON %>
-                <div class="post-meta">
-                  <button class="button-33"><span class="far fa-save me-2"></span>Save</button>
-                </div>
+                <%= render "partials/bookmark", post: post %>
               </div>
             </div>
 

@@ -1,12 +1,12 @@
 <main class="background-purple py-5">
 
-<%# Div for user profile information %>
+  <%# Div for user profile information %>
   <div class="d-flex px-5 pb-5">
     <%# Div for avatar, name, link %>
     <div class="d-flex flex-column align-items-start col-4 p-5">
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
-      <p class="fw-bolder fs-2"><%= @user.nickname %></p>
-      <p class="fs-2"><%= @user.email %></p>
+      <p class="fw-bolder fs-3"><%= @user.nickname %></p>
+      <p class="fs-3"><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
           <button class="btn btn-warning">Edit Profile</button>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-<%# Div for user created posts %>
+  <%# Div for user created posts %>
   <div class="background-green p-5">
     <p class="fw-bolder px-5 fs-3">Posts</p>
 
@@ -41,23 +41,22 @@
 
   <div class="p-5">
     <p class="fw-bolder px-5 fs-3">Bookmarks</p>
-    <%# Grid for bookmarked post cards %>
-    <div class="px-5 bookmarked-post-cards">
-      <% if @user.bookmarks.count > 0 %>
-      <% @user.bookmarks.each do |bookmark| %>
-        <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
-          <div class="bookmarked-post-card">
-            <p class="title-black"><%= bookmark.post.title %></p>
-          </div>
+
+    <% if @user.bookmarks.count > 0 %>
+      <%# Grid for bookmarked post cards %>
+      <div class="px-5 bookmarked-post-cards">
+        <% @user.bookmarks.each do |bookmark| %>
+          <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{bookmark.post.id}-modal"}} do %>
+            <div class="bookmarked-post-card">
+              <p class="title-black"><%= bookmark.post.title %></p>
+            </div>
+          <% end %>
+          <%= render "partials/post_modal", post: bookmark.post %>
         <% end %>
-        <%= render "partials/post_modal", post: post %>
-      <% end %>
-    <% else %>
-      <div>
-        <p class="fs-3">You have no bookmarks at this time</p>
       </div>
+    <% else %>
+      <p class="fs-3 px-5">You have no bookmarks at this time</p>
     <% end %>
-    </div>
   </div>
 
   <%# Div for contribution activity %>
@@ -65,10 +64,10 @@
     <p class="fw-bolder px-5 fs-3">Contribution Activity</p>
 
     <% @contributions.each do |month, value| %>
-      <div class="px-5 pb-4">
+      <div class="px-5 mb-4">
         <div class="d-flex align-items-center">
-          <div class="month-card">
-            <p class="month-card-month mb-0 me-2 fs-3"><%= month %></p>
+          <div>
+            <p class="mb-0 me-2 fs-3"><%= month %></p>
           </div>
           <div class="border-top border-black flex-grow-1">
           </div>
@@ -76,33 +75,33 @@
         <div class="d-flex border-start border-black mt-2">
           <div class="month-stat-info pt-2 ps-5">
             <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star" style="color: #d9d9d9;"></i>
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[0].nil? %>
-                <p class="fs-3 mb-0 ms-2">Created 0 posts</p>
+                <p class="fs-4 mb-0 ms-2">Created 0 posts</p>
               <% elsif value[0] == 1 %>
-                <p class="fs-3 mb-0 ms-2">Created 1 post</p>
+                <p class="fs-4 mb-0 ms-2">Created 1 post</p>
               <% else %>
-                <p class="fs-3 mb-0 ms-2">Created <%= value[0] %> posts</p>
+                <p class="fs-4 mb-0 ms-2">Created <%= value[0] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star" style="color: #d9d9d9;"></i>
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[1].nil? %>
-                <p class="fs-3 m-0 ms-2">Bookmarked 0 posts</p>
+                <p class="fs-4 mb-0 ms-2">Bookmarked 0 posts</p>
               <% elsif value[1] == 1 %>
-                <p class="fs-3 m-0 ms-2">Bookmarked 1 post</p>
+                <p class="fs-4 mb-0 ms-2">Bookmarked 1 post</p>
               <% else %>
-                <p class="fs-3 m-0 ms-2">Bookmarked <%= value[1] %> posts</p>
+                <p class="fs-4 mb-0 ms-2">Bookmarked <%= value[1] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star" style="color: #d9d9d9;"></i>
+              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[2].nil? %>
-                <p class="fs-3 m-0 ms-2">Wrote 0 comments</p>
+                <p class="fs-4 mb-0 ms-2">Wrote 0 comments</p>
               <% elsif value[2] == 1 %>
-                <p class="fs-3 m-0 ms-2">Wrote 1 comment</p>
+                <p class="fs-4 mb-0 ms-2">Wrote 1 comment</p>
               <% else %>
-                <p class="fs-3 m-0 ms-2">Wrote <%= value[2] %> comments</p>
+                <p class="fs-4 mb-0 ms-2">Wrote <%= value[2] %> comments</p>
               <% end %>
             </div>
           </div>
