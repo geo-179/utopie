@@ -57,11 +57,6 @@
   </div>
 </div>
 
-
-
-
-
-
 <!--<div class="w-100 h-100 d-flex justify-content-center">
   <div class="w-50 p-5 bg-show">
   <%# post basic info %>
@@ -104,6 +99,7 @@
   <%# comment section %>
   <div class="text-black-purple fs-3 fw-bolder mt-5 mb-4">Comments</div>
   <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-post-subscription-target="comments">
+  <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= @post.id %>" data-my-controller-id="<%= @post.id %>-comment" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
     <% @comments.each do |comment|%>
       <%= render "comments/comment", comment: comment %>
     <% end %>

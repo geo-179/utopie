@@ -1,0 +1,15 @@
+<% if policy(post).can_like? %>
+  <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
+    <button class="button-33">
+      <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+      Like
+    </button>
+  <% end %>
+<% else %>
+  <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
+    <button class="button-33">
+      <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+      Dislike
+    </button>
+  <% end %>
+<% end %>

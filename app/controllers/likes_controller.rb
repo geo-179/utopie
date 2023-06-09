@@ -6,9 +6,19 @@ class LikesController < ApplicationController
     @like = Like.new
     @like.post = @post
     @like.user = current_user
+    post_action_data = { liked_by: current_user.id }
     authorize @like
     if @like.save
-      redirect_to posts_path
+      PostChannel.broadcast_to(
+        @post, {
+          rendered_string: render_to_string(partial: "like", locals: { post: @post }),
+          button: render_to_string(partial: "like_button", locals: { post: @post }),
+          liked_by: current_user.id
+        }
+        # brings the ID from the broadcasted user in order to use it to check which user needs their button updated
+        # since sender also receives broadcast
+      )
+      head :ok
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,8 +26,17 @@ class LikesController < ApplicationController
 
   def destroy
     authorize @like
+    @post = @like.post
     @like.destroy
-    redirect_to posts_path
+
+    PostChannel.broadcast_to(
+      @post, {
+        rendered_string: render_to_string(partial: "like", locals: { post: @post }),
+        button: render_to_string(partial: "like_button", locals: { post: @post }),
+        liked_by: current_user.id
+      }
+    )
+    head :ok
   end
 
   private

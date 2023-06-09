@@ -1,5 +1,5 @@
 <%# MODAL SHOW PAGE %>
-<div class="modal fade" id="post-<%= post.id%>-modal" tabindex="-1" aria-labelledby="post-<%= post.id%>-modal-label" aria-hidden="true">
+<div class="modal fade" id="post-<%= post.id%>-modal" tabindex="-1" aria-labelledby="post-<%= post.id%>-modal-label">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
 
@@ -7,10 +7,13 @@
       <div class="modal-header bg-main-green">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
+
       <%# MODAL BODY %>
       <div class="w-100 d-flex justify-content-center bg-show p-5">
         <div>
-          <%# post basic info %>
+
+          <%# POST BASIC INFO %>
           <div class="mt-5 mb-5">
             <div class="mt-5">
               <p class="text-g-white fs-2 fw-bolder post-title"><%= post.title %></p>
@@ -18,9 +21,12 @@
               <p class="fs-4 text-g-white">Created by: <%= post.user.nickname %> </p>
             </div>
           </div>
-          <%# slides %>
+
+          <%# CAROUSEL %>
           <div>
-            <div id="<%= post.id %>-carousel" class="carousel slide w-100">
+            <div id="<%= post.id %>-carousel-modal" class="carousel slide w-100">
+
+              <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
               <div class="carousel-inner">
                 <% post.photos.each_with_index do |photo, i| %>
                   <% if i == 0 %>
@@ -34,6 +40,7 @@
                   <% end %>
                 <% end %>
               </div>
+
               <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -44,32 +51,32 @@
               </button>
             </div>
           </div>
+
+        <%# END OF WRAPPERS FOR MODAL BODY%>
         </div>
       </div>
-      <%# comment section %>
+
+
+      <%# COMMENT SECTION %>
       <div class="bg-comment w-100 h-50 p-5">
         <div class="fs-3 fw-medium mb-5 text-main-green"></div>
-          <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments">
-            <% post.comments.each do |comment|%>
-              <%= render "comments/comment", comment: comment ,class: "pt-5 pb-5"%>
-            <% end %>
-          </div>
-          <p class="fs-3 fw-medium mt-5 mb-4 text-main-green">Create Comment</p>
-          <%= simple_form_for [post, Comment.new],
-          html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f| %>
-            <%= f.input :content %>
-            <%= f.submit "Upload comment", class: "button-33"%>
+
+        <%# COMMENTS WEBSOCKET %>
+        <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
+          <% post.comments.each do |comment|%>
+            <%= render "comments/comment", comment: comment ,class: "pt-5 pb-5"%>
           <% end %>
-        <%# <%= link_to "Back to posts", posts_path, class: "btn bg-vivid-purple bg-opacity-25" %>
+        </div>
+
+        <%# CREATE COMMENT %>
+        <p class="fs-3 fw-medium mt-5 mb-4 text-main-green">Create Comment</p>
+
+
+        <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f| %>
+          <%= f.input :content %>
+          <%= f.submit "Upload comment", class: "button-33"%>
+        <% end %>
       </div>
-
-
-
-
-
-
-
-
 
     </div>
   </div>

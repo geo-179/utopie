@@ -14,14 +14,17 @@
     <div>
     <div class="navbar-gradient p-3 border-bottom border-4 border-main-green d-flex justify-content-around">
       <%= link_to root_path do %>
-      <div><img src="./logo_utopie.png" class="img-logo_utopie" alt="logo_utopie.png"></div>
+        <div>
+          <img src="<%= root_path %>logo_utopie.png" class="img-logo_utopie" alt="logo_utopie.png">
+        </div>
       <% end %>
+
       <%# Dropdown Menu %>
       <li class="dropdown list-unstyled">
         <a class="nav-link fw-semibold text-vibrant-pink dropdown-toggle fs-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Posts
         </a>
-        <ul class="dropdown-menu fw-semibold fs-4">
+        <ul class="dropdown-menu fw-semibold fs-4 text-decoration-none">
           <li><%= link_to posts_path(category: "3D Modeling") do %>3D Modeling<% end %></li>
           <li><%= link_to posts_path(category: "2D Visual Art") do %>2D Visual Art<% end %></li>
           <li><%= link_to posts_path(category: "Music Tech") do %>Music Tech<% end %></li>
@@ -44,10 +47,10 @@
           Log In
         <% end %>
       <% end %>
-      </div>
-      <%= yield %>
-      </body>
-      </html>
+    </div>
+    <%= yield %>
+  </body>
+</html>
 
 
 
