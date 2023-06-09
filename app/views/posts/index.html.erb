@@ -9,7 +9,7 @@ style="
 
 
   <%# SEARCH BAR FOR FILTERING %>
-  <div class="d-flex w-100 justify-content-center double-border px-5 py-2 searchbar-gradient mb-5">
+  <div class="d-flex w-100 justify-content-evenly align-items-center double-border px-4 py-2 searchbar-gradient mb-5">
     <form action="posts" method="get">
       <label for="keyword" class="label-text searchbar-text">Search Posts by Keyword</label>
       <input type="text" name="keyword" id="keyword" class="ms-1">
@@ -32,14 +32,15 @@ style="
       </select>
       <input type="submit" value="Search" class="button-33 ms-5">
     </form>
+    <%# CREATE NEW POST %>
+    <div class="d-flex justify-content-center">
+      <%= link_to new_post_path do %>
+        <button class="button-36" type="button fw-medium">Create New Post</button>
+      <% end %>
+    </div>
   </div>
 
-  <%# CREATE NEW POST %>
-  <div class="d-flex justify-content-center">
-    <%= link_to new_post_path do %>
-      <button class="button-36" type="button fw-medium">Create New Post</button>
-    <% end %>
-  </div>
+
 
   <%# CARDS AND MODAL FOR POST %>
   <div class= "d-flex flex-wrap margin-20 justify-content-evenly">
