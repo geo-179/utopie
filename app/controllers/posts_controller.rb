@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = policy_scope(Post)
+    @signed_in_user = current_user
 
     if params[:category].present?
       @posts = @posts.where(category: params[:category])
