@@ -27,11 +27,12 @@
     <%# grid for post cards %>
     <div class="user-show-cards px-5 py-3">
       <% @user.posts.each do |post| %>
-        <%= link_to post_path(post) do %>
+        <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
           <div class="user-show-card">
             <p class="title-purple fs-4"><%= post.title %></p>
           </div>
         <% end %>
+        <%= render "partials/post_modal", post: post %>
       <% end %>
     </div>
   </div>
@@ -44,15 +45,16 @@
     <div class="px-5 bookmarked-post-cards">
       <% if @user.bookmarks.count > 0 %>
       <% @user.bookmarks.each do |bookmark| %>
-        <%= link_to post_path(bookmark.post) do %>
+        <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
           <div class="bookmarked-post-card">
             <p class="title-black"><%= bookmark.post.title %></p>
           </div>
         <% end %>
+        <%= render "partials/post_modal", post: post %>
       <% end %>
     <% else %>
       <div>
-        <p class="fs-4">You have no bookmarks</p>
+        <p class="fs-3">You have no bookmarks at this time</p>
       </div>
     <% end %>
     </div>
