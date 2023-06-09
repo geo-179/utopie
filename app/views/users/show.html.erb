@@ -5,8 +5,8 @@
     <%# Div for avatar, name, link %>
     <div class="d-flex flex-column align-items-start col-4 p-5">
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
-      <p class="fw-bolder"><%= @user.nickname %></p>
-      <p><%= @user.email %></p>
+      <p class="fw-bolder fs-3"><%= @user.nickname %></p>
+      <p class="fs-3"><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
           <button class="btn btn-warning">Edit Profile</button>
@@ -15,8 +15,8 @@
     </div>
     <%# Div for bio %>
     <div class="col-8 d-flex flex-column justify-content-center p-4">
-      <h4>Bio</h4>
-      <%= @user.bio %>
+      <p class="fs-3 fw-bolder">Bio</p>
+      <p class="fs-3"><%= @user.bio %></p>
     </div>
   </div>
 
