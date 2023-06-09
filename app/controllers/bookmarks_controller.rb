@@ -7,8 +7,9 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.post = @post
     authorize @bookmark
+
     if @bookmark.save
-      redirect_to posts_path
+      redirect_back fallback_location: posts_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,8 +17,9 @@ class BookmarksController < ApplicationController
 
   def destroy
     authorize @bookmark
+    current_path = request.path
     @bookmark.destroy
-    redirect_to posts_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+    redirect_back fallback_location: posts_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
   end
 
   private
