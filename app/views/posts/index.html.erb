@@ -1,5 +1,5 @@
 <%# BACKGROUND IMAGE wraps entire index %>
-<div class="img-bg"
+<div class="img-bg pb-5"
 style="
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(./bg-k.jpg);
     background-repeat: no-repeat;
@@ -9,33 +9,37 @@ style="
 
 
   <%# SEARCH BAR FOR FILTERING %>
-  <div class="d-flex w-100 justify-content-center padding-60">
-    <div class="double-border px-5 py-2 searchbar-gradient">
-      <form action="posts" method="get">
-        <label for="keyword" class="label-text searchbar-text">Search Posts by Keyword</label>
-        <input type="text" name="keyword" id="keyword" class="ms-1">
-        <label for="category" class="label-text ms-5 searchbar-text">Category</label>
-        <select name="category" id="category" class="ms-1">
-          <% case params[:category] %>
-          <% when "3D Modeling" %>
-            <option value="3D Modeling" selected="selected">3D Modeling</option>
-            <option value="2D Visual Art">2D Visual Art</option>
-            <option value="Music Tech">Music Tech</option>
-          <% when "2D Visual Art" %>
-            <option value="3D Modeling">3D Modeling</option>
-            <option value="2D Visual Art" selected="selected">2D Visual Art</option>
-            <option value="Music Tech">Music Tech</option>
-          <% else %>
-            <option value="3D Modeling">3D Modeling</option>
-            <option value="2D Visual Art">2D Visual Art</option>
-            <option value="Music Tech" selected="selected">Music Tech</option>
-          <% end %>
-        </select>
-        <input type="submit" value="Search" class="button-33 ms-5">
-      </form>
-    </div>
+  <div class="d-flex w-100 justify-content-center double-border px-5 py-2 searchbar-gradient mb-5">
+    <form action="posts" method="get">
+      <label for="keyword" class="label-text searchbar-text">Search Posts by Keyword</label>
+      <input type="text" name="keyword" id="keyword" class="ms-1">
+      <label for="category" class="label-text ms-5 searchbar-text">Category</label>
+      <select name="category" id="category" class="ms-1">
+        <% case params[:category] %>
+        <% when "3D Modeling" %>
+          <option value="3D Modeling" selected="selected">3D Modeling</option>
+          <option value="2D Visual Art">2D Visual Art</option>
+          <option value="Music Tech">Music Tech</option>
+        <% when "2D Visual Art" %>
+          <option value="3D Modeling">3D Modeling</option>
+          <option value="2D Visual Art" selected="selected">2D Visual Art</option>
+          <option value="Music Tech">Music Tech</option>
+        <% else %>
+          <option value="3D Modeling">3D Modeling</option>
+          <option value="2D Visual Art">2D Visual Art</option>
+          <option value="Music Tech" selected="selected">Music Tech</option>
+        <% end %>
+      </select>
+      <input type="submit" value="Search" class="button-33 ms-5">
+    </form>
   </div>
 
+  <%# CREATE NEW POST %>
+  <div class="d-flex justify-content-center">
+    <%= link_to new_post_path do %>
+      <button class="button-36" type="button fw-medium">Create New Post</button>
+    <% end %>
+  </div>
 
   <%# CARDS AND MODAL FOR POST %>
   <div class= "d-flex flex-wrap margin-20 justify-content-evenly">
@@ -156,15 +160,4 @@ style="
       <%= render "partials/post_modal", post: post %>
     <% end %>
   </div>
-
-
-
-
-  <%# CREATE NEW POST %>
-  <div class="d-flex justify-content-center">
-    <%= link_to new_post_path do %>
-      <button class="button-36" type="button fw-medium">Create New Post</button>
-    <% end %>
-  </div>
-
 </div>
