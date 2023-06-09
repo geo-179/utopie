@@ -113,7 +113,7 @@ style="
         </div>
 
         <%# LIKE COUNTER, BUTTONS FOR LIKE, VIEW POST, AND SAVE %>
-        <div class="">
+        <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
           <%# FLEX %>
           <div class="d-flex flex-wrap flex-lg-nowrap align-items-bottom justify-content-between">
             <%# LIKES FUNCTIONALITY AND VIEW POST %>
@@ -126,7 +126,7 @@ style="
 
               <%# LIKE AND UNLIKE BUTTON %>
               <%# Will update the like/unlike button %>
-              <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+              <div data-post-subscription-target="button">
                 <%= render "likes/like_button", post: post %>
               </div>
 
