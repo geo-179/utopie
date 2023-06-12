@@ -47,13 +47,13 @@
 
 .button-p {
   background-color: #1e042fc9;
-  border-radius: 90px;
-  box-shadow: rgb(45, 8, 97);
+  border-radius: 40px;
+  box-shadow: rgb(178, 125, 251);
   color: rgb(244, 255, 241);
   cursor: pointer;
   display: inline-block;
   font-family: 'Cinzel', serif;
-  padding: 5px 7mm;
+  padding: 2px 5mm;
   text-align: center;
   text-decoration: none;
   transition: all 180ms;
@@ -62,10 +62,12 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-left:19px;
+  margin-top:3px;
 }
 
 .button-p:hover {
-  box-shadow: rgba(32, 3, 62, 0.35) 0 -25px 18px -14px inset,rgba(39, 6, 123, 0.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  box-shadow: rgba(47, 18, 77, 0.35);
   transform: scale(1.05) rotate(-1deg);
 }
 
