@@ -26,8 +26,8 @@
 }
 
 .nav-text{
-  color: #50fe62;
-  font-family:fantasy;
+  color: #000000;
+  font-family: 'Cinzel', serif;
   font-size:30px;
 }
 
@@ -37,13 +37,13 @@
 }
 
 .button-p {
-  background-color: #7812bcc9;
+  background-color: #1e042fc9;
   border-radius: 90px;
-  box-shadow: rgba(254, 29, 217, 0.347) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color: rgb(80, 250, 42);
+  box-shadow: rgb(45, 8, 97);
+  color: rgb(244, 255, 241);
   cursor: pointer;
   display: inline-block;
-  font-family: fantasy;
+  font-family: 'Cinzel', serif;
   padding: 5px 7mm;
   text-align: center;
   text-decoration: none;
@@ -58,4 +58,12 @@
 .button-p:hover {
   box-shadow: rgba(32, 3, 62, 0.35) 0 -25px 18px -14px inset,rgba(39, 6, 123, 0.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
+}
+
+.nav-fix{
+  position:sticky;
+}
+
+.border-black{
+border-bottom: 2px solid rgb(0, 0, 0);
 }
