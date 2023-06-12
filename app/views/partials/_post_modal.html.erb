@@ -1,6 +1,6 @@
 <%# MODAL SHOW PAGE %>
 <div class="modal fade" id="post-<%= post.id%>-modal" tabindex="-1" aria-labelledby="post-<%= post.id%>-modal-label">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
       <%# MODAL HEADER %>
@@ -79,9 +79,9 @@
           <p class="fs-3 fw-medium mt-5 mb-4 font-cinzel">Create Comment</p>
 
 
-          <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f| %>
-            <%= f.input :content, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Upload comment", class: "button-p"%>
+          <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
+            <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
+            <%= f.submit "Upload comment", class: "button-p" %>
           <% end %>
         </div>
       </div>
