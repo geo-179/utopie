@@ -11,4 +11,8 @@ class Post < ApplicationRecord
   def my_like(current_user)
     return likes.find_by(user: current_user)
   end
+
+  def my_bookmark(current_user)
+    return bookmarks.find_by(user: current_user)
+  end
 end

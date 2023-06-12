@@ -6,7 +6,6 @@ class LikesController < ApplicationController
     @like = Like.new
     @like.post = @post
     @like.user = current_user
-    post_action_data = { liked_by: current_user.id }
     authorize @like
     if @like.save
       PostChannel.broadcast_to(

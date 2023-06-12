@@ -24,7 +24,7 @@
 
           <%# CAROUSEL %>
           <div>
-            <div id="<%= post.id %>-carousel-modal" class="carousel slide w-100">
+            <div id="<%= post.id %>-carousel-modal" class="carousel slide">
 
               <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
               <div class="carousel-inner">
@@ -41,11 +41,11 @@
                 <% end %>
               </div>
 
-              <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
+              <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel-modal" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
+              <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel-modal" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>

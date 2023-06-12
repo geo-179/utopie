@@ -46,12 +46,12 @@
       <%# Grid for bookmarked post cards %>
       <div class="px-5 bookmarked-post-cards">
         <% @user.bookmarks.each do |bookmark| %>
-          <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
+          <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{bookmark.post.id}-modal"}} do %>
             <div class="bookmarked-post-card">
               <p class="title-black"><%= bookmark.post.title %></p>
             </div>
           <% end %>
-          <%= render "partials/post_modal", post: post %>
+          <%= render "partials/post_modal", post: bookmark.post %>
         <% end %>
       </div>
     <% else %>
