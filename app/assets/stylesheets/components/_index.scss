@@ -48,25 +48,51 @@
 }
 
 .img-2D{
-  width:120px;
+  width:100px;
   object-fit:contain;
+  -webkit-filter: blur(2px);
+	filter: blur(2px);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
 
+.img-2D:hover{
+	-webkit-filter: blur(0);
+	filter: blur(0);
 }
 
 .img-3D{
   width:90px;
   object-fit:contain;
+  -webkit-filter: blur(2px);
+	filter: blur(2px);
+	-webkit-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+
+.img-3D:hover{
+	-webkit-filter: blur(0);
+	filter: blur(0);
 }
 
 .music-tech{
   width:170px;
   object-fit:contain;
+  -webkit-filter: blur(2px);
+	filter: blur(2px);
+	-webkit-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+
+.music-tech:hover{
+	-webkit-filter: blur(0);
+	filter: blur(0);
 }
 
 .img-logo_utopie{
-  width:30px;
+  width:39px;
   object-fit:contain;
-  padding-top:2px;
+  padding-top:3px;
 }
 
 .link_text{
@@ -99,6 +125,7 @@
   padding-bottom: 80px;
 }
 
-.pt-100{
-  padding-top:100px;
+.pt-180{
+  padding-top:180px;
+  background-color: #FCFCFF;
 }
