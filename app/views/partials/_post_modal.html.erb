@@ -29,11 +29,11 @@
                 <% post.photos.each_with_index do |photo, i| %>
                   <% if i == 0 %>
                     <div class="carousel-item active d-flex justify-content-center">
-                      <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "d-block w-50 h-50", alt: "slide" %>
+                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
                     </div>
                   <% else %>
                     <div class="carousel-item">
-                      <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "d-block w-50 h-50", alt: "slide" %>
+                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
                     </div>
                   <% end %>
                 <% end %>
@@ -69,17 +69,19 @@
           <%# COMMENTS WEBSOCKET %>
           <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
             <% post.comments.each do |comment|%>
-              <%= render "comments/comment", comment: comment ,class: "pt-5 pb-5"%>
+              <div class="py-2">
+              <%= render "comments/comment", comment: comment %>
+              </div>
             <% end %>
           </div>
 
           <%# CREATE COMMENT %>
-          <p class="fs-3 fw-medium mt-5 mb-4 text-main-green">Create Comment</p>
+          <p class="fs-3 fw-medium mt-5 mb-4 font-cinzel">Create Comment</p>
 
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" }, class: "d-flex justify-content-between" } do |f| %>
-            <%= f.input :content %>
-            <%= f.submit "Upload comment", class: "button-33"%>
+            <%= f.input :content, label_html: {class: "font-cinzel"} %>
+            <%= f.submit "Upload comment", class: "button-p"%>
           <% end %>
         </div>
       </div>
