@@ -1,12 +1,12 @@
 <div class="img-bg"
 style="
-    background-image: url(./bg-updated.gif);
-    height:150vh;
+    background-image: url(./bgneweee.gif);
+    height: 140vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   ">
-<img src="./w.png" class="img-w" alt="w.png">
+<%# <img src="./w.png" class="img-w" alt="w.png">
 
 <img src="./e.png" class="img-e" alt="e.png">
 
@@ -18,31 +18,41 @@ style="
 
 <img src="./m.png" class="img-m" alt="m.png">
 
-<img src="./ee.png" class="img-ee" alt="ee.png">
+<img src="./ee.png" class="img-ee" alt="ee.png"> %>
 
-<div class="position-fixed" style = "left:300px; top:350px">
+
+<div class="position-absolute" style = "left:930px; top:610px">
 <%= link_to posts_path(category: "2D Visual Art"), class: 'link_text' do %>
-<img src="./2D_logo.png" class="img-2D" alt="2D_logo.png">
-<p class="fw-bold fs-2 text-purple-200">2D Visual Art</p>
+<img src="2d.png" class="img-2D shadow" alt="2d.png">
+<p class="fw-medium fs-3 text-purple-200 font-cinzel">2D Visual Art</p>
 <% end %>
 </div>
 
-<div class="position-fixed" style = "left:60px; top:720px">
+<div class="position-absolute" style = "left:507px; top:696px">
 <%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
-<img src="./3D_logo.png" class="img-3D" alt="3D_logo.png">
-<p class="fw-bold fs-2 text-purple-200">3D Modelling</p>
+<p class="fw-medium fs-2 text-purple-200 font-cinzel">3D Modelling</p>
 <% end %>
 </div>
 
-<div class="position-fixed" style = "left:1400px; top:520px">
+<div class="position-absolute" style = "left:746px; top:710px">
+<%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
+<img src="3d_modeling.png" class="img-3D shadow" alt="3D_logo.png">
+<% end %>
+</div>
+
+
+<div class="position-absolute" style = "left:1311px; top:789px">
 <%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
-<img src="./music_tech.png" class="music-tech" alt="music-tech.png">
-<p class="fw-bold fs-2 text-purple-200">Music Tech</p>
+<img src="music_techh.png" class="music-tech shadow" alt="music-tech.png">
+<p class="fw-medium fs-2 text-purple-200 font-cinzel">Music Tech</p>
 <% end %>
 </div>
-
-<%= render "pfive" %>
 </div>
+<%#
+<%= render "pfive" %>
 
 
-<%# #background-image: url(./bg-updated.gif) %>
+<%# <% for some extra space %>
+<div style="height: 20vh; background-color:white;">
+<p class="f5 fw-light ps-5 pt-100"> @Utopie created by Bill Foulks, Cody Young, Gio Huh and Zhuoyang Li</p>
+</div>
