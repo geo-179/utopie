@@ -12,8 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
   </head>
   <body>
-    <div>
-    <div class=" p-2 border-black d-flex justify-content-around">
+
+    <%# Navbar %>
+    <div class="p-2 border-black d-flex justify-content-around fixed-top background-white">
+
+      <%# Logo / Button to home page %>
       <%= link_to root_path do %>
         <div>
           <img src="<%= root_path %>logo.png" class="img-logo_utopie" alt="logo_utopie.png">
@@ -22,17 +25,16 @@
 
       <%# Dropdown Menu %>
       <li class="dropdown list-unstyled">
-
-        <a class="nav-link dropdown-toggle nav-text fw-normal fs-5 text-decoration-none pt-1 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
+        <a class="nav-link dropdown-toggle nav-text text-30 fw-normal fs-5 text-decoration-none pt-1 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Posts
         </a>
         <ul class="dropdown-menu fw-semibold fs-5 text-decoration-none">
-          <li><%= link_to posts_path(category: "3D Modeling") do %>3D Modeling<% end %></li>
-          <li><%= link_to posts_path(category: "2D Visual Art") do %>2D Visual Art<% end %></li>
-          <li><%= link_to posts_path(category: "Music Tech") do %>Music Tech<% end %></li>
+          <li><%= link_to posts_path(category: "3D Modeling"), class: "dropdown-item nav-text text-20" do %>3D Modeling<% end %></li>
+          <li><%= link_to posts_path(category: "2D Visual Art"), class: "dropdown-item nav-text text-20" do %>2D Visual Art<% end %></li>
+          <li><%= link_to posts_path(category: "Music Tech"), class: "dropdown-item nav-text text-20" do %>Music Tech<% end %></li>
         </ul>
       </li>
+
       <%# Navbar tabs%>
       <a class="nav-text fw-normal text-decoration-none pt-2 fs-5" href="#">Playground</a>
       <%# <a class="nav-text fw-normal text-decoration-none pt-2 fs-5" href="#">Get Inspired</a> %>
@@ -40,20 +42,21 @@
       <a class="nav-text fw-normal text-decoration-none pt-2 fs-5" href="#">Community</a>
       <%# User login%>
       <% if current_user %>
-      <div class="d-flex align-items-center">
-        <%= link_to user_path(current_user) do %>
-          <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
-        <% end %>
-        <%= button_to destroy_user_session_path, method: :delete, class: "button-p" do %>
-          Log Out
-        <% end %>
-      </div>
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(current_user) do %>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
+          <% end %>
+          <%= button_to destroy_user_session_path, method: :delete, class: "button-p" do %>
+            Log Out
+          <% end %>
+        </div>
       <% else %>
-      <%= button_to new_user_session_path, class: "button-p" do %>
-        Join us
-      <% end %>
-      <% end %>
+        <%= button_to new_user_session_path, class: "button-p" do %>
+          Log In / Join Us
+        <% end %>
+        <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>
