@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def get_inspired
+    @posts = Post.all.shuffle.take(10)
+  end
 end

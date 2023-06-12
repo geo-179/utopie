@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   resources :likes, only: [:destroy]
   resources :bookmarks, only: [:destroy]
+  get '/get_inspired', to: 'pages#get_inspired'
 end

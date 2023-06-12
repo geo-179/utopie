@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row" data-masonry='{"percentposition": true }'>
+
+    <%# Image Card %>
+    <% @posts.each do |post| %>
+      <% post.photos.each do |photo| %>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="">
+            <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
