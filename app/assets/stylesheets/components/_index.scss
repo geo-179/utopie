@@ -5,6 +5,7 @@
 @import "navbar";
 @import "card";
 @import "form";
+@import "border";
 
 
 .img-e{
@@ -93,6 +94,10 @@
   width:39px;
   object-fit:contain;
   padding-top:3px;
+}
+
+.img-logo_utopie:hover {
+  opacity: 50%;
 }
 
 .link_text{

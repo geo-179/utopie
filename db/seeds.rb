@@ -161,60 +161,70 @@ url28 = "https://www.lib.ncsu.edu/sites/default/files/touchdesigner.png"
 url29 = "http://www.indaehwang.com/wp-content/uploads/2021/04/Screen-Shot-2021-04-08-at-2.05.41-pm.png"
 url30 = "https://thenodeinstitute.org/wp-content/uploads/2023/03/TNI_Course_Cover_Intermediate_TD_SS23.jpg"
 
+puts "1"
 post_one.photos.attach([
   { io: URI.open(url1), filename: "#{post_one.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url2), filename: "#{post_one.title}-2.jpg", content_type: 'image/jpeg' },
   { io: URI.open(url3), filename: "#{post_one.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "2"
 post_two.photos.attach([
   { io: URI.open(url4), filename: "#{post_two.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url5), filename: "#{post_two.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url6), filename: "#{post_two.title}-3.jpg", content_type: 'image/png' }
 ])
 
+puts "3"
 post_three.photos.attach([
   { io: URI.open(url7), filename: "#{post_three.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url8), filename: "#{post_three.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url9), filename: "#{post_three.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "4"
 post_four.photos.attach([
   { io: URI.open(url10), filename: "#{post_four.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url11), filename: "#{post_four.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url12), filename: "#{post_four.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "5"
 post_five.photos.attach([
   { io: URI.open(url13), filename: "#{post_five.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url14), filename: "#{post_five.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url15), filename: "#{post_five.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "6"
 post_six.photos.attach([
   { io: URI.open(url16), filename: "#{post_six.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url17), filename: "#{post_six.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url18), filename: "#{post_six.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "7"
 post_seven.photos.attach([
   { io: URI.open(url19), filename: "#{post_seven.title}-1.jpg", content_type: 'image/png' },
   { io: URI.open(url20), filename: "#{post_seven.title}-2.jpg", content_type: 'image/png' },
   { io: URI.open(url21), filename: "#{post_seven.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "8"
 post_eight.photos.attach([
   { io: URI.open(url22), filename: "#{post_eight.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url23), filename: "#{post_eight.title}-2.jpg", content_type: 'image/png' },
   { io: URI.open(url24), filename: "#{post_eight.title}-3.jpg", content_type: 'image/png' }
 ])
 
+puts "9"
 post_nine.photos.attach([
   { io: URI.open(url25), filename: "#{post_nine.title}-1.jpg", content_type: 'image/jpg' },
   { io: URI.open(url26), filename: "#{post_nine.title}-2.jpg", content_type: 'image/jpg' },
   { io: URI.open(url27), filename: "#{post_nine.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "10"
 post_ten.photos.attach([
   { io: URI.open(url28), filename: "#{post_ten.title}-1.jpg", content_type: 'image/png' },
   { io: URI.open(url29), filename: "#{post_ten.title}-2.jpg", content_type: 'image/png' },

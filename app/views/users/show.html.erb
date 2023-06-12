@@ -1,28 +1,35 @@
-<main class="background-purple py-5">
+<main class="py-5">
 
   <%# Div for user profile information %>
-  <div class="d-flex px-5 pb-5">
+  <div class="d-flex px-5 pb-5" id="user-info">
     <%# Div for avatar, name, link %>
-    <div class="d-flex flex-column align-items-start col-4 p-5">
+    <div class="d-flex flex-column align-items-start col-3 p-5">
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
-      <p class="fw-bolder fs-3"><%= @user.nickname %></p>
-      <p class="fs-3"><%= @user.email %></p>
+      <p class="fw-bolder fs-3 font-cinzel"><%= @user.nickname %></p>
+      <p class="fs-3 text-palatino"><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button class="btn btn-warning">Edit Profile</button>
+          <button class="button-p">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
     <%# Div for bio %>
-    <div class="col-8 d-flex flex-column justify-content-center p-4">
-      <p class="fs-3 fw-bolder">Bio</p>
-      <p class="fs-3"><%= @user.bio %></p>
+    <div class="col-6 d-flex flex-column justify-content-center p-4">
+      <p class="fs-3 fw-bolder font-cinzel">Bio</p>
+      <p class="fs-3 text-palatino"><%= @user.bio %></p>
+    </div>
+    <%# Div for page links %>
+    <div class="col-3 p-5 d-flex flex-column align-items-end">
+      <p class="font-cinzel text-decoration-underline" style="font-weight: 700, ">Navigate To</p>
+      <%= link_to "My Posts", "#user-posts", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
+      <%= link_to "My Bookmarks", "#user-bookmarks", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
+      <%= link_to "Contributions", "#user-contributions", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
     </div>
   </div>
 
   <%# Div for user created posts %>
-  <div class="background-green p-5">
-    <p class="fw-bolder px-5 fs-3">Posts</p>
+  <div class="p-5" id="user-posts">
+    <p class="fw-bolder px-5 fs-3 font-cinzel">Posts</p>
 
     <%# grid for post cards %>
     <div class="user-show-cards px-5 py-3">
@@ -39,8 +46,8 @@
 
 <%# Div for user saved posts %>
 
-  <div class="p-5">
-    <p class="fw-bolder px-5 fs-3">Bookmarks</p>
+  <div class="p-5" id="user-bookmarks">
+    <p class="fw-bolder px-5 fs-3 font-cinzel">Bookmarks</p>
 
     <% if @user.bookmarks.count > 0 %>
       <%# Grid for bookmarked post cards %>
@@ -60,48 +67,48 @@
   </div>
 
   <%# Div for contribution activity %>
-  <div class="p-5">
-    <p class="fw-bolder px-5 fs-3">Contribution Activity</p>
+  <div class="p-5" id="user-contributions">
+    <p class="fw-bolder px-5 fs-3 font-cinzel">Contribution Activity</p>
 
     <% @contributions.each do |month, value| %>
       <div class="px-5 mb-4">
         <div class="d-flex align-items-center">
           <div>
-            <p class="mb-0 me-2 fs-3"><%= month %></p>
+            <p class="mb-0 me-2 fs-3 font-cinzel"><%= month %></p>
           </div>
-          <div class="border-top border-black flex-grow-1">
+          <div class="contribution-border-top flex-grow-1">
           </div>
         </div>
-        <div class="d-flex border-start border-black mt-2">
+        <div class="d-flex contribution-border-left mt-2">
           <div class="month-stat-info pt-2 ps-5">
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[0].nil? %>
-                <p class="fs-4 mb-0 ms-2">Created 0 posts</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Created 0 posts</p>
               <% elsif value[0] == 1 %>
-                <p class="fs-4 mb-0 ms-2">Created 1 post</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Created 1 post</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2">Created <%= value[0] %> posts</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Created <%= value[0] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[1].nil? %>
-                <p class="fs-4 mb-0 ms-2">Bookmarked 0 posts</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked 0 posts</p>
               <% elsif value[1] == 1 %>
-                <p class="fs-4 mb-0 ms-2">Bookmarked 1 post</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked 1 post</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2">Bookmarked <%= value[1] %> posts</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked <%= value[1] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[2].nil? %>
-                <p class="fs-4 mb-0 ms-2">Wrote 0 comments</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote 0 comments</p>
               <% elsif value[2] == 1 %>
-                <p class="fs-4 mb-0 ms-2">Wrote 1 comment</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote 1 comment</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2">Wrote <%= value[2] %> comments</p>
+                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote <%= value[2] %> comments</p>
               <% end %>
             </div>
           </div>

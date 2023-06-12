@@ -28,8 +28,17 @@
 .nav-text{
   color: #000000;
   font-family: 'Cinzel', serif;
-  font-size:30px;
 }
+
+.text-30 {
+  font-size: 30px;
+}
+
+.text-20 {
+  font-size: 20px;
+}
+
+
 
 .card-shadow{
   width: 250px;
@@ -68,4 +77,20 @@
 
 .border-black{
 border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.background-white {
+  background-color: #FFFFFF;
+}
+
+.profile-navbar {
+  padding-top: 40px;
+}
+
+.jump-to-link {
+  color: #000000;
+}
+
+.jump-to-link:hover {
+  color: #FF0000;
 }
