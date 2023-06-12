@@ -44,7 +44,8 @@ puts "Created 10 users 👤👤👤"
 
 post_one = Post.new(
   title: "graphic design website by Korneel Bostyn",
-  content: "Amazing designer website!!!! Korneel Bostyn is a designer (1992) in Belgium, mostly interested in drawing, architecture, landscape, photography and tech.
+  content: "Amazing designer website!!!! Korneel Bostyn is a designer (1992) in Belgium,
+  mostly interested in drawing, architecture, landscape, photography and tech.
   https://korneel.io/",
   category: "2D Visual Art",
   user: User.all.sample
@@ -79,7 +80,10 @@ post_four = Post.new(
 post_five = Post.new(
   title: "De Collectieve Collectie, recycling participatory art",
   content: "https://collectievecollectie.be/
-  De Collectieve Collectie is een participatieve procedure die start vanuit het waarderen en (her)gebruiken van zwerfgoed. In samenwerking met deelnemers die alledaagse gebruiksvoorwerpen kiezen, schenken, benoemen, ordenen, classificeren, waarderen, assembleren, interpreteren, dragen en/of fotograferen, ontwikkelt kunstenaar Kristof Van Gestel voor deze procedure gaandeweg strategieën en technieken",
+  De Collectieve Collectie is een participatieve procedure die start vanuit het waarderen en (her)gebruiken
+  van zwerfgoed. In samenwerking met deelnemers die alledaagse gebruiksvoorwerpen kiezen, schenken, benoemen,
+  ordenen, classificeren, waarderen, assembleren, interpreteren, dragen en/of fotograferen, ontwikkelt kunstenaar Kristof Van Gestel
+  voor deze procedure gaandeweg strategieën en technieken",
   category: "3D Modeling",
   user: User.all.sample
 )
@@ -87,7 +91,7 @@ post_five = Post.new(
 post_six = Post.new(
   title: "Insane artist Website, Sam Lyon, experimental animation",
   content: "https://www.jellygummies.com/
-  Found this mind blowing 3D artist, soooooo cool! Sam Lyon who’s from Scotland and makes uncanny and experimental animations.
+  Found this mind blowing 3D artist, soooooo cool! Sam Lyon who's from Scotland and makes uncanny and experimental animations.
   https://www.jellygummies.com/#/special-deluxe-render-bender/ Crazy video… ",
   category: "3D Modeling",
   user: User.all.sample
@@ -95,7 +99,8 @@ post_six = Post.new(
 
 post_seven = Post.new(
   title: "Creative coding: max msp with StyleGAN",
-  content: "Check out this max msp programming with StyleGAN https://www.xiaohongshu.com/explore/646b4aba0000000013033200?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686235984",
+  content: "Check out this max msp programming with StyleGAN
+  https://www.xiaohongshu.com/explore/646b4aba0000000013033200?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686235984",
   category: "Music Tech",
   user: User.all.sample
 )
@@ -127,6 +132,127 @@ post_ten = Post.new(
   category: "2D Visual Art",
   user: User.all.sample
 )
+
+post_el = Post.new(
+  title: "A live music programming tool you can use for your audiovisual performance - Gibber",
+  content: " Gibber is a live coding environment for audiovisual performance.
+  https://gibber.cc/
+
+  There are lots of amazing live coding systems out there,
+  a few things that make Gibber different include:
+  Novel annotations and visualizations within the code editing environment.
+  Unified semantics for sequencing audio and visuals.
+  Support for coding with external audiovisual libraries, such as p5.js and hydra.
+  Support for networked ensemble performances.",
+  category: "Music Tech",
+  user: User.all.sample
+)
+
+post_tw = Post.new(
+  title: "Sonic Pi for live music programming",
+  content: "Sonic Pi is a live coding environment based on Ruby,
+  originally designed to support both computing and music lessons in schools,
+  developed by Sam Aaron in the University of Cambridge Computer Laboratory
+  in collaboration with Raspberry Pi Foundation.
+  https://sonic-pi.net/
+  ",
+  category: "Music Tech",
+  user: User.all.sample
+)
+
+post_th = Post.new(
+  title: "Sonic Pi no sound potential solution",
+  content: "FYI I just realized switching between audio devices while Sonic Pi is open
+  (by running, I meant open) does not work
+  - in order to do so, you need to close, then change devices, and then reopen Sonic Pi..",
+  category: "Music Tech",
+  user: User.all.sample
+)
+
+
+post_fo = Post.new(
+  title: "Blender real-time audio-visual interaction",
+  content: "https://www.xiaohongshu.com/discovery/item/6486a4a200000000130306ea?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686579449
+  A very cool post I found on the Red book today..",
+  category: "3D Modeling",
+  user: User.all.sample
+)
+
+post_fi = Post.new(
+  title: "Ableton with Baby Lucia: Resampling beat repeats",
+  content: " https://www.youtube.com/watch?v=xWEJ80Kmx54
+  Rearranging harmonies with some effects. Find this artist Baby Lucia's quick tutorial on
+  Youtube may be helpful to someone who wants to compose something new",
+  category: "Music Tech",
+  user: User.all.sample
+)
+
+post_si = Post.new(
+  title: " Animation 'lilac' Vampillia feat Jun Togawa(official MV) LP out in 2016",
+  content: "
+  https://www.youtube.com/watch?v=Wu-Id91ULH8
+  Vampillia, which calls itself the '10-piece brutal symphony orchestra,'
+  is a Japanese experimental ensemble founded in 2005.
+  The orchestra has vocals, guitars, bass, strings, piano and noise parts,
+  and the music has a kind of gloomy beauty that only the Japanese can do.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
+
+post_se = Post.new(
+  title: "Touch Designer tutorial by Ben Heim on Reaction Diffusion and Paramterization",
+  content: "
+  https://www.youtube.com/watch?v=JSp9AQ_wBZw
+  exploring reaction diffusion systems in touchdesigner
+  and parameterization for live performance.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
+
+post_ei = Post.new(
+  title: "Mitchell Noah, artist and educator currently based in Baltimore",
+  content: "
+  https://mitchellnoah.com/
+
+  A very impressive artist. Some bio copied from his website - Mitchell's practice incorporates glass, objects,
+  sculpture, image making and video. He first started glassblowing
+  at the University of Louisville's Hite Art Institue, earning a BFA in Glass in 2011.",
+  category: "3d Modeling",
+  user: User.all.sample
+)
+
+post_ni = Post.new(
+  title: "Wolfgang Tillmans - Insanely Alive",
+  content: "
+  https://www.youtube.com/watch?v=3KPxOh8OVL8
+  Directed and filmed by Wolfgang Tillmans
+  Edited by Michael Amstad
+  Video featuring Bronya Meredith
+
+  Music written & produced by Wolfgang Tillmans, Tim Knapp, Bruno Breitzke
+  Vocals and lyrics by Wolfgang Tillmans Recorded at Trixx Studios, Berlin, 2020
+  Mastered by Klaus Knapp at Trixx Studios, Berlin, 2021",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
+
+post_twenty = Post.new(
+  title: "Artist Website Lu Yang 陸揚",
+  content: "
+  https://luyang.asia/
+  Super talented digital media artist. Born in Shanghai, China.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
+
+post_twentyone = Post.new(
+  title: "Deer sheng, Artist and Designer Website",
+  content: "
+  https://wilddeer.land/",
+  category: "3d Modeling",
+  user: User.all.sample
+)
+
 
 puts "Creating post..."
 
@@ -160,6 +286,30 @@ url27 = "https://www.mediamatic.net/image/2016/12/12/800px_screenshot10-40319849
 url28 = "https://www.lib.ncsu.edu/sites/default/files/touchdesigner.png"
 url29 = "http://www.indaehwang.com/wp-content/uploads/2021/04/Screen-Shot-2021-04-08-at-2.05.41-pm.png"
 url30 = "https://thenodeinstitute.org/wp-content/uploads/2023/03/TNI_Course_Cover_Intermediate_TD_SS23.jpg"
+url31 = "https://assets.pubpub.org/ykbbdriv/31643680200851.png"
+url32 = "https://idmmag.com/wp-content/uploads/2019/03/65367679_DATEBOOK_kost0321-algorithmic-700x500-1.jpg"
+url33 = "https://www.researchgate.net/profile/Charlie-Roberts-4/publication/282722679/figure/fig3/AS:558461634007045@1510159037176/Two-shaders-post-process-a-scene-consisting-of-a-spinning-icosahedron-and-a-background.png"
+url34 = "https://i.ytimg.com/vi/cydH_JAgSfg/maxresdefault.jpg"
+url35 = "https://circuitdigest.com/sites/default/files/field/image/Getting-Started-with-Sonic-Pi.jpg"
+url36 = "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/001/199/307/datas/original.png"
+url37 = "https://res.cloudinary.com/practicaldev/image/fetch/s--PnvhZT2F--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dzdd5metjxdrpbvwp00b.png"
+url38 = "https://pic4.zhimg.com/v2-04357c7676c2d0c4d879dc4b1808b74f_b.jpg"
+url39 = "https://i.ytimg.com/vi/o-mGmyW6-HY/maxresdefault.jpg"
+url40 = "https://i.ytimg.com/vi/Wu-Id91ULH8/maxresdefault.jpg"
+url41 = "https://www.anime-planet.com/images/people/banners/jun-togawa-6586.jpg"
+url42 = "https://i.ytimg.com/vi/4eumr5AtKyg/maxresdefault.jpg"
+url43 = "https://i.ytimg.com/vi/CxN2jO-aqy4/maxresdefault.jpg"
+url44 = "https://freight.cargo.site/w/400/q/75/i/cc9b0e3723ae515c0d0eae7a36c7d353fdf66a745fd64d16647205bc23d8680e/osprey-champuru.png"
+url45 = "https://freight.cargo.site/t/original/i/a10880be948c60ded10480c5b8064aa22c9772b5e0769121a608494ad809c85f/heads2022.JPG"
+url46 = "https://freight.cargo.site/t/original/i/0e826ff1d0819e7a2a44620c7b6ef52c9e665eaf06ceafbc08f5109f7ed0656c/IMG_9459.JPG"
+url47 = "https://i1.sndcdn.com/artworks-LjSkYZenaq0q-0-t500x500.jpg"
+url48 = "https://img.nowness.com/nowness-frontend/dIAPEI1OSiG08VTI2lRo_Screen%20Shot%202017-10-13%20at%2016.58.11.jpg"
+url50 = "http://luyang.asia/wp-content/uploads/2023/05/HG-210x140cm-150dpi-1.png"
+url51 = "http://luyang.asia/wp-content/uploads/2016/11/cp.png"
+url52 = "http://luyang.asia/wp-content/uploads/2023/05/asura-210x140cm-150dpi.png"
+url53 = "http://luyang.asia/wp-content/uploads/2018/02/earth.png"
+url54 = "https://freight.cargo.site/w/1200/q/94/i/982d0277caf7e3c51fe1acb156827efb1aa6c00263e00209f81f77b318578767/78e739100631189.5f0d36c126c57.jpg"
+url55 = "https://freight.cargo.site/w/900/q/75/i/a033f46cd7e77d80e314987c20ea97040e363afb101594c05df4354da6b08263/RgaIFLmDDDvFMZvSDPpTQg9su1sj5zuMbC-jI38tF_Kt0zdD4_58g8YRcZ7y4mmTzkKV-Yu4hRuTT934DmDGGI55hUOSPFsCWm5ws6AcVeik-ZoIPwwRJTcBZX-HBrCdM1-roB7WHRo.png"
 
 puts "1"
 post_one.photos.attach([
@@ -231,6 +381,75 @@ post_ten.photos.attach([
   { io: URI.open(url30), filename: "#{post_ten.title}-3.jpg", content_type: 'image/jpg' }
 ])
 
+puts "11"
+post_el.photos.attach([
+  { io: URI.open(url31), filename: "#{post_el.title}-1.png", content_type: 'image/png' },
+  { io: URI.open(url32), filename: "#{post_el.title}-2.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url33), filename: "#{post_el.title}-3.png", content_type: 'image/png' }
+])
+
+puts "12"
+post_tw.photos.attach([
+  { io: URI.open(url34), filename: "#{post_tw.title}-1.png", content_type: 'image/jpg' },
+  { io: URI.open(url35), filename: "#{post_tw.title}-2.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url36), filename: "#{post_tw.title}-3.png", content_type: 'image/png' }
+])
+
+puts "13"
+post_th.photos.attach([
+  { io: URI.open(url37), filename: "#{post_th.title}-1.png", content_type: 'image/png' }
+])
+
+puts "14"
+post_fo.photos.attach([
+  { io: URI.open(url38), filename: "#{post_fo.title}-1.jpg", content_type: 'image/jpg' }
+])
+
+puts "15"
+post_fi.photos.attach([
+  { io: URI.open(url39), filename: "#{post_fi.title}-1.png", content_type: 'image/jpg' }
+])
+
+
+puts "16"
+post_si.photos.attach([
+  { io: URI.open(url40), filename: "#{post_si.title}-1.png", content_type: 'image/jpg' },
+  { io: URI.open(url41), filename: "#{post_si.title}-2.png", content_type: 'image/jpg' },
+  { io: URI.open(url42), filename: "#{post_si.title}-3.png", content_type: 'image/jpg' },
+])
+
+puts "17"
+post_se.photos.attach([
+  { io: URI.open(url43), filename: "#{post_se.title}-1.png", content_type: 'image/jpg' }
+])
+
+puts "18"
+post_ei.photos.attach([
+  { io: URI.open(url44), filename: "#{post_ei.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url45), filename: "#{post_ei.title}-2.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url46), filename: "#{post_ei.title}-3.jpg", content_type: 'image/jpg' },
+])
+
+puts "19"
+post_ni.photos.attach([
+  { io: URI.open(url47), filename: "#{post_ni.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url48), filename: "#{post_ni.title}-2.jpg", content_type: 'image/jpg' }
+])
+
+puts "20"
+post_twenty.photos.attach([
+  { io: URI.open(url49), filename: "#{post_twenty.title}-1.png", content_type: 'image/png' },
+  { io: URI.open(url50), filename: "#{post_twenty.title}-2.png", content_type: 'image/png' },
+  { io: URI.open(url51), filename: "#{post_twenty.title}-3.png", content_type: 'image/png' },
+  { io: URI.open(url52), filename: "#{post_twenty.title}-4.png", content_type: 'image/png' },
+  { io: URI.open(url53), filename: "#{post_twenty.title}-5.png", content_type: 'image/png' }
+])
+
+puts "21"
+post_twentyone.photos.attach([
+  { io: URI.open(url54), filename: "#{post_twentyone.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url55), filename: "#{post_twentyone.title}-2.png", content_type: 'image/png' }
+])
 
 post_one.save!
 post_two.save!
@@ -242,15 +461,17 @@ post_seven.save!
 post_eight.save!
 post_nine.save!
 post_ten.save!
-# post_eleven.save!
-# post_twelve.save!
-# post_thirteen.save!
-# post_fourteen.save!
-# post_fifteen.save!
-# post_sixteen.save!
-# post_seventeen.save!
-# post_eighteen.save!
-
+post_el.save!
+post_tw.save!
+post_th.save!
+post_fo.save!
+post_fi.save!
+post_si.save!
+post_se.save!
+post_ei.save!
+post_ni.save!
+post_twenty.save!
+post_twentyone.save!
 
 puts "Posts have been created!"
 
