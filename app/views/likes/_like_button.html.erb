@@ -1,15 +1,20 @@
 <% if policy(post).can_like? %>
   <%= link_to post_likes_path(post), data: {turbo_method: :post} do %>
-    <button class="button-33">
-      <span class="fas fa-arrow-up me-2 animate-up-2"></span>
-      Like
-    </button>
+    <i class="fa-solid fa-heart zoom" style="color: #ffffff; text-shadow: 0px 0px 7px black;"></i>
   <% end %>
 <% else %>
   <%= link_to like_path(post.my_like(current_user)), data: {turbo_method: :delete} do %>
-    <button class="button-33">
-      <span class="fas fa-arrow-down me-2 animate-down-2"></span>
-      Unlike
-    </button>
+    <i class="fa-solid fa-heart zoom" style="color: #FD1D1D; text-shadow: 0px 0px 7px black;"></i>
   <% end %>
 <% end %>
+
+
+    <%# <button class="button-33">
+      <span class="fas fa-arrow-up me-2 animate-up-2"></span>
+      Like
+    </button> %>
+
+        <%# <button class="button-33">
+      <span class="fas fa-arrow-down me-2 animate-down-2"></span>
+      Unlike
+    </button> %>

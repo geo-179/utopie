@@ -128,3 +128,116 @@
 .bg-card{
   background-image: linear-gradient(to bottom,rgba(93, 46, 236, 0.521),rgba(111, 243, 111, 0.554),rgb(255, 114, 122));
 }
+
+.cd {
+  overflow: hidden;
+  position: relative;
+}
+
+.cd:hover .cd-body{
+  top: 0;
+}
+
+.cd-body{
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  right: 0;
+  position: absolute;
+  background: #1f3d4738;
+  backdrop-filter: blur(5px);
+  padding:  10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.65s;
+}
+
+.cd-title{
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 300;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
+}
+
+.cd-author{
+  font-size: 15px;
+  font-weight: 300;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 3px 8px;
+}
+
+.cd-button{
+  margin-top: 5px;
+  color:  #000000;
+  background:#ffffff;
+  padding: 10px 20px;
+  width: 130px;
+  padding:10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.cd-button:hover {
+  color:  #000000;
+  background:#dddddd;
+}
+
+.heart {
+  background-color: rgb(132, 0, 142);
+  display: inline-block;
+  height: 10px;
+  margin: 0 5px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 10px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: rgb(119, 0, 128);
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+
+.heart:before {
+  top: -5px;
+  left: 0;
+}
+
+.heart:after {
+  left: 5px;
+  top: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-corner {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 15px;
+  font-weight: 300;
+  color: white;
+}
+
+.zoom {
+  transition: transform .1s;
+}
+
+.zoom:hover {
+  transform: scale(1.17);
+}
