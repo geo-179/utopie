@@ -295,14 +295,14 @@ url37 = "https://res.cloudinary.com/practicaldev/image/fetch/s--PnvhZT2F--/c_ima
 url38 = "https://pic4.zhimg.com/v2-04357c7676c2d0c4d879dc4b1808b74f_b.jpg"
 url39 = "https://www.sweetwater.com/insync/media/2019/12/5175904d-how-to-sample-in-ableton-live-01-session-view.jpg"
 # url40 = "https://i.ytimg.com/vi/Wu-Id91ULH8/maxresdefault.jpg"
-url41 = "https://www.anime-planet.com/images/people/banners/jun-togawa-6586.jpg"
-# url42 = "https://i.ytimg.com/vi/4eumr5AtKyg/maxresdefault.jpg"
-url43 = "https://i.ytimg.com/vi/CxN2jO-aqy4/maxresdefault.jpg"
+url41 = "https://asianmoviepulse.com/wp-content/uploads/2020/09/lilac-vampillia-Jun-Togawa.jpg"
+url42 = "https://www.creativeapplications.net/wp-content/uploads/2016/07/Reaction-Diffusion-1.jpg"
+# url43 = "https://i.ytimg.com/vi/CxN2jO-aqy4/maxresdefault.jpg"
 url44 = "https://freight.cargo.site/w/400/q/75/i/cc9b0e3723ae515c0d0eae7a36c7d353fdf66a745fd64d16647205bc23d8680e/osprey-champuru.png"
 url45 = "https://freight.cargo.site/t/original/i/a10880be948c60ded10480c5b8064aa22c9772b5e0769121a608494ad809c85f/heads2022.JPG"
 # url46 = "https://freight.cargo.site/t/original/i/0e826ff1d0819e7a2a44620c7b6ef52c9e665eaf06ceafbc08f5109f7ed0656c/IMG_9459.JPG"
-url47 = "https://i1.sndcdn.com/artworks-LjSkYZenaq0q-0-t500x500.jpg"
-url48 = "https://img.nowness.com/nowness-frontend/dIAPEI1OSiG08VTI2lRo_Screen%20Shot%202017-10-13%20at%2016.58.11.jpg"
+url47 = "https://media.timeout.com/images/105458033/image.jpg"
+url48 = "https://flash---art.com/wp-content/uploads/2022/12/wolfgang_tillmans_8.jpg"
 url50 = "http://luyang.asia/wp-content/uploads/2023/05/HG-210x140cm-150dpi-1.png"
 url51 = "http://luyang.asia/wp-content/uploads/2016/11/cp.png"
 url52 = "http://luyang.asia/wp-content/uploads/2023/05/asura-210x140cm-150dpi.png"
@@ -410,12 +410,12 @@ post_fi.photos.attach([
 
 puts "16"
 post_si.photos.attach([
-  { io: URI.open(url40), filename: "#{post_si.title}-2.jpg", content_type: 'image/jpg' }
+  { io: URI.open(url41), filename: "#{post_si.title}-2.jpg", content_type: 'image/jpg' }
 ])
 
 puts "17"
 post_se.photos.attach([
-  { io: URI.open(url43), filename: "#{post_se.title}-1.png", content_type: 'image/jpg' }
+  { io: URI.open(url42), filename: "#{post_se.title}-1.png", content_type: 'image/jpg' }
 ])
 
 puts "18"
