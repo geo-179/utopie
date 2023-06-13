@@ -29,7 +29,7 @@
 
   <%# Div for user created posts %>
   <div class="p-5" id="user-posts">
-    <p class="fw-bolder px-5 fs-3 font-arial font-gray">Posts</p>
+    <p class="fw-bolder px-5 fs-3 font-arial">Posts</p>
 
     <%# grid for post cards %>
     <div class="user-show-cards px-5 py-3">
@@ -47,7 +47,7 @@
 <%# Div for user saved posts %>
 
   <div class="p-5" id="user-bookmarks">
-    <p class="fw-bolder px-5 fs-3 font-arial font-gray">Bookmarks</p>
+    <p class="fw-bolder px-5 fs-3 font-arial">Bookmarks</p>
 
     <% if @user.bookmarks.count > 0 %>
       <%# Grid for bookmarked post cards %>
@@ -62,7 +62,7 @@
         <% end %>
       </div>
     <% else %>
-      <p class="fs-3 px-5 text-palatino">You have no bookmarks at this time</p>
+      <p class="fs-5 px-5 font-arial">You have no bookmarks at this time</p>
     <% end %>
   </div>
 
@@ -84,31 +84,31 @@
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[0].nil? %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Created 0 posts</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Created 0 posts</p>
               <% elsif value[0] == 1 %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Created 1 post</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Created 1 post</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Created <%= value[0] %> posts</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Created <%= value[0] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[1].nil? %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked 0 posts</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 0 posts</p>
               <% elsif value[1] == 1 %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked 1 post</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 1 post</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Bookmarked <%= value[1] %> posts</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked <%= value[1] %> posts</p>
               <% end %>
             </div>
             <div class="d-flex align-items-center">
               <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
               <% if value[2].nil? %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote 0 comments</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Wrote 0 comments</p>
               <% elsif value[2] == 1 %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote 1 comment</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Wrote 1 comment</p>
               <% else %>
-                <p class="fs-4 mb-0 ms-2 text-palatino">Wrote <%= value[2] %> comments</p>
+                <p class="fs-5 mb-0 ms-2 font-arial">Wrote <%= value[2] %> comments</p>
               <% end %>
             </div>
           </div>
