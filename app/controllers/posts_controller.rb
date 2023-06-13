@@ -5,11 +5,11 @@ class PostsController < ApplicationController
     @signed_in_user = current_user
 
     if params[:category].present?
-      @posts = @posts.where(category: params[:category])
+      @posts = @posts.where(category: params[:category]).order("created_at DESC")
     end
 
     if params[:keyword].present?
-      @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%").order("created_at DESC")
     end
 
   end
