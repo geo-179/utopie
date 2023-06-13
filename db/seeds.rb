@@ -430,7 +430,7 @@ post_ni.photos.attach([
 
 puts "20"
 post_twenty.photos.attach([
-  { io: URI.open(url50), filename: "#{post_twenty.title}-2.png", content_type: 'image/png' }
+  { io: URI.open(url50), filename: "#{post_twenty.title}-2.png", content_type: 'image/png' },
   { io: URI.open(url51), filename: "#{post_twenty.title}-3.png", content_type: 'image/png' },
   { io: URI.open(url52), filename: "#{post_twenty.title}-4.png", content_type: 'image/png' },
   { io: URI.open(url53), filename: "#{post_twenty.title}-5.png", content_type: 'image/png' }
