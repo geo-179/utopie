@@ -1,162 +1,98 @@
 <%# BACKGROUND IMAGE wraps entire index %>
-<div class="img-bg pb-5"
-style="
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(./bg-k.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  ">
+
+<div class="pb-5">
 
 
-  <%# SEARCH BAR FOR FILTERING %>
-  <div class="d-flex w-100 justify-content-evenly align-items-center double-border px-4 py-2 searchbar-gradient mb-5">
-    <form action="posts" method="get">
-      <label for="keyword" class="label-text searchbar-text">Search Posts by Keyword</label>
-      <input type="text" name="keyword" id="keyword" class="ms-1">
-      <label for="category" class="label-text ms-5 searchbar-text">Category</label>
-      <select name="category" id="category" class="ms-1">
-        <% case params[:category] %>
-        <% when "3D Modeling" %>
-          <option value="3D Modeling" selected="selected">3D Modeling</option>
-          <option value="2D Visual Art">2D Visual Art</option>
-          <option value="Music Tech">Music Tech</option>
-        <% when "2D Visual Art" %>
-          <option value="3D Modeling">3D Modeling</option>
-          <option value="2D Visual Art" selected="selected">2D Visual Art</option>
-          <option value="Music Tech">Music Tech</option>
-        <% else %>
-          <option value="3D Modeling">3D Modeling</option>
-          <option value="2D Visual Art">2D Visual Art</option>
-          <option value="Music Tech" selected="selected">Music Tech</option>
-        <% end %>
-      </select>
-      <input type="submit" value="Search" class="button-33 ms-5">
-    </form>
-    <%# CREATE NEW POST %>
-    <div class="d-flex justify-content-center">
-      <%= link_to new_post_path do %>
-        <button class="button-36" type="button fw-medium">Create New Post</button>
-      <% end %>
-    </div>
+
+<div class="d-flex w-100 justify-content-evenly align-items-center mt-120 mb-30">
+  <%# CREATE NEW POST %>
+  <div>
+  <%= link_to new_post_path do %>
+    <button class="button-b" type="button fw-medium" style="text-decoration-none">Create New Post</button>
+  <% end %>
   </div>
+  <%# SEARCH BAR FOR FILTERING %>
+  <form action="posts" method="get">
+    <input type="text" name="keyword" id="keyword" class="ps-400 mr-100">
+    <%# <label for="category" class="label-text ms-5 searchbar-text">Category</label> %>
+    <select name="category" id="category" class="ms-5">
+      <% case params[:category] %>
+      <% when "3D Modeling" %>
+        <option value="3D Modeling" selected="selected">3D Modeling</option>
+        <option value="2D Visual Art">2D Visual Art</option>
+        <option value="Music Tech">Music Tech</option>
+      <% when "2D Visual Art" %>
+        <option value="3D Modeling">3D Modeling</option>
+        <option value="2D Visual Art" selected="selected">2D Visual Art</option>
+        <option value="Music Tech">Music Tech</option>
+      <% else %>
+        <option value="3D Modeling">3D Modeling</option>
+        <option value="2D Visual Art">2D Visual Art</option>
+        <option value="Music Tech" selected="selected">Music Tech</option>
+      <% end %>
+    </select>
+    <input type="submit" value="Search" class="button-b ms-5">
+  </form>
+</div>
 
 
 
-  <%# CARDS AND MODAL FOR POST %>
-  <div class= "d-flex flex-wrap margin-20 justify-content-evenly">
-    <% @posts.each do |post|%>
-      <%# CARD FOR EACH POST%>
-      <div class="card-shadow double-border p-4 mx-5 margin-10 bg-card" style="width: 26rem;">
-        <%# DIV WRAPS USER INFORMATION AND CAROUSEL%>
-        <div>
-
-          <%# USER INFORMATION (IMAGE, NICKNAME, TIME CREATED) %>
-          <div class="mt-1 mb-3">
-            <%= link_to user_path(post.user), class: "text-decoration-none" do %>
-              <%= cl_image_tag post.user.photo.key, crop: :fill, class: "avatar" %>
-              <div class="fs-6 mt-2">
-                <i class="fs-6 fw-bold text-vibrant-pink"><%= post.user.nickname%></i>
-                <i class="fs-7 fw-lighter mx-2 text-vivid-purple"><%= post.created_at.strftime("%a %b %e at %l:%M %p")%></i>
-              </div>
-            <% end %>
-          </div>
+<%# CARDS AND MODAL FOR POST %>
 
 
-          <%# CAROUSEL (POST-META START)%>
-          <div class="post-meta">
-              <%# CAROUSEL %>
-              <div class="media d-flex align-items-center justify-content-between" style="background-color: #63FF72">
-                <div id="<%= post.id %>-carousel" class="carousel slide w-100">
 
-                  <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
-                  <div class="carousel-inner">
+<div class="container py-5">
+  <div class="row" data-masonry='{"percentposition": true }'>
 
-                    <%# FOR LOOP %>
-                    <% post.photos.each_with_index do |photo, i| %>
-                      <%# IMAGES IF STATEMETN %>
-                      <% if i == 0 %>
-                        <div class="carousel-item active">
-                          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                        </div>
-                      <% else %>
-                        <div class="carousel-item">
-                          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100", alt: "slide" %>
-                        </div>
-                      <%# END OF IF STATEMENT %>
-                      <% end %>
+  <%# Image Card %>
+  <% @posts.each do |post| %>
+    <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
 
-                    <%# END OF FOR LOOP %>
-                    <% end %>
-
-                  <%# END OF IMAGE ACTIVE/NON-ACTIVE SETTING %>
-                  </div>
+      <%# CARD %>
+      <div class="cd">
+        <div class="relative">
+          <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+        </div>
 
 
-                  <%# BUTTONS FOR ROTATING THROUGH IMAGES %>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
 
-                  <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+        <%# CARD BODY THAT MOVES IN %>
+        <div class="cd-body">
+          <h1 class="cd-title"><%= post.title %></h1>
+          <h2 class="cd-author">By: <%= post.user.nickname %></h2>
 
-                </div>
-              </div>
 
-              <%# END OF CAROUSEL %>
+          <%# POST AND LIKE %>
+          <div class="d-flex">
+            <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+              View Post
+            </button>
+
+            <div class="flex-grow-1"></div>
           </div>
 
 
         </div>
 
-        <%# TITLE FOR POST %>
-        <div class="card-body py-4 px-0">
-          <p class="fs-2 text-black-purple fw-bolder post-title text-center"><%= post.title %></p>
-        </div>
-
-        <%# LIKE COUNTER, BUTTONS FOR LIKE, VIEW POST, AND SAVE %>
-        <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
-          <%# FLEX %>
-          <div class="d-flex flex-wrap flex-lg-nowrap align-items-bottom justify-content-between w-100">
-            <%# LIKES FUNCTIONALITY AND VIEW POST %>
-            <div class="post-details mb-3 mb-lg-0 w-100">
-
-              <%# LIKE COUNTER %>
-              <div data-post-subscription-target="likes">
-                <%= render "likes/like", post: post %>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center w-100">
-
-                <%# LIKE AND UNLIKE BUTTON %>
-                <%# Will update the like/unlike button %>
-                <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
-                  <%= render "likes/like_button", post: post %>
-                </div>
-
-                <%# VIEW POST BUTTON %>
-                <button type="button" class="button-33" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
-                  View Post
-                </button>
-
-                <%# SAVE BUTTON %>
-                <%= render "partials/bookmark", post: post %>
-              </div>
-            </div>
-
-          <%# END OF FLEX %>
+        <div class="top-corner d-flex align-items-center py-1 px-2">
+          <%# HEART AND LIKE %>
+          <div data-post-subscription-target="likes">
+            <%= render "likes/like", post: post %>
           </div>
-        <%# END OF LIKE COUNTER AND BUTTONS %>
-        </div>
 
-      <%# END OF CARD %>
+          <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+            <%= render "likes/like_button", post: post %>
+          </div>
+        </div>
       </div>
 
-      <%# MODAL FOR EACH POST %>
+
+      <%# **** %>
       <%= render "partials/post_modal", post: post %>
-    <% end %>
+    </div>
+  <% end %>
+
   </div>
+
+
 </div>

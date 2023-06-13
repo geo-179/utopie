@@ -1,48 +1,140 @@
 <div class="img-bg"
 style="
-    background-image: url(./bg-updated.gif);
-    height:150vh;
+    background-image: url(./bg_new.gif);
+    height: 155vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   ">
-<img src="./w.png" class="img-w" alt="w.png">
 
-<img src="./e.png" class="img-e" alt="e.png">
+  <div class="position-absolute" style = "left:1000px; top:630px">
+    <%= link_to posts_path(category: "2D Visual Art"), class: 'link_text' do %>
+      <img src="2d.png" class="img-2D shadow" alt="2d.png">
+      <p class="fw-medium fs-3 text-purple-200 font-cinzel">2D Visual Art</p>
+    <% end %>
+  </div>
 
-<img src="./ll.png" class="img-ll" alt="ll.png">
+  <div class="position-absolute" style = "left:622px; top:920px">
+    <%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
+      <p class="fw-medium fs-3 text-purple-200 font-cinzel">3D Modelling</p>
+    <% end %>
+  </div>
 
-<img src="./c.png" class="img-c" alt="c.png">
+  <div class="position-absolute" style = "left:819px; top:699px">
+    <%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
+      <img src="3d_modeling.png" class="img-3D shadow" alt="3D_logo.png">
+    <% end %>
+  </div>
 
-<img src="./o.png" class="img-o" alt="o.png">
 
-<img src="./m.png" class="img-m" alt="m.png">
-
-<img src="./ee.png" class="img-ee" alt="ee.png">
-
-<div class="position-fixed" style = "left:300px; top:350px">
-<%= link_to posts_path(category: "2D Visual Art"), class: 'link_text' do %>
-<img src="./2D_logo.png" class="img-2D" alt="2D_logo.png">
-<p class="fw-bold fs-2 text-purple-200">2D Visual Art</p>
-<% end %>
+  <div class="position-absolute" style = "left:1393px; top:810px">
+    <%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
+      <img src="music_techh.png" class="music-tech shadow" alt="music-tech.png">
+      <p class="fw-medium fs-3 text-purple-200 font-cinzel">Music Tech</p>
+    <% end %>
+  </div>
 </div>
-
-<div class="position-fixed" style = "left:60px; top:720px">
-<%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
-<img src="./3D_logo.png" class="img-3D" alt="3D_logo.png">
-<p class="fw-bold fs-2 text-purple-200">3D Modelling</p>
-<% end %>
-</div>
-
-<div class="position-fixed" style = "left:1400px; top:520px">
-<%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
-<img src="./music_tech.png" class="music-tech" alt="music-tech.png">
-<p class="fw-bold fs-2 text-purple-200">Music Tech</p>
-<% end %>
-</div>
-
+<%#
 <%= render "pfive" %>
+
+<div style="background-color:white;">
+  <div class="w-100 mb-5">
+    <h1 class="text-center">Discover Our Communities</h1>
+  </div>
+
+  <%# CATEGORY CARDS %>
+  <div class="container d-flex align-items-center">
+    <div class="row mx-auto">
+      <%# Cards %>
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="cd">
+          <div class="relative">
+            <img src="3DM.jpeg" alt="3D Modelling" class="d-block w-100 card-img-top-cate">
+          </div>
+
+
+
+          <%# CARD BODY THAT MOVES IN %>
+          <div class="cd-body">
+            <h1 class="cd-title">3D Modelling</h1>
+            <%# POST AND LIKE %>
+            <div class="d-flex">
+              <%= link_to posts_path(category: "3D Modeling") do %>
+              <button type="button" class="cd-button">
+                See all posts!
+              </button>
+              <% end %>
+
+              <div class="flex-grow-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="cd">
+          <div class="relative">
+            <img src="2DVA.jpeg" alt="2D Visual Arts" class="d-block w-100 card-img-top-cate">
+          </div>
+
+
+
+          <%# CARD BODY THAT MOVES IN %>
+          <div class="cd-body">
+            <h1 class="cd-title">2D Visual Arts</h1>
+            <%# POST AND LIKE %>
+            <div class="d-flex">
+              <%= link_to posts_path(category: "2D Visual Art") do %>
+                <button type="button" class="cd-button">
+                  See all posts!
+                </button>
+              <% end %>
+
+              <div class="flex-grow-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="cd">
+          <div class="relative">
+            <img src="MT.png" alt="Music Tech" class="d-block w-100 card-img-top-cate">
+          </div>
+
+
+
+          <%# CARD BODY THAT MOVES IN %>
+          <div class="cd-body">
+            <h1 class="cd-title">Music Technology</h1>
+            <%# POST AND LIKE %>
+            <div class="d-flex">
+              <%= link_to posts_path(category: "Music Tech") do %>
+                <button type="button" class="cd-button">
+                  See all posts!
+                </button>
+              <% end %>
+
+              <div class="flex-grow-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+=======
+<div class="position-absolute" style = "left:1393px; top:810px">
+<%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
+<img src="music_techh.png" class="music-tech shadow" alt="music-tech.png">
+<p class="fw-medium fs-3 text-purple-200 font-cinzel">Music Tech</p>
+<% end %>
+</div>
+
+<div class="position-absolute" style = "left:486px; top:719px">
+<a class="ctech-link text-decoration-none" href="https://timrodenbroeker.de/what-is-creative-coding/" target="_blank">What is creative technology?</a>
 </div>
 
 
-<%# #background-image: url(./bg-updated.gif) %>
+
+<%# <% for some extra space %>
+<p style="background-color:white;"> @Utopie created by Bill Foulks, Cody Young, Steve Jobs and Zhuoyang Li</p>

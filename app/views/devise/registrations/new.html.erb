@@ -1,31 +1,38 @@
-<h2>Sign up</h2>
+<div class="m-5 p-5">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs p-3">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :nickname,
-                required: true,
-                label: "Nickname" %>
-    <%= f.input :bio,
-                label: "Bio" %>
-    <%= f.input :photo, as: :file, required: true, label: "Profile Image" %>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label_html: { class: "font-cinzel" },
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :nickname,
+                  required: true,
+                  label_html: { class: "font-cinzel" },
+                  label: "Nickname" %>
+      <%= f.input :bio,
+                  label_html: { class: "font-cinzel" },
+                  label: "Bio" %>
+      <%= f.input :photo, as: :file, required: true, label: "Profile Image", label_html: { class: "font-cinzel" } %>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  label_html: { class: "font-cinzel" },
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label_html: { class: "font-cinzel" },
+                  input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Sign up", class: "button-s" %>
+    </div>
+  <% end %>
+  <div class="py-3">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
