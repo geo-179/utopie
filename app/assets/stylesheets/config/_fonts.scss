@@ -21,10 +21,18 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
   font-family: fantasy;
 }
 
-.font-cinzel{
-font-family: 'Cinzel', serif;
+.font-arial{
+font-family: Arial, Helvetica, sans-serif;
 }
 
 .text-palatino{
   font-family: Palatino;
+}
+
+.font-gray{
+  color: rgba(67, 67, 67, 0.814);
+}
+
+.font-gray:hover{
+  color:rgb(97, 78, 115);
 }
