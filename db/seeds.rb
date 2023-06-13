@@ -195,7 +195,7 @@ post_si = Post.new(
   is a Japanese experimental ensemble founded in 2005.
   The orchestra has vocals, guitars, bass, strings, piano and noise parts,
   and the music has a kind of gloomy beauty that only the Japanese can do.",
-  category: "2d Visual Art",
+  category: "2D Visual Art",
   user: User.all.sample
 )
 
@@ -205,7 +205,7 @@ post_se = Post.new(
   https://www.youtube.com/watch?v=JSp9AQ_wBZw
   exploring reaction diffusion systems in touchdesigner
   and parameterization for live performance.",
-  category: "2d Visual Art",
+  category: "2D Visual Art",
   user: User.all.sample
 )
 
@@ -217,7 +217,7 @@ post_ei = Post.new(
   A very impressive artist. Some bio copied from his website - Mitchell's practice incorporates glass, objects,
   sculpture, image making and video. He first started glassblowing
   at the University of Louisville's Hite Art Institue, earning a BFA in Glass in 2011.",
-  category: "3d Modeling",
+  category: "3D Modeling",
   user: User.all.sample
 )
 
@@ -232,7 +232,7 @@ post_ni = Post.new(
   Music written & produced by Wolfgang Tillmans, Tim Knapp, Bruno Breitzke
   Vocals and lyrics by Wolfgang Tillmans Recorded at Trixx Studios, Berlin, 2020
   Mastered by Klaus Knapp at Trixx Studios, Berlin, 2021",
-  category: "2d Visual Art",
+  category: "2D Visual Art",
   user: User.all.sample
 )
 
@@ -241,7 +241,7 @@ post_twenty = Post.new(
   content: "
   https://luyang.asia/
   Super talented digital media artist. Born in Shanghai, China.",
-  category: "2d Visual Art",
+  category: "2D Visual Art",
   user: User.all.sample
 )
 
@@ -249,7 +249,7 @@ post_twentyone = Post.new(
   title: "Deer sheng, Artist and Designer Website",
   content: "
   https://wilddeer.land/",
-  category: "3d Modeling",
+  category: "3D Modeling",
   user: User.all.sample
 )
 
