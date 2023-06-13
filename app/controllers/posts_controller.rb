@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   def update
     authorize @post
     @post.update(post_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(category: @post.category)
   end
 
   def destroy
