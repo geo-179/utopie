@@ -1,4 +1,4 @@
-<div class= "simple-form fs-5 w-50 container mt-5 pt-5 text-palatino">
+<div class= "simple-form fs-5 w-50 container mt-5 pt-5 font-arial">
   <%= simple_form_for(@post) do |f| %>
     <%= f.input :title, label: false, placeholder: "Title", input_html: {class: "bg-light"} %>
     <%= f.input :category,label: false, as: :select, selected: "3D Modeling", input_html: {class: "bg-light"},collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>

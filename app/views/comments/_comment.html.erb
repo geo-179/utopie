@@ -1,8 +1,8 @@
 <%= cl_image_tag comment.user.photo.key, crop: :fill, class: "avatar" %>
 
 <small>
-  <strong class="font-cinzel"><%= comment.user.nickname %></strong>
+  <strong class="font-arial"><%= comment.user.nickname %></strong>
   <i><%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></i>
 </small>
 
-<p class="text-palatino"><%= comment.content %></p>
+<p class="font-arial"><%= comment.content %></p>

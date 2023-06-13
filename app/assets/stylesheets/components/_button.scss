@@ -1,23 +1,3 @@
-.button-p {
-  background-color: #1e042fc9;
-  border-radius: 40px;
-  box-shadow: rgb(178, 125, 251);
-  color: rgb(244, 255, 241);
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Cinzel', serif;
-  padding: 2px 5mm;
-  text-align: center;
-  text-decoration: none;
-  transition: all 180ms;
-  border: 0;
-  font-size: 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left:19px;
-  margin-top:3px;
-}
 
 .button-s {
   background-color: #1e042fc9;
@@ -55,4 +35,46 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.button-p {
+  background-color: #B1ABE2;
+  border-radius: 40px;
+  box-shadow:#060003;
+  color: #4c4c4c;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2px 5mm;
+  text-align: center;
+  text-decoration: none;
+  transition: all 180ms;
+  border: 0;
+  font-size: 17px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left:22px;
+  margin-top:3px;
+}
+
+.button-b {
+  background-color: #080016;
+  border-radius: 40px;
+  box-shadow:#B1ABE2;
+  color: #fbfbfb;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2px 5mm;
+  text-align: center;
+  text-decoration: none;
+  transition: all 180ms;
+  border: 0;
+  font-size: 17px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left:22px;
+  margin-top:3px;
 }

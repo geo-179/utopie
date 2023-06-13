@@ -27,7 +27,7 @@
 
 .nav-text{
   color: #000000;
-  font-family: 'Cinzel', serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .text-30 {
@@ -45,26 +45,7 @@
   box-shadow: 0 5px 16px 0 rgba(206, 5, 119, 0.275), 0 5px 10px 0 rgba(203, 16, 128, 0.363);
 }
 
-.button-p {
-  background-color: #1e042fc9;
-  border-radius: 40px;
-  box-shadow: rgb(178, 125, 251);
-  color: rgb(244, 255, 241);
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Cinzel', serif;
-  padding: 2px 5mm;
-  text-align: center;
-  text-decoration: none;
-  transition: all 180ms;
-  border: 0;
-  font-size: 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left:19px;
-  margin-top:3px;
-}
+
 
 .button-p:hover {
   box-shadow: rgba(47, 18, 77, 0.35);
