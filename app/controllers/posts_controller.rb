@@ -5,11 +5,11 @@ class PostsController < ApplicationController
     @signed_in_user = current_user
 
     if params[:category].present?
-      @posts = @posts.where(category: params[:category])
+      @posts = @posts.where(category: params[:category]).order("created_at DESC")
     end
 
     if params[:keyword].present?
-      @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%")
+      @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%").order("created_at DESC")
     end
 
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     authorize @post
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to posts_path(category: @post.category)
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   def update
     authorize @post
     @post.update(post_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(category: @post.category)
   end
 
   def destroy

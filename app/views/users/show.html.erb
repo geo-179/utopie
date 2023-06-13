@@ -9,7 +9,7 @@
       <p class="fs-4 font-arial"><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button class="button-p ms-0">Edit Profile</button>
+          <button class="button-s">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
@@ -62,7 +62,7 @@
         <% end %>
       </div>
     <% else %>
-      <p class="fs-3 px-5">You have no bookmarks at this time</p>
+      <p class="fs-3 px-5 text-palatino">You have no bookmarks at this time</p>
     <% end %>
   </div>
 
