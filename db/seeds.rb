@@ -105,153 +105,153 @@ post_seven = Post.new(
   user: User.all.sample
 )
 
-# post_eight = Post.new(
-#   title: "Live music programming with Gibber!!!",
-#   content: "Check out this live acid techno programming with Gibber
-#   https://www.xiaohongshu.com/explore/6471a2950000000013008951?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686239568,
-#   official website is here
-#   https://gibber.cc/index.html",
+post_eight = Post.new(
+  title: "Live music programming with Gibber!!!",
+  content: "Check out this live acid techno programming with Gibber
+  https://www.xiaohongshu.com/explore/6471a2950000000013008951?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686239568,
+  official website is here
+  https://gibber.cc/index.html",
 
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+  category: "Music Tech",
+  user: User.all.sample
+)
 
-# post_nine = Post.new(
-#   title: "Introduction to Pure Data",
-#   content: "A very basic introduction to Pure Data, live sound programming!
-#   https://www.youtube.com/watch?v=SLx7kjuFheY",
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+post_nine = Post.new(
+  title: "Introduction to Pure Data",
+  content: "A very basic introduction to Pure Data, live sound programming!
+  https://www.youtube.com/watch?v=SLx7kjuFheY",
+  category: "Music Tech",
+  user: User.all.sample
+)
 
-# post_ten = Post.new(
-#   title: "A very good Youtube course on introduction to Touch Designer",
-#   content: "
-#   bileam tschepe (elekktronaut)
-#   https://www.youtube.com/watch?v=Z_WfldiO6HI",
-#   category: "2D Visual Art",
-#   user: User.all.sample
-# )
+post_ten = Post.new(
+  title: "A very good Youtube course on introduction to Touch Designer",
+  content: "
+  bileam tschepe (elekktronaut)
+  https://www.youtube.com/watch?v=Z_WfldiO6HI",
+  category: "2D Visual Art",
+  user: User.all.sample
+)
 
-# post_el = Post.new(
-#   title: "A live music programming tool you can use for your audiovisual performance - Gibber",
-#   content: " Gibber is a live coding environment for audiovisual performance.
-#   https://gibber.cc/
+post_el = Post.new(
+  title: "A live music programming tool you can use for your audiovisual performance - Gibber",
+  content: " Gibber is a live coding environment for audiovisual performance.
+  https://gibber.cc/
 
-#   There are lots of amazing live coding systems out there,
-#   a few things that make Gibber different include:
-#   Novel annotations and visualizations within the code editing environment.
-#   Unified semantics for sequencing audio and visuals.
-#   Support for coding with external audiovisual libraries, such as p5.js and hydra.
-#   Support for networked ensemble performances.",
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+  There are lots of amazing live coding systems out there,
+  a few things that make Gibber different include:
+  Novel annotations and visualizations within the code editing environment.
+  Unified semantics for sequencing audio and visuals.
+  Support for coding with external audiovisual libraries, such as p5.js and hydra.
+  Support for networked ensemble performances.",
+  category: "Music Tech",
+  user: User.all.sample
+)
 
-# post_tw = Post.new(
-#   title: "Sonic Pi for live music programming",
-#   content: "Sonic Pi is a live coding environment based on Ruby,
-#   originally designed to support both computing and music lessons in schools,
-#   developed by Sam Aaron in the University of Cambridge Computer Laboratory
-#   in collaboration with Raspberry Pi Foundation.
-#   https://sonic-pi.net/
-#   ",
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+post_tw = Post.new(
+  title: "Sonic Pi for live music programming",
+  content: "Sonic Pi is a live coding environment based on Ruby,
+  originally designed to support both computing and music lessons in schools,
+  developed by Sam Aaron in the University of Cambridge Computer Laboratory
+  in collaboration with Raspberry Pi Foundation.
+  https://sonic-pi.net/
+  ",
+  category: "Music Tech",
+  user: User.all.sample
+)
 
-# post_th = Post.new(
-#   title: "Sonic Pi no sound potential solution",
-#   content: "FYI I just realized switching between audio devices while Sonic Pi is open
-#   (by running, I meant open) does not work
-#   - in order to do so, you need to close, then change devices, and then reopen Sonic Pi..",
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+post_th = Post.new(
+  title: "Sonic Pi no sound potential solution",
+  content: "FYI I just realized switching between audio devices while Sonic Pi is open
+  (by running, I meant open) does not work
+  - in order to do so, you need to close, then change devices, and then reopen Sonic Pi..",
+  category: "Music Tech",
+  user: User.all.sample
+)
 
 
-# post_fo = Post.new(
-#   title: "Blender real-time audio-visual interaction",
-#   content: "https://www.xiaohongshu.com/discovery/item/6486a4a200000000130306ea?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686579449
-#   A very cool post I found on the Red book today..",
-#   category: "3D Modeling",
-#   user: User.all.sample
-# )
+post_fo = Post.new(
+  title: "Blender real-time audio-visual interaction",
+  content: "https://www.xiaohongshu.com/discovery/item/6486a4a200000000130306ea?app_platform=ios&app_version=7.89&share_from_user_hidden=true&type=video&xhsshare=WeixinSession&appuid=5f0764ea0000000001006d53&apptime=1686579449
+  A very cool post I found on the Red book today..",
+  category: "3D Modeling",
+  user: User.all.sample
+)
 
-# post_fi = Post.new(
-#   title: "Ableton with Baby Lucia: Resampling beat repeats",
-#   content: " https://www.youtube.com/watch?v=xWEJ80Kmx54
-#   Rearranging harmonies with some effects. Find this artist Baby Lucia's quick tutorial on
-#   Youtube may be helpful to someone who wants to compose something new",
-#   category: "Music Tech",
-#   user: User.all.sample
-# )
+post_fi = Post.new(
+  title: "Ableton with Baby Lucia: Resampling beat repeats",
+  content: " https://www.youtube.com/watch?v=xWEJ80Kmx54
+  Rearranging harmonies with some effects. Find this artist Baby Lucia's quick tutorial on
+  Youtube may be helpful to someone who wants to compose something new",
+  category: "Music Tech",
+  user: User.all.sample
+)
 
-# post_si = Post.new(
-#   title: " Animation 'lilac' Vampillia feat Jun Togawa(official MV) LP out in 2016",
-#   content: "
-#   https://www.youtube.com/watch?v=Wu-Id91ULH8
-#   Vampillia, which calls itself the '10-piece brutal symphony orchestra,'
-#   is a Japanese experimental ensemble founded in 2005.
-#   The orchestra has vocals, guitars, bass, strings, piano and noise parts,
-#   and the music has a kind of gloomy beauty that only the Japanese can do.",
-#   category: "2d Visual Art",
-#   user: User.all.sample
-# )
+post_si = Post.new(
+  title: " Animation 'lilac' Vampillia feat Jun Togawa(official MV) LP out in 2016",
+  content: "
+  https://www.youtube.com/watch?v=Wu-Id91ULH8
+  Vampillia, which calls itself the '10-piece brutal symphony orchestra,'
+  is a Japanese experimental ensemble founded in 2005.
+  The orchestra has vocals, guitars, bass, strings, piano and noise parts,
+  and the music has a kind of gloomy beauty that only the Japanese can do.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
 
-# post_se = Post.new(
-#   title: "Touch Designer tutorial by Ben Heim on Reaction Diffusion and Paramterization",
-#   content: "
-#   https://www.youtube.com/watch?v=JSp9AQ_wBZw
-#   exploring reaction diffusion systems in touchdesigner
-#   and parameterization for live performance.",
-#   category: "2d Visual Art",
-#   user: User.all.sample
-# )
+post_se = Post.new(
+  title: "Touch Designer tutorial by Ben Heim on Reaction Diffusion and Paramterization",
+  content: "
+  https://www.youtube.com/watch?v=JSp9AQ_wBZw
+  exploring reaction diffusion systems in touchdesigner
+  and parameterization for live performance.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
 
-# post_ei = Post.new(
-#   title: "Mitchell Noah, artist and educator currently based in Baltimore",
-#   content: "
-#   https://mitchellnoah.com/
+post_ei = Post.new(
+  title: "Mitchell Noah, artist and educator currently based in Baltimore",
+  content: "
+  https://mitchellnoah.com/
 
-#   A very impressive artist. Some bio copied from his website - Mitchell's practice incorporates glass, objects,
-#   sculpture, image making and video. He first started glassblowing
-#   at the University of Louisville's Hite Art Institue, earning a BFA in Glass in 2011.",
-#   category: "3d Modeling",
-#   user: User.all.sample
-# )
+  A very impressive artist. Some bio copied from his website - Mitchell's practice incorporates glass, objects,
+  sculpture, image making and video. He first started glassblowing
+  at the University of Louisville's Hite Art Institue, earning a BFA in Glass in 2011.",
+  category: "3d Modeling",
+  user: User.all.sample
+)
 
-# post_ni = Post.new(
-#   title: "Wolfgang Tillmans - Insanely Alive",
-#   content: "
-#   https://www.youtube.com/watch?v=3KPxOh8OVL8
-#   Directed and filmed by Wolfgang Tillmans
-#   Edited by Michael Amstad
-#   Video featuring Bronya Meredith
+post_ni = Post.new(
+  title: "Wolfgang Tillmans - Insanely Alive",
+  content: "
+  https://www.youtube.com/watch?v=3KPxOh8OVL8
+  Directed and filmed by Wolfgang Tillmans
+  Edited by Michael Amstad
+  Video featuring Bronya Meredith
 
-#   Music written & produced by Wolfgang Tillmans, Tim Knapp, Bruno Breitzke
-#   Vocals and lyrics by Wolfgang Tillmans Recorded at Trixx Studios, Berlin, 2020
-#   Mastered by Klaus Knapp at Trixx Studios, Berlin, 2021",
-#   category: "2d Visual Art",
-#   user: User.all.sample
-# )
+  Music written & produced by Wolfgang Tillmans, Tim Knapp, Bruno Breitzke
+  Vocals and lyrics by Wolfgang Tillmans Recorded at Trixx Studios, Berlin, 2020
+  Mastered by Klaus Knapp at Trixx Studios, Berlin, 2021",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
 
-# post_twenty = Post.new(
-#   title: "Artist Website Lu Yang 陸揚",
-#   content: "
-#   https://luyang.asia/
-#   Super talented digital media artist. Born in Shanghai, China.",
-#   category: "2d Visual Art",
-#   user: User.all.sample
-# )
+post_twenty = Post.new(
+  title: "Artist Website Lu Yang 陸揚",
+  content: "
+  https://luyang.asia/
+  Super talented digital media artist. Born in Shanghai, China.",
+  category: "2d Visual Art",
+  user: User.all.sample
+)
 
-# post_twentyone = Post.new(
-#   title: "Deer sheng, Artist and Designer Website",
-#   content: "
-#   https://wilddeer.land/",
-#   category: "3d Modeling",
-#   user: User.all.sample
-# )
+post_twentyone = Post.new(
+  title: "Deer sheng, Artist and Designer Website",
+  content: "
+  https://wilddeer.land/",
+  category: "3d Modeling",
+  user: User.all.sample
+)
 
 
 puts "Creating post..."
@@ -420,14 +420,12 @@ post_se.photos.attach([
 
 puts "18"
 post_ei.photos.attach([
-  { io: URI.open(url44), filename: "#{post_ei.title}-1.jpg", content_type: 'image/jpg' },
-  { io: URI.open(url45), filename: "#{post_ei.title}-2.jpg", content_type: 'image/jpg' }
+  { io: URI.open(url44), filename: "#{post_ei.title}-1.jpg", content_type: 'image/jpg' }
 ])
 
 puts "19"
 post_ni.photos.attach([
-  { io: URI.open(url47), filename: "#{post_ni.title}-1.jpg", content_type: 'image/jpg' },
-  { io: URI.open(url48), filename: "#{post_ni.title}-2.jpg", content_type: 'image/jpg' }
+  { io: URI.open(url47), filename: "#{post_ni.title}-1.jpg", content_type: 'image/jpg' }
 ])
 
 puts "20"
@@ -469,7 +467,6 @@ post_twentyone.save!
 
 puts "Posts have been created!"
 
-
 user_for_likes = User.all.sample(rand(0..10))
 user_for_likes.each do |user|
   Post.all.each do |post|
@@ -489,7 +486,7 @@ puts "art-related posts have been created. 🎨🎨🎨"
 
 # Create post-related comments
 
-NUM_COMMENTS = 100
+NUM_COMMENTS = 50
 
 NUM_COMMENTS.times do
   content = Faker::Lorem.paragraph(sentence_count: 4)
