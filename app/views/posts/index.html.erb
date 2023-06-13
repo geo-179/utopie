@@ -5,12 +5,6 @@
 
 
 <div class="d-flex w-100 justify-content-evenly align-items-center mt-120 mb-30">
-  <%# CREATE NEW POST %>
-  <div>
-  <%= link_to new_post_path do %>
-    <button class="button-b" type="button fw-medium" style="text-decoration-none">Create New Post</button>
-  <% end %>
-  </div>
   <%# SEARCH BAR FOR FILTERING %>
   <form action="posts" method="get">
     <input type="text" name="keyword" id="keyword" class="ps-400 mr-100">
@@ -96,3 +90,10 @@
 
 
 </div>
+
+<%# CREATE NEW POST %>
+<div class="fixed-bottom d-flex justify-content-end mr-90 mb-5">
+<%= link_to new_post_path do %>
+  <img src="add.png" class="img-add posistion-fixed" alt="add.png">
+<% end %>
+<div>
