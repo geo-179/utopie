@@ -6,21 +6,21 @@
     <div class="d-flex flex-column align-items-start col-3 p-5">
       <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
       <p class="fw-bolder fs-3 font-cinzel"><%= @user.nickname %></p>
-      <p class="fs-3 text-palatino"><%= @user.email %></p>
+      <p class="fs-4 text-palatino"><%= @user.email %></p>
       <% if policy(@user).edit? %>
-        <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button class="button-p">Edit Profile</button>
+        <%= link_to edit_user_registration_path(@user) do%>
+          <button class="button-s">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
     <%# Div for bio %>
     <div class="col-6 d-flex flex-column justify-content-center p-4">
       <p class="fs-3 fw-bolder font-cinzel">Bio</p>
-      <p class="fs-3 text-palatino"><%= @user.bio %></p>
+      <p class="fs-4 text-palatino"><%= @user.bio %></p>
     </div>
     <%# Div for page links %>
     <div class="col-3 p-5 d-flex flex-column align-items-end">
-      <p class="font-cinzel text-decoration-underline" style="font-weight: 700, ">Navigate To</p>
+      <p class="font-cinzel text-decoration-underline" style="font-weight: 700">Navigate To</p>
       <%= link_to "My Posts", "#user-posts", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
       <%= link_to "My Bookmarks", "#user-bookmarks", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
       <%= link_to "Contributions", "#user-contributions", class: "text-decoration-none font-cinzel jump-to-link mb-2" %>
@@ -62,7 +62,7 @@
         <% end %>
       </div>
     <% else %>
-      <p class="fs-3 px-5">You have no bookmarks at this time</p>
+      <p class="fs-3 px-5 text-palatino">You have no bookmarks at this time</p>
     <% end %>
   </div>
 
