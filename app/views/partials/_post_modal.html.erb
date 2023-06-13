@@ -68,7 +68,7 @@
         <div class="comments-bucket">
           <%# COMMENTS WEBSOCKET %>
           <div data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-target="button">
-            <% post.comments.each do |comment|%>
+            <% post.comments.sort_by { |date| date['created_at']}.reverse.each do |comment|%>
               <div class="py-2">
               <%= render "comments/comment", comment: comment %>
               </div>
