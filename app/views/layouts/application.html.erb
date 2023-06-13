@@ -44,19 +44,28 @@
       <a class="nav-text fw-normal text-decoration-none pt-2 fs-5" href="#">Community</a>
       <%# User login%>
       <% if current_user %>
-        <div class="d-flex align-items-center">
-          <%= link_to user_path(current_user) do %>
-            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
-          <% end %>
-          <%= button_to destroy_user_session_path, method: :delete, class: "button-p" do %>
-            Log Out
-          <% end %>
+        <div class="dropdown">
+          <span><%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %></span>
+          <div class="dropdown-content">
+              <ul class="dropdown-list">
+                <li>
+                  <%= link_to user_path(current_user), class: "dropdown-object" do %>
+                    <p class="dropdown-object">Profile Page</p>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-object" do %>
+                    <p class="dropdown-object">Log Out</p>
+                  <% end %>
+                </li>
+              </ul>
+          </div>
         </div>
       <% else %>
         <%= button_to new_user_session_path, class: "button-p" do %>
           Log In
         <% end %>
-        <% end %>
+      <% end %>
     </div>
 
     <%= yield %>
