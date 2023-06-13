@@ -1,9 +1,9 @@
-<div class= "simple-form fs-5 w-50 container mt-5 pt-5 text-palatino">
+<div class= "simple-form fs-5 w-50 container mt-5 pt-5 font-cinzel">
   <%= simple_form_for(@post) do |f| %>
-    <%= f.input :title, label: false, placeholder: "Title" %>
-    <%= f.input :category,label: false, as: :select, selected: "3D Modeling", input_html: {class: "bg-light"},collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
-    <%= f.input :content,label: false, placeholder: "Content", as: :text, input_html: {rows: 10, class: "bg-light"} %>
-    <%= f.input :photos,label: false, placeholder: "Photo", as: :file, input_html: { multiple: true, class: "bg-light" } %>
+    <%= f.input :title %>
+    <%= f.input :category, as: :select, selected: "3D Modeling", collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
+    <%= f.input :content, as: :text, input_html: { rows: 10 } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <% if @post.id == nil %>
       <%= f.submit "Create Post", class: "button-s" %>
     <% else %>
