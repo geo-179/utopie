@@ -31,16 +31,61 @@
   <div class="p-5" id="user-posts">
     <p class="fw-bolder px-5 fs-3 font-arial">Posts</p>
 
-    <%# grid for post cards %>
-    <div class="user-show-cards px-5 py-3">
-      <% @user.posts.each do |post| %>
-        <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{post.id}-modal"}} do %>
-          <div class="user-show-card">
-            <p class="title-purple fs-4"><%= post.title %></p>
+    <%# Image Card %>
+    <div class="container py-5">
+      <div class="row" data-masonry='{"percentposition": true }'>
+        <% @user.posts.each do |post| %>
+          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+
+            <%# CARD %>
+            <div class="cd">
+              <div class="relative">
+                <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+              </div>
+
+              <%# **** %>
+              <%= render "partials/post_modal", post: post %>
+
+              <%# CARD BODY THAT MOVES IN %>
+              <div class="cd-body">
+                <h1 class="cd-title"><%= post.title %></h1>
+                <h2 class="cd-author">By: <%= post.user.nickname %></h2>
+
+
+                <%# POST AND LIKE %>
+                <div class="d-flex">
+                  <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                    View Post
+                  </button>
+
+
+
+                  <div class="flex-grow-1"></div>
+                </div>
+
+
+              </div>
+
+              <div class="top-corner d-flex align-items-center py-1 px-2">
+                <%# HEART AND LIKE %>
+                <div data-post-subscription-target="likes">
+                  <%= render "likes/like", post: post %>
+                </div>
+
+                <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+                  <%= render "likes/like_button", post: post %>
+                </div>
+              </div>
+
+            </div>
           </div>
         <% end %>
-        <%= render "partials/post_modal", post: post %>
-      <% end %>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <%= link_to new_post_path do %>
+            <button class="cd-button w-100" type="button fw-medium" style="text-decoration-none">Create Post</button>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -49,17 +94,59 @@
   <div class="p-5" id="user-bookmarks">
     <p class="fw-bolder px-5 fs-3 font-arial">Bookmarks</p>
 
+
     <% if @user.bookmarks.count > 0 %>
       <%# Grid for bookmarked post cards %>
-      <div class="px-5 bookmarked-post-cards">
-        <% @user.bookmarks.each do |bookmark| %>
-          <%= link_to "#", { data: {bs_toggle: "modal", bs_target: "#post-#{bookmark.post.id}-modal"}} do %>
-            <div class="bookmarked-post-card">
-              <p class="title-black"><%= bookmark.post.title %></p>
+      <div class="container py-5">
+        <div class="row" data-masonry='{"percentposition": true }'>
+          <% @user.bookmarks.each do |bookmark| %>
+            <% post = bookmark.post %>
+            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+
+              <%# CARD %>
+              <div class="cd">
+                <div class="relative">
+                  <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                </div>
+
+                <%# **** %>
+                <%= render "partials/post_modal", post: post %>
+
+                <%# CARD BODY THAT MOVES IN %>
+                <div class="cd-body">
+                  <h1 class="cd-title"><%= post.title %></h1>
+                  <h2 class="cd-author">By: <%= post.user.nickname %></h2>
+
+
+                  <%# POST AND LIKE %>
+                  <div class="d-flex">
+                    <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                      View Post
+                    </button>
+
+
+
+                    <div class="flex-grow-1"></div>
+                  </div>
+
+
+                </div>
+
+                <div class="top-corner d-flex align-items-center py-1 px-2">
+                  <%# HEART AND LIKE %>
+                  <div data-post-subscription-target="likes">
+                    <%= render "likes/like", post: post %>
+                  </div>
+
+                  <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+                    <%= render "likes/like_button", post: post %>
+                  </div>
+                </div>
+
+              </div>
             </div>
           <% end %>
-          <%= render "partials/post_modal", post: bookmark.post %>
-        <% end %>
+        </div>
       </div>
     <% else %>
       <p class="fs-5 px-5 font-arial">You have no bookmarks at this time</p>
