@@ -5,7 +5,7 @@
 
       <%# MODAL HEADER %>
       <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-gray" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
 
@@ -16,7 +16,7 @@
           <%# POST TITLE %>
           <div class="mt-5 mb-5">
             <div class="mt-5">
-              <p class="fs-2 fw-bolder post-title font-cinzel"><%= post.title %></p>
+              <p class="fs-2 fw-bolder post-title font-arial"><%= post.title %></p>
             </div>
           </div>
 
@@ -53,8 +53,8 @@
           <%# POST CONTENT %>
           <div class="mt-5 mb-5">
             <div class="mt-5">
-              <p class="fs-4 text-palatino"><%= post.content %></p>
-              <p class="fs-4 text-palatino">Created by: <%= post.user.nickname %> </p>
+              <p class="fs-4 font-arial"><%= post.content %></p>
+              <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
             </div>
           </div>
 
@@ -76,12 +76,14 @@
           </div>
 
           <%# CREATE COMMENT %>
-          <p class="fs-3 fw-medium mt-5 mb-4 font-cinzel">Create Comment</p>
+
+          <p class="fs-3 fw-medium mt-5 mb-4 font-arial">Contribute To Discussion</p>
 
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
             <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Upload comment", class: "button-p" %>
+            <%= f.submit "Contribute", class: "button-p" %>
+
           <% end %>
         </div>
       </div>
