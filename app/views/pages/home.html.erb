@@ -1,6 +1,6 @@
 <div class="img-bg"
 style="
-    background-image: url(./bg_new.gif);
+    background-image: url(<%= root_path %>bg_new.gif);
     height: 155vh;
     background-repeat: no-repeat;
     background-position: center;
@@ -9,7 +9,7 @@ style="
 
   <div class="position-absolute" style = "left:1000px; top:630px">
     <%= link_to posts_path(category: "2D Visual Art"), class: 'link_text' do %>
-      <img src="2d.png" class="img-2D shadow" alt="2d.png">
+      <img src="<%= root_path %>2d.png" class="img-2D shadow" alt="2d.png">
       <p class="fw-medium fs-3 text-purple-200 font-cinzel">2D Visual Art</p>
     <% end %>
   </div>
@@ -22,14 +22,14 @@ style="
 
   <div class="position-absolute" style = "left:819px; top:699px">
     <%= link_to posts_path(category: "3D Modeling"), class: 'link_text' do %>
-      <img src="3d_modeling.png" class="img-3D shadow" alt="3D_logo.png">
+      <img src="<%= root_path %>3d_modeling.png" class="img-3D shadow" alt="3D_logo.png">
     <% end %>
   </div>
 
 
   <div class="position-absolute" style = "left:1393px; top:810px">
     <%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
-      <img src="music_techh.png" class="music-tech shadow" alt="music-tech.png">
+      <img src="<%= root_path %>music_techh.png" class="music-tech shadow" alt="music-tech.png">
       <p class="fw-medium fs-3 text-purple-200 font-cinzel">Music Tech</p>
     <% end %>
   </div>
@@ -49,7 +49,7 @@ style="
       <div class="col-sm-6 col-lg-4 mb-4">
         <div class="cd">
           <div class="relative">
-            <img src="3DM.jpeg" alt="3D Modelling" class="d-block w-100 card-img-top-cate">
+            <img src="<%= root_path %>3DM.jpeg" alt="3D Modelling" class="d-block w-100 card-img-top-cate">
           </div>
 
 
@@ -74,7 +74,7 @@ style="
       <div class="col-sm-6 col-lg-4 mb-4">
         <div class="cd">
           <div class="relative">
-            <img src="2DVA.jpeg" alt="2D Visual Arts" class="d-block w-100 card-img-top-cate">
+            <img src="<%= root_path %>2DVA.jpeg" alt="2D Visual Arts" class="d-block w-100 card-img-top-cate">
           </div>
 
 
@@ -99,7 +99,7 @@ style="
       <div class="col-sm-6 col-lg-4 mb-4">
         <div class="cd">
           <div class="relative">
-            <img src="MT.png" alt="Music Tech" class="d-block w-100 card-img-top-cate">
+            <img src="<%= root_path %>MT.png" alt="Music Tech" class="d-block w-100 card-img-top-cate">
           </div>
 
 
@@ -124,7 +124,7 @@ style="
   </div>
 <div class="position-absolute" style = "left:1393px; top:810px">
 <%= link_to posts_path(category: "Music Tech"), class: 'link_text' do %>
-<img src="music_techh.png" class="music-tech shadow" alt="music-tech.png">
+<img src="<%= root_path %>music_techh.png" class="music-tech shadow" alt="music-tech.png">
 <p class="fw-medium fs-3 text-purple-200 font-cinzel">Music Tech</p>
 <% end %>
 </div>
