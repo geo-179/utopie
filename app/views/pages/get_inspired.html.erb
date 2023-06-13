@@ -1,39 +1,41 @@
-<div class="container py-5">
-  <div class="row" data-masonry='{"percentposition": true }'>
+<div style="background-color:white;">
+  <div class="container py-5">
+    <div class="row" data-masonry='{"percentposition": true }'>
 
-    <%# Image Card %>
-    <% @posts.each do |post| %>
-      <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+      <%# Image Card %>
+      <% @posts.each do |post| %>
+        <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
 
-        <%# CARD %>
-        <div class="cd">
-          <div class="relative">
-            <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
-          </div>
-
-
-
-          <%# CARD BODY THAT MOVES IN %>
-          <div class="cd-body">
-            <h1 class="cd-title"><%= post.title %></h1>
-            <h2 class="cd-author">By: <%= post.user.nickname %></h2>
-
-
-            <%# POST AND LIKE %>
-            <div class="d-flex">
-              <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
-                View Post
-              </button>
-
-              <div class="flex-grow-1"></div>
+          <%# CARD %>
+          <div class="cd">
+            <div class="relative">
+              <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
             </div>
 
 
-          </div>
-        </div>
-        <%= render "partials/post_modal", post: post %>
-      </div>
-    <% end %>
 
+            <%# CARD BODY THAT MOVES IN %>
+            <div class="cd-body">
+              <h1 class="cd-title"><%= post.title %></h1>
+              <h2 class="cd-author">By: <%= post.user.nickname %></h2>
+
+
+              <%# POST AND LIKE %>
+              <div class="d-flex">
+                <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                  View Post
+                </button>
+
+                <div class="flex-grow-1"></div>
+              </div>
+
+
+            </div>
+          </div>
+          <%= render "partials/post_modal", post: post %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
