@@ -76,12 +76,12 @@
           </div>
 
           <%# CREATE COMMENT %>
-          <p class="fs-3 fw-medium mt-5 mb-4 font-cinzel">Create Comment</p>
+          <p class="fs-3 fw-medium mt-5 mb-4 font-cinzel">Contribute To Discussion</p>
 
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
             <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Upload comment", class: "button-p" %>
+            <%= f.submit "Contribute", class: "button-p" %>
           <% end %>
         </div>
       </div>
