@@ -14,7 +14,7 @@
   <body>
 
     <%# Navbar %>
-    <div class="p-2 border-black d-flex justify-content-around align-items-center fixed-top background-white height-60" style="background-color:white;">
+    <div class="p-2 border-black d-flex justify-content-around align-items-center fixed-top background-white height-80" style="background-color:white;">
 
       <%# Logo / Button to home page %>
       <%= link_to root_path do %>
@@ -31,9 +31,9 @@
           Posts
         </a>
         <ul class="dropdown-menu fs-5 text-decoration-none">
-          <li><%= link_to posts_path(category: "3D Modeling"), class: "dropdown-item nav-text text-20 " do %>3D Modeling<% end %></li>
-          <li><%= link_to posts_path(category: "2D Visual Art"), class: "dropdown-item nav-text text-20" do %>2D Visual Art<% end %></li>
-          <li><%= link_to posts_path(category: "Music Tech"), class: "dropdown-item nav-text text-20" do %>Music Tech<% end %></li>
+          <li><%= link_to posts_path(category: "3D Modeling"), class: "nav-text text-20" do %>3D Modeling<% end %></li>
+          <li><%= link_to posts_path(category: "2D Visual Art"), class: "nav-text text-20" do %>2D Visual Art<% end %></li>
+          <li><%= link_to posts_path(category: "Music Tech"), class: "nav-text text-20" do %>Music Tech<% end %></li>
         </ul>
       </li>
 
@@ -42,21 +42,22 @@
       <%# <a class="nav-text text-decoration-none pt-2 fs-5" href="#">Get Inspired</a> %>
       <%= link_to "Get Inspired", get_inspired_path, class: 'nav-text text-decoration-none fs-5' %>
       <a class="nav-text text-decoration-none fs-5" href="#">Community</a>
+
       <%# User login%>
       <% if current_user %>
-        <div class="dropdown">
-          <span><%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %></span>
-          <div class="dropdown-content">
-              <ul class="dropdown-list">
-                <li>
-                  <%= link_to "Profile Page", user_path(current_user), class: "dropdown-object" %>
-                </li>
-                <li>
-                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-object" %>
-                </li>
-              </ul>
-          </div>
-        </div>
+         <li class="dropdown list-unstyled">
+          <a class="nav-link dropdown-toggle nav-text text-30 fs-5 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
+          </a>
+          <ul class="dropdown-menu fs-5 text-decoration-none">
+            <li>
+              <%= link_to "Profile Page", user_path(current_user), class: "nav-text text-20" %>
+            </li>
+            <li>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-text text-20" %>
+            </li>
+          </ul>
+        </li>
       <% else %>
         <%= button_to new_user_session_path, class: "button-p" do %>
           Log In
