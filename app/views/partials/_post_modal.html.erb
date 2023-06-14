@@ -55,6 +55,11 @@
             </div>
           </div>
 
+          <%# LINK %>
+          <% if post.link != nil %>
+            <a href="<%= post.link %>">LINK TO SOURCE</a>
+          <% end %>
+
           <%# POST CONTENT %>
           <div class="mt-5 mb-5">
             <div class="mt-5">
