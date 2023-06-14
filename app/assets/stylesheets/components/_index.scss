@@ -135,8 +135,8 @@
   background-color: #FCFCFF;
 }
 
-.mt-120{
-  margin-top:120px;
+.pt-120{
+  padding-top:120px;
 }
 
 .mb-30{
@@ -175,3 +175,47 @@
  .mr-90{
   margin-right:90px;
  }
+
+ .bg-white{
+  background-color: #FCFCFF;
+ }
+
+ .pt-190{
+  padding-top:190px;
+ }
+
+ .pt-50{
+  padding-top:50px
+ }
+ .mb-60{
+  margin-bottom:60px;
+ }
+
+ .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin:20px
+}
+
+.grid-item {
+  background-color:none;
+  padding: 20px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.grid-item-avatar {
+  background-color:none;
+  padding-left: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item-center {
+  background-color:none;
+  padding-right:300px;
+  padding-left:70px;
+  padding-top: 20px;
+  font-size: 15px;
+  text-align: left;
+}
