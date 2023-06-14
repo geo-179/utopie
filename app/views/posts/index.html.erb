@@ -37,8 +37,8 @@
 
     <%# Image Card %>
     <% @posts.each do |post| %>
-      <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="comments" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
-
+      <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+        <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
         <%# CARD %>
         <div class="cd">
           <div class="relative">
@@ -82,7 +82,6 @@
 
       </div>
       <%# **** %>
-      <%= render "partials/post_modal", post: post %>
     <% end %>
   </div>
 </div>
