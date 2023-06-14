@@ -94,3 +94,19 @@
   box-shadow: rgba(47, 18, 77, 0.35);
   transform: scale(1.05);
 }
+
+.cancel-button {
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #B31312;
+    border: none;
+    padding: 8px 24px;
+    transition: 0.5s ease;
+  }
+
+  .cancel-button:hover {
+    color: #B31312;
+    background-color: #ffffff;
+    border: 1px solid #B1ABE2;
+    transform: scale(1.05);
+  }
