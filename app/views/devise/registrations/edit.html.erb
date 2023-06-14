@@ -1,51 +1,47 @@
-<div class="m-5 p-5">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="" style="margin-top:100px; padding:60px">
+  <div class="form-header">
+    <h2>Edit Profile </h2>
+  </div>
+  <%# <%= resource_name.to_s.humanize %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+      <div class="p-3">
+        <%= f.input :email, required: true, autofocus: true, label_html: { class: "font-cinzel" } %>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-    <div class="form-inputs p-3">
-      <%= f.input :email, required: true, autofocus: true, label_html: { class: "font-cinzel" } %>
+        <%= f.input :nickname,
+                required: false,
+                label_html: { class: "font-cinzel" },
+                label: "Nickname" %>
+        <%= f.input :bio,
+                label_html: { class: "font-cinzel" },
+                label: "Bio"%>
+        <%= f.input :photo, as: :file, required: false, label: "Profile Image", label_html: { class: "font-cinzel" } %>
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    label_html: { class: "font-cinzel" },
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    label_html: { class: "font-cinzel" },
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    label_html: { class: "font-cinzel" },
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+      <div class="form-actions" style="margin-bottom:25px">
+        <%= f.submit "Update My Account", class: "form-button" %>
+      </div>
+    <% end %>
 
-      <%= f.input :nickname,
-              required: false,
-              label_html: { class: "font-cinzel" },
-              label: "Nickname" %>
-      <%= f.input :bio,
-              label_html: { class: "font-cinzel" },
-              label: "Bio"%>
-      <%= f.input :photo, as: :file, required: false, label: "Profile Image", label_html: { class: "font-cinzel" } %>
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "current-password" } %>
-    </div>
+    <%= button_to "Cancel my account", registration_path(resource_name), class: "cancel-button", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
 
-    <div class="form-actions">
-      <%= f.submit "Update My Account", class: "button-s" %>
-    </div>
-  <% end %>
-
-  <div class="my-4">
-    <h3 class="font-cinzel">Cancel my account</h3>
-  <div>
-  <%= button_to "Cancel my account", registration_path(resource_name), class: "button-c", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
-
-  <div class="py-3">
-    <%= link_to "Back", :back, class: "text-decoration-none" %>
   </div>
 </div>

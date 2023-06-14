@@ -11,34 +11,33 @@
 
       <%# MODAL BODY %>
       <div class="w-100 d-flex justify-content-center px-5 pb-5">
-        <div>
+        <div class="w-100">
 
           <%# POST TITLE %>
-          <div class="d-flex mb-5 justify-content-between align-items-center">
-            <div class="mt-5">
+          <div class="d-flex mb-5 justify-content-between align-items-center w-100">
+            <div class="mt-5 flex-fill">
               <p class="fs-2 fw-bolder post-title font-arial"><%= post.title %></p>
             </div>
 
-            <div class="p-2">
+            <div>
+              <%= render "partials/bookmark", post: post %>
             </div>
-
-            <%= render "partials/bookmark", post: post %>
           </div>
 
           <%# CAROUSEL %>
-          <div>
+          <div class="w-100">
             <div id="<%= post.id %>-carousel-modal" class="carousel slide">
 
               <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
               <div class="carousel-inner">
                 <% post.photos.each_with_index do |photo, i| %>
                   <% if i == 0 %>
-                    <div class="carousel-item active d-flex justify-content-center">
-                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                    <div class="carousel-item active d-flex justify-content-center carousel-div">
+                      <%= cl_image_tag photo.key, crop: :fill, class: "carousel-image", alt: "slide" %>
                     </div>
                   <% else %>
-                    <div class="carousel-item">
-                      <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                    <div class="carousel-item carousel-div">
+                      <%= cl_image_tag photo.key, crop: :fill, class: "carousel-image", alt: "slide" %>
                     </div>
                   <% end %>
                 <% end %>
@@ -55,8 +54,15 @@
             </div>
           </div>
 
+          <%# LINK %>
+          <div class="my-5">
+            <% if post.link != nil %>
+              <a href="<%= post.link %>" target="_blank" class="fs-4 font-arial modal-link">LINK TO SOURCE</a>
+            <% end %>
+          </div>
+
           <%# POST CONTENT %>
-          <div class="mt-5 mb-5">
+          <div class="my-5">
             <div class="mt-5">
               <p class="fs-4 font-arial"><%= post.content %></p>
               <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
@@ -87,7 +93,7 @@
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
             <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Contribute", class: "button-p" %>
+            <%= f.submit "Contribute", class: "form-button" %>
 
           <% end %>
         </div>

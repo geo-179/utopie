@@ -7,9 +7,10 @@
 <div class="w-100 d-flex justify-content-evenly align-items-center mt-120 mb-30">
   <%# SEARCH BAR FOR FILTERING %>
   <form action="posts" method="get">
-    <input type="text" name="keyword" id="keyword" class="ps-400 mr-100">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" name="keyword" id="keyword" class="search-bar">
     <%# <label for="category" class="label-text ms-5 searchbar-text">Category</label> %>
-    <select name="category" id="category" class="ms-5">
+    <select name="category" id="category" class="category-bar">
       <% case params[:category] %>
       <% when "3D Modeling" %>
         <option value="3D Modeling" selected="selected">3D Modeling</option>
@@ -25,7 +26,7 @@
         <option value="Music Tech" selected="selected">Music Tech</option>
       <% end %>
     </select>
-    <input type="submit" value="Search" class="button-b ms-5">
+    <input type="submit" value="Search" class="form-button">
   </form>
 </div>
 
@@ -88,6 +89,7 @@
 <%# CREATE NEW POST %>
 <div class="fixed-bottom d-flex justify-content-end mr-90 mb-5">
   <%= link_to new_post_path do %>
-    <i class="fa-solid fa-circle-plus"></i>
+    <%# <i class="fa-solid fa-circle-plus"></i> %>
+    <img src="add.png" class="img-add posistion-fixed" alt="add.png">
   <% end %>
 <div>
