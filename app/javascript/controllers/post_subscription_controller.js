@@ -46,6 +46,7 @@ export default class extends Controller {
   }
 
   #insertCommentAndScrollDown(data) {
+    console.log("added comments")
     this.commentsTarget.insertAdjacentHTML("beforeend", data)
     this.commentsTarget.scrollTo(0, this.commentsTarget.scrollHeight)
   }
