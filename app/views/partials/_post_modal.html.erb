@@ -56,12 +56,14 @@
           </div>
 
           <%# LINK %>
-          <% if post.link != nil %>
-            <a href="<%= post.link %>">LINK TO SOURCE</a>
-          <% end %>
+          <div class="my-5">
+            <% if post.link != nil %>
+              <a href="<%= post.link %>" target="_blank" class="fs-4 font-arial modal-link">LINK TO SOURCE</a>
+            <% end %>
+          </div>
 
           <%# POST CONTENT %>
-          <div class="mt-5 mb-5">
+          <div class="my-5">
             <div class="mt-5">
               <p class="fs-4 font-arial"><%= post.content %></p>
               <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
