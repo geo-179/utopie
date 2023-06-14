@@ -4,7 +4,7 @@
 
 
 
-<div class="w-100 d-flex justify-content-evenly align-items-center pt-120 mb-30">
+<div class="w-100 d-flex justify-content-evenly align-items-center mt-120 mb-30">
   <%# SEARCH BAR FOR FILTERING %>
   <form action="posts" method="get">
     <i class="fa-solid fa-magnifying-glass"></i>
@@ -37,8 +37,8 @@
   <div class="row" data-masonry='{"percentposition": true }'>
 
     <%# Image Card %>
-    <% @posts.each do |post| %>
-      <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+    <% @posts.each_with_index do |post, i| %>
+      <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
         <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
         <%# CARD %>
         <div class="cd">
@@ -47,7 +47,7 @@
           </div>
 
           <%# **** %>
-          <%= render "partials/post_modal", post: post %>
+          <%= render "partials/post_modal", post: post, qr: @qr_codes[i] %>
 
           <%# CARD BODY THAT MOVES IN %>
           <div class="cd-body">
@@ -78,7 +78,6 @@
               <%= render "likes/like_button", post: post %>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -90,6 +89,7 @@
 <%# CREATE NEW POST %>
 <div class="fixed-bottom d-flex justify-content-end mr-90 mb-5">
   <%= link_to new_post_path do %>
+    <%# <i class="fa-solid fa-circle-plus"></i> %>
     <img src="add.png" class="img-add posistion-fixed" alt="add.png">
   <% end %>
 <div>

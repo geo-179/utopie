@@ -1,0 +1,79 @@
+
+<div class="container">
+  <%# MODAL BODY %>
+  <div class="w-100 d-flex justify-content-center px-5 pb-5">
+    <div>
+
+      <%# POST TITLE %>
+      <div class="d-flex mb-5 justify-content-between align-items-center">
+        <div class="mt-5">
+          <p class="fs-2 fw-bolder post-title font-arial"><%= post.title %></p>
+        </div>
+
+        <div class="p-2">
+        </div>
+
+      </div>
+
+      <%# CAROUSEL %>
+      <div>
+        <div id="<%= post.id %>-carousel-modal" class="carousel slide">
+
+          <%# IMAGE ACTIVE/NON-ACTIVE SETTING %>
+          <div class="carousel-inner">
+            <% post.photos.each_with_index do |photo, i| %>
+              <% if i == 0 %>
+                <div class="carousel-item active d-flex justify-content-center">
+                  <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                </div>
+              <% else %>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "slide" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#<%= post.id %>-carousel-modal" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#<%= post.id %>-carousel-modal" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <%# POST CONTENT %>
+      <div class="mt-5 mb-5">
+        <div class="mt-5">
+          <p class="fs-4 font-arial"><%= post.content %></p>
+          <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
+        </div>
+      </div>
+
+    <%# END OF WRAPPERS FOR MODAL BODY%>
+    </div>
+  </div>
+
+
+  <%# COMMENT SECTION %>
+  <div class="w-100 h-50 p-5">
+    <div class="comments-bucket">
+      <%# COMMENTS WEBSOCKET %>
+      <div>
+        <% post.comments.each do |comment|%>
+          <div class="py-2">
+          <%= render "comments/comment", comment: comment %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# CREATE COMMENT %>
+    <%= button_to new_user_session_path, class: "button-p text-center" do %>
+      Login to join the discussion!
+    <% end %>
+  </div>
+</div>

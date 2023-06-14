@@ -1,5 +1,11 @@
+require "rqrcode"
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :show
+  after_action :verify_authorized, except: [:index, :show], unless: :devise_controller?
+  after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
+
   def index
     @posts = policy_scope(Post)
     @signed_in_user = current_user
@@ -12,9 +18,22 @@ class PostsController < ApplicationController
       @posts = @posts.where("title ILIKE ?", "%#{params[:keyword]}%").order("created_at DESC")
     end
 
+    @qr_codes = []
+    @posts.each do |post|
+      qr = RQRCode::QRCode.new(url_for(post_path(post)))
+      svg = qr.as_svg(
+        color: "000",
+        shape_rendering: "crispEdges",
+        module_size: 11,
+        standalone: true,
+        use_path: true
+      )
+      @qr_codes << svg
+    end
   end
 
   def show
+    skip_policy_scope
     @comment = Comment.new
     @comments = Comment.where(post_id: @post.id)
     authorize @comment
