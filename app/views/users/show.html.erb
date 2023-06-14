@@ -11,7 +11,7 @@
       <p class="fs-4 font-arial"><%= @user.email %></p>
       <% if policy(@user).edit? %>
         <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button class="button-s">Edit Profile</button>
+          <button class="form-button">Edit Profile</button>
         <% end %>
       <% end %>
     </div>
