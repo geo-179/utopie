@@ -1,63 +1,24 @@
-<main class="py-5 pt-5 ">
-<div class="grid-container m-5 pt-5 ps-4">
-  <%# Div for grid 1, avatar%>
-  <div class="grid-item-avatar"><%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar" %></div>
-  <%# Div for grid 2%>
-  <div class="grid-item"></div>
-  <%# Div for grid 3, page links%>
-  <div class="grid-item mt-5">
-    <div class="d-flex flex-column align-items-start">
-    <p class="font-arial font-gray text-decoration-underline" style="font-weight: 700, ">Navigate To</p>
-    <%= link_to "My Posts", "#user-posts", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
-    <%= link_to "My Bookmarks", "#user-bookmarks", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
-    <%= link_to "Contributions", "#user-contributions", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
-    </div>
-  </div>
-  <%# Div for 4, user profile information %>
-  <div class="grid-item">
-    <p class="fw-bolder fs-3 font-arial"><%= @user.nickname %></p>
-    <p class="fs-5 font-arial"><%= @user.email %></p>
-    <% if policy(@user).edit? %>
-    <%= link_to edit_user_registration_path(@user), class: "button" do%>
-    <button class="button-s">Edit Profile</button>
-    <% end %>
-    <% end %>
-  </div>
-  <%# Div for grid 5, bio %>
-  <div class="grid-item-center">
-    <p class="fs-3 fw-bolder font-arial">Bio</p>
-    <p class="fs-4 font-arial fw-light"><%= @user.bio %></p>
-  </div>
-  <%# Div for grid 6 %>
-  <div class="grid-item"></div>
-</div>
+<main class="py-5">
 
-<!--</div>
   <%# Div for user profile information %>
   <%= cl_image_tag @banner.key, crop: :fill, class: "w-100", style: "height: 325px; object-fit: cover", alt: "banner" %>
 
-  <div class="d-flex px-5 pb-5 pt-50" id="user-info">
+  <div class="d-flex px-5 pb-5" id="user-info">
     <%# Div for avatar, name, link %>
     <div class="d-flex flex-column align-items-start col-3 p-5">
-      <div>
-        <div>
-         <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-60 w-50 h-50 ms-3", alt: "avatar" %>
-        </div>
-        <div>
-          <p class="fw-bolder fs-3 font-arial"><%= @user.nickname %></p>
-          <p class="fs-5 font-arial"><%= @user.email %></p>
-          <% if policy(@user).edit? %>
-            <%= link_to edit_user_registration_path(@user), class: "button" do%>
-              <button class="button-s">Edit Profile</button>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
+      <p class="fw-bolder fs-3 font-arial"><%= @user.nickname %></p>
+      <p class="fs-4 font-arial"><%= @user.email %></p>
+      <% if policy(@user).edit? %>
+        <%= link_to edit_user_registration_path(@user), class: "button" do%>
+          <button class="button-s">Edit Profile</button>
+        <% end %>
+      <% end %>
     </div>
     <%# Div for bio %>
     <div class="col-6 d-flex flex-column justify-content-center p-4">
-      <p class="fs-3 fw-bolder font-arial pt-190">Bio</p>
-      <p class="fs-4 font-arial fw-light"><%= @user.bio %></p>
+      <p class="fs-3 fw-bolder font-arial">Bio</p>
+      <p class="fs-4 font-arial"><%= @user.bio %></p>
     </div>
     <%# Div for page links %>
     <div class="col-3 p-5 d-flex flex-column align-items-end">
@@ -66,7 +27,7 @@
       <%= link_to "My Bookmarks", "#user-bookmarks", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
       <%= link_to "Contributions", "#user-contributions", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
     </div>
-  </div> -->
+  </div>
 
   <%# Div for user created posts %>
   <div class="p-5" id="user-posts">
