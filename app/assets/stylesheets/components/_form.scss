@@ -36,3 +36,43 @@ input::placeholder, textarea::placeholder {
   $input-bg: #ffffff;
   $input-border-radius: 5px;
 }
+
+.form-container {
+  width: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 100px;
+  // padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #B1ABE2;
+}
+
+.form-button {
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #B1ABE2;
+  border: none;
+  padding: 8px 24px;
+  transition: 0.5s ease;
+}
+
+.form-button:hover {
+  color: #B1ABE2;
+  background-color: #ffffff;
+  border: 1px solid #B1ABE2;
+  transform: scale(1.05);
+}
+
+.form-link a {
+  color: #B1ABE2;
+}
+
+.form-link a:hover {
+  color: #40128B;
+}

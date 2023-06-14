@@ -1,38 +1,50 @@
-<div class="m-5 p-5">
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-    <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :nickname,
-                  required: true,
-                  label_html: { class: "font-cinzel" },
-                  label: "Nickname" %>
-      <%= f.input :bio,
-                  label_html: { class: "font-cinzel" },
-                  label: "Bio" %>
-      <%= f.input :photo, as: :file, required: true, label: "Profile Image", label_html: { class: "font-cinzel" } %>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  label_html: { class: "font-cinzel" },
-                  input_html: { autocomplete: "new-password" } %>
+
+<div class="d-flex">
+  <div class="form-container">
+    <div>
+      <div class="form-header">
+        <h1>Sign up to Utopie</h1>
+      </div>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    label_html: { class: "" },
+                    input_html: { autocomplete: "email", style: "width:400px" }%>
+        <%= f.input :nickname,
+                    required: true,
+                    label_html: { class: "" },
+                    label: "Nickname" %>
+        <%= f.input :bio,
+                    label_html: { class: "" },
+                    label: "Bio" %>
+        <%= f.input :photo, as: :file, required: true, label: "Profile Image", label_html: { class: "" } %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    label_html: { class: "" },
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    label_html: { class: "" },
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Sign up", class: "form-button" %>
+      </div>
+    <% end %>
+    <div class="form-link py-3">
+      <%= render "devise/shared/links" %>
     </div>
-
-    <div class="form-actions">
-      <%= f.submit "Sign up", class: "button-s" %>
     </div>
-  <% end %>
-  <div class="py-3">
-    <%= render "devise/shared/links" %>
+  </div>
+  <div class="form-img">
+    <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="">
   </div>
 </div>
