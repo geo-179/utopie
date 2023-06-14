@@ -4,7 +4,7 @@
 
 
 
-<div class="w-100 d-flex justify-content-evenly align-items-center mt-120 mb-30">
+<div class="w-100 d-flex justify-content-evenly align-items-center pt-120 mb-30">
   <%# SEARCH BAR FOR FILTERING %>
   <form action="posts" method="get">
     <input type="text" name="keyword" id="keyword" class="ps-400 mr-100">
@@ -90,6 +90,6 @@
 <%# CREATE NEW POST %>
 <div class="fixed-bottom d-flex justify-content-end mr-90 mb-5">
   <%= link_to new_post_path do %>
-    <i class="fa-solid fa-circle-plus"></i>
+    <img src="add.png" class="img-add posistion-fixed" alt="add.png">
   <% end %>
 <div>
