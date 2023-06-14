@@ -1,20 +1,25 @@
 <div class="d-flex">
-  <div class= "simple-form fs-5 w-50 container mt-5 pt-5 font-arial text-center">
-    <%= simple_form_for(@post) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :title %>
-      <%= f.input :category, as: :select, selected: "3D Modeling", collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
-      <%= f.input :content, as: :text, input_html: { rows: 10 } %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    </div>
-      <% if @post.id == nil %>
-        <%= f.submit "Create Post", class: "button-s" %>
-      <% else %>
-        <%= f.submit "Update Post", class: "button-s" %>
+  <div class= "form-container">
+    <div>
+      <div class="form-header">
+        <h1>Create a New Post</h1>
+      </div>
+      <%= simple_form_for(@post) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title , input_html: {style:"width:500px"}%>
+        <%= f.input :category, as: :select, selected: "3D Modeling", collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
+        <%= f.input :content, as: :text, input_html: { rows: 10 } %>
+        <%= f.input :link, as: :text %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+        <% if @post.id == nil %>
+          <%= f.submit "Create Post", class: "form-button" %>
+        <% else %>
+          <%= f.submit "Update Post", class: "form-button" %>
+        <% end %>
       <% end %>
-    <% end %>
+      </div>
   </div>
-
   <div class="form-img">
     <img src="http://blog.kadenze.com/wp-content/uploads/2018/12/unnamed-1.gif" alt="">
   </div>
