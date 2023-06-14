@@ -55,17 +55,17 @@
           </div>
 
           <%# LINK %>
-          <div class="my-5">
+          <div class="my-5 w-100">
             <% if post.link != nil %>
               <a href="<%= post.link %>" target="_blank" class="fs-4 font-arial modal-link">LINK TO SOURCE</a>
             <% end %>
           </div>
 
           <%# POST CONTENT %>
-          <div class="my-5">
-            <div class="mt-5">
-              <p class="fs-4 font-arial"><%= post.content %></p>
-              <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
+          <div class="my-5 w-100">
+            <div class="mt-5 w-100">
+              <p class="fs-4 font-arial cut-text"><%= post.content %></p>
+              <p class="fs-4 font-arial cut-text">Created by: <%= post.user.nickname %> </p>
             </div>
           </div>
 
