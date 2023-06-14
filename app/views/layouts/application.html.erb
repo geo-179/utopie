@@ -30,7 +30,7 @@
 
           Posts
         </a>
-        <ul class="dropdown-menu fs-5 text-decoration-none">
+        <ul class="dropdown-menu fs-5 text-decoration-none" style="background-color:white">
           <li><%= link_to posts_path(category: "3D Modeling"), class: "nav-text text-20" do %>3D Modeling<% end %></li>
           <li><%= link_to posts_path(category: "2D Visual Art"), class: "nav-text text-20" do %>2D Visual Art<% end %></li>
           <li><%= link_to posts_path(category: "Music Tech"), class: "nav-text text-20" do %>Music Tech<% end %></li>
@@ -49,7 +49,7 @@
           <a class="nav-link dropdown-toggle nav-text text-30 fs-5 text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar me-2", alt: "avatar" %>
           </a>
-          <ul class="dropdown-menu fs-5 text-decoration-none">
+          <ul class="dropdown-menu fs-5 text-decoration-none" style="background-color:white">
             <li>
               <%= link_to "Profile Page", user_path(current_user), class: "nav-text text-20" %>
             </li>

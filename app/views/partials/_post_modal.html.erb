@@ -55,17 +55,17 @@
           </div>
 
           <%# LINK %>
-          <div class="my-5">
+          <div class="my-5 w-100">
             <% if post.link != nil %>
               <a href="<%= post.link %>" target="_blank" class="fs-4 font-arial modal-link">LINK TO SOURCE</a>
             <% end %>
           </div>
 
           <%# POST CONTENT %>
-          <div class="my-5">
-            <div class="mt-5">
-              <p class="fs-4 font-arial"><%= post.content %></p>
-              <p class="fs-4 font-arial">Created by: <%= post.user.nickname %> </p>
+          <div class="my-5 w-100">
+            <div class="mt-5 w-100">
+              <p class="fs-4 font-arial cut-text"><%= post.content %></p>
+              <p class="fs-4 font-arial cut-text">Created by: <%= post.user.nickname %> </p>
             </div>
           </div>
 
@@ -93,20 +93,21 @@
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
             <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Contribute", class: "button-p" %>
+            <%= f.submit "Contribute", class: "form-button" %>
 
           <% end %>
         </div>
 
-        <div class="d-flex">
-          <div class="justify-content-center align-items-center w-100">
-            <h2 class="text-center" style="justify-content:center">Share this post with others!</h2>
-            <div class="text-center">
-              <%= qr.html_safe %>
+        <% if !qr.nil? %>
+          <div class="d-flex">
+            <div class="justify-content-center align-items-center w-100">
+              <h2 class="text-center" style="justify-content:center">Share this post with others!</h2>
+              <div class="text-center">
+                <%= qr.html_safe %>
+              </div>
             </div>
           </div>
-        </div>
-
+        <% end %>
       </div>
 
     </div>
