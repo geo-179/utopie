@@ -93,7 +93,7 @@
 
           <%= simple_form_for [post, Comment.new], html: { data: { action: "turbo:submit-end->post-subscription#resetForm" } } do |f| %>
             <%= f.input :content, as: :text, input_html: { rows: 5, cols: 50 }, label_html: {class: "font-cinzel"} %>
-            <%= f.submit "Contribute", class: "button-p" %>
+            <%= f.submit "Contribute", class: "form-button" %>
 
           <% end %>
         </div>
