@@ -95,6 +95,15 @@
                   </div>
                 </div>
 
+                <div class="bottom-corner py-1 px-2 d-flex align-items-center">
+                  <%= link_to edit_post_path(post), class: "card-icon" do %>
+                    <i class="fa-solid fa-square-pen pe-4" style="text-shadow: 0px 0px 7px black;"></i>
+                  <% end %>
+                  <%= link_to post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: "card-icon" do %>
+                    <i class="fa-solid fa-trash-can" style="text-shadow: 0px 0px 7px black;"></i>
+                  <% end %>
+                </div>
+
               </div>
             </div>
           <% end %>
