@@ -630,7 +630,7 @@ puts "art-related posts have been created. 🎨🎨🎨"
 NUM_COMMENTS = 70
 
 NUM_COMMENTS.times do
-  content = Faker::TvShows::SouthPark.quote
+  content = Faker::Quotes::Shakespeare.hamlet_quote
 
   Comment.create!(
     content: content,
