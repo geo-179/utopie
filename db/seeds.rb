@@ -322,7 +322,7 @@ post_twentynine = Post.new(
   at the bounds of the hyper-connected world. We research and test low-tech
   solutions and document our findings with the hope of building a
   more resilient future.
-  由 Rekka 和 Devine 组成，在海上航行的同时进行艺术创作. 大家或许比较熟悉的是他们曾入围 IGF 的 Oquonie,
+  Hundred Rabbits由 Rekka 和 Devine 组成，在海上航行的同时进行艺术创作. 大家或许比较熟悉的是他们曾入围 IGF 的 Oquonie,
   然而他们不仅仅在做游戏, 还在制作工具、插画、美食等等, Orca 就是其中之一",
   category: "Music Tech",
   user: User.all.sample,
@@ -396,7 +396,6 @@ url63 = "https://100r.co/media/content/projects/orca_01.jpg"
 url64 = "https://avnode.net/warehouse/performances/2020/01/1140x641/d6e4f619-4759-4cff-8f2f-bc4dd5616a8d_jpeg.jpg"
 url65 = "https://static.fsf.org/nosvn/libreplanet/2022/communications/wunderland.6.full.jpg"
 url66 = "https://100r.co/media/content/about/rabbits.polaroid.jpg"
-
 
 
 puts "1"
@@ -549,7 +548,7 @@ post_twentyfour.photos.attach([
 
 puts "25"
 post_twentyfive.photos.attach([
-  { io: URI.open(url59), filename: "#{post_twentyfive.title}-1.jpeg", content_type: 'image/png' },
+  { io: URI.open(url59), filename: "#{post_twentyfive.title}-1.png", content_type: 'image/png' },
   { io: URI.open(url60), filename: "#{post_twentyfive.title}-1.jpeg", content_type: 'image/jpg' }
 ])
 
