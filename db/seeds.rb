@@ -390,8 +390,8 @@ url57 = "https://community.vcvrack.com/uploads/default/original/2X/1/195a14a9c26
 url58 = "https://m.media-amazon.com/images/I/71WnKskq70L._AC_UF1000,1000_QL80_.jpg"
 url59 = "http://akihikomatsumoto.com/image/LissajousFigure3.0.png"
 url60 = "https://akihikomatsumoto.com/img/AkihikoMatsumoto.jpg"
-url61 = "https://i.ytimg.com/vi/DkoNINu5kN4/maxresdefault.jpg"
-url62 = "https://i.ytimg.com/vi/ktcWOLeWP-g/hqdefault.jpg"
+url61 = "https://globalvoices.org/wp-content/uploads/2020/10/2020-10-27_10-53-42.jpg"
+url62 = "https://raw.githubusercontent.com/wiki/hundredrabbits/Orca-c/PREVIEW.jpg"
 url63 = "https://100r.co/media/content/projects/orca_01.jpg"
 url64 = "https://avnode.net/warehouse/performances/2020/01/1140x641/d6e4f619-4759-4cff-8f2f-bc4dd5616a8d_jpeg.jpg"
 url65 = "https://static.fsf.org/nosvn/libreplanet/2022/communications/wunderland.6.full.jpg"
@@ -604,7 +604,6 @@ post_twentysix.save!
 post_twentyseven.save!
 post_twentyeight.save!
 post_twentynine.save!
-
 
 
 puts "Posts have been created!"
