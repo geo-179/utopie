@@ -303,6 +303,14 @@ post_twentyseven = Post.new(
   link: "https://www.youtube.com/watch?v=nvIGCMhjkvw"
 )
 
+post_twentyeight = Post.new(
+  title: "Orca is - a two-dimensional esoteric programming language",
+  content: "般若心経ビートボックスRemix",
+  category: "Music Tech",
+  user: User.all.sample,
+  link: "https://www.youtube.com/watch?v=nvIGCMhjkvw"
+)
+
 
 puts "Creating post..."
 
