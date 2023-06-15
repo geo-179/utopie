@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   def update
     authorize @post
     @post.update(post_params)
-    redirect_to post_path(category: @post.category)
+    redirect_to user_path(current_user)
   end
 
   def destroy
