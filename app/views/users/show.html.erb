@@ -6,7 +6,7 @@
   <div class="d-flex px-5 pb-5" id="user-info">
     <%# Div for avatar, name, link %>
     <div class="d-flex flex-column align-items-start col-3 p-5">
-      <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar mb-3 w-50", alt: "avatar" %>
+      <%= cl_image_tag(@user.photo.key, :transformation=>[{:width=>300, :height=> 300, :crop=>"fill"}], crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar") %>
       <p class="fw-bolder fs-3 font-arial"><%= @user.nickname %></p>
       <p class="fs-4 font-arial"><%= @user.email %></p>
       <% if policy(@user).edit? %>
@@ -37,12 +37,13 @@
     <div class="container py-5">
       <div class="row" data-masonry='{"percentposition": true }'>
         <% @user.posts.each do |post| %>
-          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
             <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
             <%# CARD %>
             <div class="cd">
               <div class="relative">
-                <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
               </div>
 
               <%# **** %>
@@ -112,13 +113,14 @@
         <div class="row" data-masonry='{"percentposition": true }'>
           <% @user.bookmarks.each do |bookmark| %>
             <% post = bookmark.post %>
-            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
               <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
 
               <%# CARD %>
               <div class="cd">
                 <div class="relative">
-                  <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
                 </div>
 
                 <%# **** %>
