@@ -11,5 +11,18 @@
   </p>
   <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-  <%= render "pages/pfive" %>
+
+  <div class="container" data-controller="hello">
+    <div class="mb-2">
+      <label for="exampleFormControlTextarea1" class="form-label">Add your p5.js code!</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" data-hello-target="code"></textarea>
+    </div>
+    <input class="btn btn-primary" type="button" value="Render!" data-action="click->hello#handleClick">
+
+    <script data-hello-target="render">
+      let x = 5
+    </script>
+  </div>
+
+  <%= render "pfive" %>
 </div>
