@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:destroy]
   get '/get_inspired', to: 'pages#get_inspired'
   get '/playground', to: 'pages#playground'
+  get '/community', to: 'pages#community'
 end

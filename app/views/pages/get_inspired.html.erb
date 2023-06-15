@@ -9,7 +9,8 @@
           <%# CARD %>
           <div class="cd">
             <div class="relative">
-              <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+              <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+              <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
             </div>
 
 

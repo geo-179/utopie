@@ -35,7 +35,6 @@
     </div>
 </div>
 
-
   <%# Div for user created posts %>
   <div class="card-profile">
     <div class="p-5 pt-4" id="user-posts">
@@ -55,10 +54,12 @@
           <% @user.posts.each do |post| %>
             <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
               <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
+
               <%# CARD %>
               <div class="cd">
                 <div class="relative">
-                  <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
                 </div>
 
                 <%# **** %>
