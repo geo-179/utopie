@@ -1,119 +1,58 @@
 <main class="py-5">
 
   <%# Div for user profile information %>
-  <%# <%= cl_image_tag @banner.key, crop: :fill, class: "w-100", style: "height: 325px; object-fit: cover", alt: "banner" %> %>
+  <%# <%= cl_image_tag @banner.key, crop: :fill, class: "w-100 mt-4", style: "height: 325px; object-fit: cover", alt: "banner" %>
+<div class="d-flex">
+  <div class="card-profile" style="margin-top:50px">
+    <img src="https://res.cloudinary.com/dzgt7skmn/image/upload/v1686811424/%E6%88%AA%E5%B1%8F2023-06-10_21.30.44_ifvyfm.png" style="height: 500px; width: 100%; object-fit:cover" alt="">
 
-  <div class="d-flex px-5 pb-5" id="user-info">
-    <%# Div for avatar, name, link %>
-    <div class="d-flex flex-column align-items-start col-3 p-5">
-      <%= cl_image_tag(@user.photo.key, :transformation=>[{:width=>300, :height=> 300, :crop=>"fill"}], crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar") %>
-      <p class="fw-bolder fs-3 font-arial"><%= @user.nickname %></p>
-      <p class="fs-4 font-arial"><%= @user.email %></p>
-      <% if policy(@user).edit? %>
-        <%= link_to edit_user_registration_path(@user), class: "button" do%>
-          <button class="form-button">Edit Profile</button>
+    <div class="">
+      <%# Div for avatar, name, link %>
+      <div style="padding:40px; margin-top: -100px">
+        <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-user-profile mb-3", alt: "avatar" %>
+        <p class="fw-bolder fs-3 font-arial m-0"><%= @user.nickname %></p>
+        <p class="fs-4 font-arial"><%= @user.bio %></p>
+        <%# <p class="fs-4 font-arial"><%= @user.email %></p>
+        <% if policy(@user).edit? %>
+          <%= link_to edit_user_registration_path(@user), class: "button" do%>
+            <button class="form-button">Edit Profile</button>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%# Div for bio %>
+      <%# <div class="col-6 d-flex flex-column justify-content-center p-4"> %>
+        <%# <p class="fs-3 fw-bolder font-arial">Bio</p> %>
+        <%# <p class="fs-4 font-arial"><%= @user.bio %></p>
+      <%# </div> %>
     </div>
-    <%# Div for bio %>
-    <div class="col-6 d-flex flex-column justify-content-center p-4">
-      <p class="fs-3 fw-bolder font-arial">Bio</p>
-      <p class="fs-4 font-arial"><%= @user.bio %></p>
-    </div>
-    <%# Div for page links %>
-    <div class="col-3 p-5 d-flex flex-column align-items-end">
-      <p class="font-arial font-gray text-decoration-underline" style="font-weight: 700, ">Navigate To</p>
+      <%# Div for page links %>
+  </div>
+   <div class="card-navigation p-5 d-flex flex-column align-items-center" style="width:15%; margin-top:50px; margin-right:30px">
+      <p class="font-arial fw-bolder" style="font-weight: 700, ">Navigate To</p>
       <%= link_to "My Posts", "#user-posts", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
       <%= link_to "My Bookmarks", "#user-bookmarks", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
       <%= link_to "Contributions", "#user-contributions", class: "text-decoration-none font-arial font-gray jump-to-link mb-2" %>
     </div>
-  </div>
+</div>
 
   <%# Div for user created posts %>
-  <div class="p-5" id="user-posts">
-    <p class="fw-bolder px-5 fs-3 font-arial">Posts</p>
-
-    <%# Image Card %>
-    <div class="container py-5">
-      <div class="row" data-masonry='{"percentposition": true }'>
-        <% @user.posts.each do |post| %>
-          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
-            <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
-            <%# CARD %>
-            <div class="cd">
-              <div class="relative">
-                <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
-                <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
-              </div>
-
-              <%# **** %>
-              <%= render "partials/post_modal", post: post, qr: nil %>
-
-              <%# CARD BODY THAT MOVES IN %>
-              <div class="cd-body">
-                <h1 class="cd-title"><%= post.title %></h1>
-                <h2 class="cd-author">By: <%= post.user.nickname %></h2>
-
-
-                <%# POST AND LIKE %>
-                <div class="d-flex">
-                  <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
-                    View Post
-                  </button>
-
-
-
-                  <div class="flex-grow-1"></div>
-                </div>
-
-
-              </div>
-
-              <div class="top-corner d-flex align-items-center py-1 px-2">
-                <%# HEART AND LIKE %>
-                <div data-post-subscription-target="likes">
-                  <%= render "likes/like", post: post %>
-                </div>
-
-                <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
-                  <%= render "likes/like_button", post: post %>
-                </div>
-              </div>
-
-              <div class="bottom-corner py-1 px-2 d-flex align-items-center">
-                <%= link_to edit_post_path(post), class: "card-icon" do %>
-                  <i class="fa-solid fa-square-pen pe-4" style="text-shadow: 0px 0px 7px black;"></i>
-                <% end %>
-                <%= link_to post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: "card-icon" do %>
-                  <i class="fa-solid fa-trash-can" style="text-shadow: 0px 0px 7px black;"></i>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        <% end %>
-        <div class="col-sm-6 col-lg-4 mb-4">
+  <div class="card-profile">
+    <div class="p-5 pt-4" id="user-posts">
+    <div style="display:flex; justify-content: space-between; align-items: center">
+      <div><p class="fw-bolder fs-3 font-arial m-0">Posts</p></div>
+        <div>
           <%= link_to new_post_path do %>
-            <button class="cd-button w-100" type="button fw-medium" style="text-decoration-none">Create Post</button>
+              <%# <button class="cd-button w-100" type="button fw-medium" style="text-decoration-none">Create Post</button> %>
+          <i class="fa-solid fa-circle-plus img-add" style="color: #b1abe2; font-size:64px"></i>
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
 
-<%# Div for user saved posts %>
-
-  <div class="p-5" id="user-bookmarks">
-    <p class="fw-bolder px-5 fs-3 font-arial">Bookmarks</p>
-
-
-    <% if @user.bookmarks.count > 0 %>
-      <%# Grid for bookmarked post cards %>
+      <%# Image Card %>
       <div class="container py-5">
         <div class="row" data-masonry='{"percentposition": true }'>
-          <% @user.bookmarks.each do |bookmark| %>
-            <% post = bookmark.post %>
-            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
+          <% @user.posts.each do |post| %>
+            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
               <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
 
               <%# CARD %>
@@ -146,76 +85,153 @@
 
                 </div>
 
-                <div class="top-corner d-flex align-items-center py-1 px-2">
-                  <%# HEART AND LIKE %>
-                  <div data-post-subscription-target="likes">
-                    <%= render "likes/like", post: post %>
-                  </div>
-
-                  <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
-                    <%= render "likes/like_button", post: post %>
-                  </div>
+              <div class="top-corner d-flex align-items-center py-1 px-2">
+                <%# HEART AND LIKE %>
+                <div data-post-subscription-target="likes">
+                  <%= render "likes/like", post: post %>
                 </div>
+
+                <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+                  <%= render "likes/like_button", post: post %>
+                </div>
+              </div>
+
+              <div class="bottom-corner py-1 px-2 d-flex align-items-center">
+                <%= link_to edit_post_path(post), class: "card-icon" do %>
+                  <i class="fa-solid fa-square-pen pe-4" style="text-shadow: 0px 0px 7px black;"></i>
+                <% end %>
+                <%= link_to post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: "card-icon" do %>
+                  <i class="fa-solid fa-trash-can" style="text-shadow: 0px 0px 7px black;"></i>
+                <% end %>
+              </div>
 
               </div>
             </div>
           <% end %>
+          <div class="col-sm-6 col-lg-4 mb-4">
+
+          </div>
         </div>
       </div>
-    <% else %>
-      <p class="fs-5 px-5 font-arial">You have no bookmarks at this time</p>
-    <% end %>
+    </div>
+  </div>
+
+<%# Div for user saved posts %>
+  <div class="card-profile">
+    <div class="p-5" id="user-bookmarks">
+      <p class="fw-bolder fs-3 font-arial">Bookmarks</p>
+
+
+      <% if @user.bookmarks.count > 0 %>
+        <%# Grid for bookmarked post cards %>
+        <div class="container py-5">
+          <div class="row" data-masonry='{"percentposition": true }'>
+            <% @user.bookmarks.each do |bookmark| %>
+              <% post = bookmark.post %>
+              <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+                <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
+                <%# CARD %>
+                <div class="cd">
+                  <div class="relative">
+                    <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  </div>
+
+                  <%# **** %>
+                  <%= render "partials/post_modal", post: post, qr: nil %>
+
+                  <%# CARD BODY THAT MOVES IN %>
+                  <div class="cd-body">
+                    <h1 class="cd-title"><%= post.title %></h1>
+                    <h2 class="cd-author">By: <%= post.user.nickname %></h2>
+
+
+                    <%# POST AND LIKE %>
+                    <div class="d-flex">
+                      <button type="button" class="cd-button" data-bs-toggle="modal" data-bs-target="#post-<%= post.id%>-modal">
+                        View Post
+                      </button>
+
+
+
+                      <div class="flex-grow-1"></div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="top-corner d-flex align-items-center py-1 px-2">
+                    <%# HEART AND LIKE %>
+                    <div data-post-subscription-target="likes">
+                      <%= render "likes/like", post: post %>
+                    </div>
+
+                    <div data-post-subscription-target="button" data-post-subscription-user-id-value="<%= current_user.id %>">
+                      <%= render "likes/like_button", post: post %>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <p class="fs-5 px-5 font-arial">You have no bookmarks at this time</p>
+      <% end %>
+    </div>
   </div>
 
   <%# Div for contribution activity %>
-  <div class="p-5" id="user-contributions">
-    <p class="fw-bolder px-5 fs-3 font-arial">Contribution Activity</p>
+  <div class="card-profile">
+    <div class="p-5" id="user-contributions">
+      <p class="fw-bolder fs-3 font-arial">Contribution Activity</p>
 
-    <% @contributions.each do |month, value| %>
-      <div class="px-5 mb-4">
-        <div class="d-flex align-items-center">
-          <div>
-            <p class="mb-0 me-2 fs-3 font-arial"><%= month %></p>
+      <% @contributions.each do |month, value| %>
+        <div class="px-5 mb-4">
+          <div class="d-flex align-items-center">
+            <div>
+              <p class="mb-0 me-2 fs-3 font-arial"><%= month %></p>
+            </div>
+            <div class="contribution-border-top flex-grow-1">
+            </div>
           </div>
-          <div class="contribution-border-top flex-grow-1">
+          <div class="d-flex contribution-border-left mt-2">
+            <div class="month-stat-info pt-2 ps-5">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-star pe-2" style="color: #B1ABE2;"></i>
+                <% if value[0].nil? %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Created 0 posts</p>
+                <% elsif value[0] == 1 %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Created 1 post</p>
+                <% else %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Created <%= value[0] %> posts</p>
+                <% end %>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-star pe-2" style="color: #B1ABE2;"></i>
+                <% if value[1].nil? %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 0 posts</p>
+                <% elsif value[1] == 1 %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 1 post</p>
+                <% else %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked <%= value[1] %> posts</p>
+                <% end %>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-star pe-2" style="color: #B1ABE2;"></i>
+                <% if value[2].nil? %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Wrote 0 comments</p>
+                <% elsif value[2] == 1 %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Wrote 1 comment</p>
+                <% else %>
+                  <p class="fs-5 mb-0 ms-2 font-arial">Wrote <%= value[2] %> comments</p>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="d-flex contribution-border-left mt-2">
-          <div class="month-stat-info pt-2 ps-5">
-            <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <% if value[0].nil? %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Created 0 posts</p>
-              <% elsif value[0] == 1 %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Created 1 post</p>
-              <% else %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Created <%= value[0] %> posts</p>
-              <% end %>
-            </div>
-            <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <% if value[1].nil? %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 0 posts</p>
-              <% elsif value[1] == 1 %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked 1 post</p>
-              <% else %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Bookmarked <%= value[1] %> posts</p>
-              <% end %>
-            </div>
-            <div class="d-flex align-items-center">
-              <i class="fa-solid fa-star pe-2" style="color: #d9d9d9;"></i>
-              <% if value[2].nil? %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Wrote 0 comments</p>
-              <% elsif value[2] == 1 %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Wrote 1 comment</p>
-              <% else %>
-                <p class="fs-5 mb-0 ms-2 font-arial">Wrote <%= value[2] %> comments</p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
 
+    </div>
   </div>
 </main>
