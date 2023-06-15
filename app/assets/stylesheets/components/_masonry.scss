@@ -1,0 +1,12 @@
+.masonry {
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: masonry;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+/* some styling not important */
+.brick {
+  padding:1rem;
+}
