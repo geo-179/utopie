@@ -234,6 +234,16 @@
   color: white;
 }
 
+.bottom-corner {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-size: 30px;
+  font-weight: 300;
+  color: #B2ABE1;
+  background-color: white;
+}
+
 .zoom {
   transition: transform .1s;
 }

@@ -2,7 +2,11 @@
   <div class= "form-container">
     <div>
       <div class="form-header">
-        <h1>Create a New Post</h1>
+        <% if @post.id == nil %>
+          <h1>Create a New Post</h1>
+        <% else %>
+          <h1>Edit Your Post</h1>
+        <% end %>
       </div>
       <%= simple_form_for(@post) do |f| %>
       <div class="form-inputs">
@@ -10,7 +14,11 @@
         <%= f.input :category, as: :select, selected: "3D Modeling", collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
         <%= f.input :content, as: :text, input_html: { rows: 10 } %>
         <%= f.input :link, as: :text %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <% if @post.id == nil %>
+          <%= f.input :photos, as: :file, required: false, input_html: { multiple: true } %>
+        <% else %>
+          <%= f.input :photos, as: :file, required: false, input_html: { multiple: true, value: "#{@post.photos.first}" } %>
+        <% end %>
       </div>
         <% if @post.id == nil %>
           <%= f.submit "Create Post", class: "form-button" %>

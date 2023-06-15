@@ -61,8 +61,12 @@ class PostsController < ApplicationController
 
   def update
     authorize @post
-    @post.update(post_params)
-    redirect_to post_path(category: @post.category)
+    if @post.photos
+      @post.update(post_params)
+    else
+      @post.update(post_params_without_photos)
+    end
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -79,5 +83,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :category, :link, photos: [])
+  end
+
+  def post_params_without_photos
+    params.require(:post).permit(:title, :content, :category, :link)
   end
 end
