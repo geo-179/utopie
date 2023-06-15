@@ -10,6 +10,7 @@ require 'faker'
 require "open-uri"
 
 # Clear existing data
+Bookmark.destroy_all
 Like.destroy_all
 Comment.destroy_all
 Post.destroy_all
@@ -296,19 +297,36 @@ post_twentysix = Post.new(
 )
 
 post_twentyseven = Post.new(
-  title: "Yogetsu Akasaka",
-  content: "般若心経ビートボックスRemix",
+  title: "ORCA Sequencer Intro (Experimental Livecoding!)",
+  content: "an intro to Orca by Allieway Audio",
   category: "Music Tech",
   user: User.all.sample,
-  link: "https://www.youtube.com/watch?v=nvIGCMhjkvw"
+  link: "https://www.youtube.com/watch?v=RaI_TuISSJE"
 )
 
 post_twentyeight = Post.new(
-  title: "Orca is - a two-dimensional esoteric programming language",
-  content: "般若心経ビートボックスRemix",
+  title: "Orca - a two-dimensional esoteric programming language",
+  content: "The application is not a synthesiser,
+  but a flexible livecoding environment
+  capable of sending MIDI, OSC & UDP to your audio interface,
+  like Ableton, Renoise, VCV Rack or SuperCollider.",
   category: "Music Tech",
   user: User.all.sample,
-  link: "https://www.youtube.com/watch?v=nvIGCMhjkvw"
+  link: "https://100r.co/site/orca.html"
+)
+
+post_twentynine = Post.new(
+  title: "Hundred Rabbits, founder of Orca 一个漂浮在水上的艺术组合",
+  content: "Hundred Rabbits is a small artist collective.
+  Together, we explore the planned failability of modern technology
+  at the bounds of the hyper-connected world. We research and test low-tech
+  solutions and document our findings with the hope of building a
+  more resilient future.
+  Hundred Rabbits由 Rekka 和 Devine 组成，在海上航行的同时进行艺术创作. 大家或许比较熟悉的是他们曾入围 IGF 的 Oquonie,
+  然而他们不仅仅在做游戏, 还在制作工具、插画、美食等等, Orca 就是其中之一",
+  category: "Music Tech",
+  user: User.all.sample,
+  link: "https://wiki.xxiivv.com/site/hundred_rabbits.html"
 )
 
 
@@ -373,7 +391,11 @@ url58 = "https://m.media-amazon.com/images/I/71WnKskq70L._AC_UF1000,1000_QL80_.j
 url59 = "http://akihikomatsumoto.com/image/LissajousFigure3.0.png"
 url60 = "https://akihikomatsumoto.com/img/AkihikoMatsumoto.jpg"
 url61 = "https://i.ytimg.com/vi/DkoNINu5kN4/maxresdefault.jpg"
-url62 = ""
+url62 = "https://i.ytimg.com/vi/ktcWOLeWP-g/hqdefault.jpg"
+url63 = "https://100r.co/media/content/projects/orca_01.jpg"
+url64 = "https://avnode.net/warehouse/performances/2020/01/1140x641/d6e4f619-4759-4cff-8f2f-bc4dd5616a8d_jpeg.jpg"
+url65 = "https://static.fsf.org/nosvn/libreplanet/2022/communications/wunderland.6.full.jpg"
+url66 = "https://100r.co/media/content/about/rabbits.polaroid.jpg"
 
 
 puts "1"
@@ -526,7 +548,7 @@ post_twentyfour.photos.attach([
 
 puts "25"
 post_twentyfive.photos.attach([
-  { io: URI.open(url59), filename: "#{post_twentyfive.title}-1.jpeg", content_type: 'image/png' },
+  { io: URI.open(url59), filename: "#{post_twentyfive.title}-1.png", content_type: 'image/png' },
   { io: URI.open(url60), filename: "#{post_twentyfive.title}-1.jpeg", content_type: 'image/jpg' }
 ])
 
@@ -539,6 +561,19 @@ puts "27"
 post_twentyseven.photos.attach([
   { io: URI.open(url62), filename: "#{post_twentyseven.title}-1.jpg", content_type: 'image/jpg' }
 ])
+
+puts "28"
+post_twentyeight.photos.attach([
+  { io: URI.open(url63), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url64), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' }
+])
+
+puts "29"
+post_twentynine.photos.attach([
+  { io: URI.open(url65), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url66), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' }
+])
+
 
 post_one.save!
 post_two.save!
@@ -567,6 +602,10 @@ post_twentyfour.save!
 post_twentyfive.save!
 post_twentysix.save!
 post_twentyseven.save!
+post_twentyeight.save!
+post_twentynine.save!
+
+
 
 puts "Posts have been created!"
 
