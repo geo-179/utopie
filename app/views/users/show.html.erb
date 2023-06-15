@@ -1,7 +1,8 @@
 <main class="py-5 pt-5 ">
 <div class="grid-container m-5 pt-5 ps-4">
   <%# Div for grid 1, avatar%>
-  <div class="grid-item-avatar"><%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar" %></div>
+  <%# <%= cl_image_tag @user.photo.key, crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar" %>
+  <div class="grid-item-avatar"><%= cl_image_tag(@user.photo.key, :transformation=>[{:width=>300, :height=> 300, :crop=>"fill"}], crop: :fill, class: "avatar-user-profile ms-3 mt-5", alt: "avatar") %></div>
   <%# Div for grid 2%>
   <div class="grid-item"></div>
   <%# Div for grid 3, page links%>
@@ -76,12 +77,13 @@
     <div class="container py-5">
       <div class="row" data-masonry='{"percentposition": true }'>
         <% @user.posts.each do |post| %>
-          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+          <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
             <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
             <%# CARD %>
             <div class="cd">
               <div class="relative">
-                <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
               </div>
 
               <%# **** %>
@@ -142,12 +144,13 @@
         <div class="row" data-masonry='{"percentposition": true }'>
           <% @user.bookmarks.each do |bookmark| %>
             <% post = bookmark.post %>
-            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-target="likes" data-post-subscription-user-id-value='<%= current_user.id %>'>
+            <div class="col-sm-6 col-lg-4 mb-4" data-controller="post-subscription" data-post-subscription-post-id-value="<%= post.id %>" data-post-subscription-user-id-value='<%= current_user.id %>'>
               <div data-post-subscription-target="comments" style="display: none; visibility: hidden;"></div>
               <%# CARD %>
               <div class="cd">
                 <div class="relative">
-                  <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%# <%= cl_image_tag post.photos[0].key, crop: :fill, class: "d-block w-100 card-img-top", alt: "collage" %>
+                  <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
                 </div>
 
                 <%# **** %>
