@@ -20,7 +20,12 @@ class PostsController < ApplicationController
 
     @qr_codes = []
     @posts.each do |post|
-      qr = RQRCode::QRCode.new(url_for(post_path(post)))
+      # url_for(post_path(post))
+
+      url = url_for(controller: 'posts', action: 'show', id: post.id, only_path: false)
+      puts "url #{url}"
+
+      qr = RQRCode::QRCode.new(url)
       svg = qr.as_svg(
         color: "000",
         shape_rendering: "crispEdges",
