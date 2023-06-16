@@ -296,38 +296,38 @@ post_twentysix = Post.new(
   link: "https://www.youtube.com/watch?v=nvIGCMhjkvw"
 )
 
-# post_twentyseven = Post.new(
-#   title: "ORCA Sequencer Intro (Experimental Livecoding!)",
-#   content: "an intro to Orca by Allieway Audio",
-#   category: "Music Tech",
-#   user: User.all.sample,
-#   link: "https://www.youtube.com/watch?v=RaI_TuISSJE"
-# )
+post_twentyseven = Post.new(
+  title: "ORCA Sequencer Intro (Experimental Livecoding!)",
+  content: "an intro to Orca by Allieway Audio",
+  category: "Music Tech",
+  user: User.all.sample,
+  link: "https://www.youtube.com/watch?v=RaI_TuISSJE"
+)
 
-# post_twentyeight = Post.new(
-#   title: "Orca - a two-dimensional esoteric programming language",
-#   content: "The application is not a synthesiser,
-#   but a flexible livecoding environment
-#   capable of sending MIDI, OSC & UDP to your audio interface,
-#   like Ableton, Renoise, VCV Rack or SuperCollider.",
-#   category: "Music Tech",
-#   user: User.all.sample,
-#   link: "https://100r.co/site/orca.html"
-# )
+post_twentyeight = Post.new(
+  title: "Orca - a two-dimensional esoteric programming language",
+  content: "The application is not a synthesiser,
+  but a flexible livecoding environment
+  capable of sending MIDI, OSC & UDP to your audio interface,
+  like Ableton, Renoise, VCV Rack or SuperCollider.",
+  category: "Music Tech",
+  user: User.all.sample,
+  link: "https://100r.co/site/orca.html"
+)
 
-# post_twentynine = Post.new(
-#   title: "Hundred Rabbits, founder of Orca 一个漂浮在水上的艺术组合",
-#   content: "Hundred Rabbits is a small artist collective.
-#   Together, we explore the planned failability of modern technology
-#   at the bounds of the hyper-connected world. We research and test low-tech
-#   solutions and document our findings with the hope of building a
-#   more resilient future.
-#   Hundred Rabbits由 Rekka 和 Devine 组成，在海上航行的同时进行艺术创作. 大家或许比较熟悉的是他们曾入围 IGF 的 Oquonie,
-#   然而他们不仅仅在做游戏, 还在制作工具、插画、美食等等, Orca 就是其中之一",
-#   category: "Music Tech",
-#   user: User.all.sample,
-#   link: "https://wiki.xxiivv.com/site/hundred_rabbits.html"
-# )
+post_twentynine = Post.new(
+  title: "Hundred Rabbits, founder of Orca 一个漂浮在水上的艺术组合",
+  content: "Hundred Rabbits is a small artist collective.
+  Together, we explore the planned failability of modern technology
+  at the bounds of the hyper-connected world. We research and test low-tech
+  solutions and document our findings with the hope of building a
+  more resilient future.
+  Hundred Rabbits由 Rekka 和 Devine 组成，在海上航行的同时进行艺术创作. 大家或许比较熟悉的是他们曾入围 IGF 的 Oquonie,
+  然而他们不仅仅在做游戏, 还在制作工具、插画、美食等等, Orca 就是其中之一",
+  category: "Music Tech",
+  user: User.all.sample,
+  link: "https://wiki.xxiivv.com/site/hundred_rabbits.html"
+)
 
 
 puts "Creating post..."
@@ -557,22 +557,22 @@ post_twentysix.photos.attach([
   { io: URI.open(url61), filename: "#{post_twentysix.title}-1.jpg", content_type: 'image/jpg' }
 ])
 
-# puts "27"
-# post_twentyseven.photos.attach([
-#   { io: URI.open(url62), filename: "#{post_twentyseven.title}-1.jpg", content_type: 'image/jpg' }
-# ])
+puts "27"
+post_twentyseven.photos.attach([
+  { io: URI.open(url62), filename: "#{post_twentyseven.title}-1.jpg", content_type: 'image/jpg' }
+])
 
-# puts "28"
-# post_twentyeight.photos.attach([
-#   { io: URI.open(url63), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' },
-#   { io: URI.open(url64), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' }
-# ])
+puts "28"
+post_twentyeight.photos.attach([
+  { io: URI.open(url63), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url64), filename: "#{post_twentyeight.title}-1.jpg", content_type: 'image/jpg' }
+])
 
-# puts "29"
-# post_twentynine.photos.attach([
-#   { io: URI.open(url65), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' },
-#   { io: URI.open(url66), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' }
-# ])
+puts "29"
+post_twentynine.photos.attach([
+  { io: URI.open(url65), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' },
+  { io: URI.open(url66), filename: "#{post_twentynine.title}-1.jpg", content_type: 'image/jpg' }
+])
 
 
 post_one.save!
@@ -601,9 +601,9 @@ post_twentythree.save!
 post_twentyfour.save!
 post_twentyfive.save!
 post_twentysix.save!
-# post_twentyseven.save!
-# post_twentyeight.save!
-# post_twentynine.save!
+post_twentyseven.save!
+post_twentyeight.save!
+post_twentynine.save!
 
 
 puts "Posts have been created!"
