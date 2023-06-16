@@ -14,24 +14,11 @@
         <%= f.input :category, as: :select, selected: "3D Modeling", collection: ["3D Modeling", "2D Visual Art", "Music Tech"]%>
         <%= f.input :content, as: :text, input_html: { rows: 10 } %>
         <%= f.input :link, as: :text %>
-        <%# <% if @post.photos == nil %>
-          <%# <%= f.input :photos, as: :file, required: false, input_html: { multiple: true }, class: "dropzone" %>
-        <%# <% else %>
-          <%# <%= f.input :photos, as: :file, required: false, input_html: { multiple: true, value: "#{@post.photos.first}" }, class: "dropzone" %>
-        <%# <% end %>
-
-        <% images = @post.photos.map(&:blob).map{|img| {id: img.attachments.first[:id], name: img[:filename], size: img.byte_size, url: img.service_url, existing: true }}.to_json %>
-
-        <div class="dropzone dropzone-default dz-clickable upload-box" data-controller="dropzone" data-dropzone-max-file-size="20" data-dropzone-max-files="10" data-dropzone-width="250" data-dropzone-height="250" data-dropzone-existing-files="<%= images %>" style="border: 0px !important">
-          <%= f.input :photos, as: :file, input_html: { multiple: true, direct_upload: true, data: { target: 'dropzone.input' }} %>
-          <div class="dropzone-msg dz-message needsclick text-gray-600">
-            <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
-            <span class="dropzone-msg-desc text-sm">
-              2 MB file size maximum. Allowed file types png, jpg.
-            </span>
-          </div>
-        </div>
-
+        <% if @post.id == nil %>
+          <%= f.input :photos, as: :file, required: false, input_html: { multiple: true } %>
+        <% else %>
+          <%= f.input :photos, as: :file, required: false, input_html: { multiple: true, value: "#{@post.photos.first}" } %>
+        <% end %>
       </div>
         <% if @post.id == nil %>
           <%= f.submit "Create Post", class: "form-button" %>
@@ -42,6 +29,6 @@
       </div>
   </div>
   <div class="form-img">
-    <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="">
+    <img src="http://blog.kadenze.com/wp-content/uploads/2018/12/unnamed-1.gif" alt="">
   </div>
 </div>

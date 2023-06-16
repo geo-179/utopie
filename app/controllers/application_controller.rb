@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [:index], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
-  def destroy_file
-    ActiveStorage::Attachment.find(file_params[:id]).purge_later
-  end
-
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # def user_not_authorized
@@ -30,9 +26,5 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
-  end
-
-  def file_params
-    params.require(:file).permit(:id)
   end
 end
