@@ -1,4 +1,5 @@
-<%= cl_image_tag comment.user.photo.key, crop: :fill, class: "avatar" %>
+<%# <%= cl_image_tag comment.user.photo.key, crop: :fill, class: "avatar" %>
+<%= cl_image_tag(comment.user.photo.key, :transformation=>[{:width=>300, :height=> 300, :crop=>"fill"}], crop: :fill, class: "avatar", alt: "avatar") %>
 
 <small>
   <strong class="font-arial"><%= comment.user.nickname %></strong>
