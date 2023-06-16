@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import DropzoneController from "./dropzone_controller"
+application.register("dropzone", DropzoneController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import PostSubscriptionController from "./post_subscription_controller"
 application.register("post-subscription", PostSubscriptionController)
+
+import TaskController from "./task_controller"
+application.register("task", TaskController)
