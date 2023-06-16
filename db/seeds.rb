@@ -249,7 +249,7 @@ post_twentyone = Post.new(
 )
 
 post_twentytwo = Post.new(
-  title: "Sad Noise, sound artist",
+  title: "SadNoise, sound artist",
   content: "Listen to artist sadnoise on SoundCloud",
   category: "Music Tech",
   user: User.all.sample,
