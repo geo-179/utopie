@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def get_inspired
-    @posts = Post.all.shuffle.take(10)
+    @posts = Post.all.shuffle.take(20)
     @qr_codes = []
     @posts.each do |post|
       qr = RQRCode::QRCode.new(url_for(post_path(post)))
