@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many_attached :photos
-  has_many :likes
+  has_many_attached :photos, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :title, :content, presence: true
   validates :category, presence: true, inclusion: { in: ["3D Modeling", "2D Visual Art", "Music Tech"] }
