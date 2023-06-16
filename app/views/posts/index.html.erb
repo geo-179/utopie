@@ -43,7 +43,11 @@
         <%# CARD %>
         <div class="cd">
           <div class="relative">
-            <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
+            <% if post.photos.count > 0 %>
+              <%= cl_image_tag(post.photos[0].key, :transformation=>[{:width=>400, :crop=>"fill"}], crop: :fill, class: "d-block w-100 card-img-top", alt: "collage") %>
+            <% else %>
+              <img src="https://res.cloudinary.com/dzgt7skmn/image/upload/v1686811424/%E6%88%AA%E5%B1%8F2023-06-10_21.30.44_ifvyfm.png" style="width: 100%; object-fit:cover" alt="">
+            <% end %>
           </div>
 
           <%# **** %>
